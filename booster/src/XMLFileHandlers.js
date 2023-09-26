@@ -1,16 +1,18 @@
 const { dialog } = require('electron');
-const fs = require('fs');
-const { XMLParser, XMLBuilder } = require('fast-xml-parser');
-const util = require('util');
-const path = require('path');
 
+const path = require('path');
+const fs = require('fs');
+const util = require('util');
+
+const { XMLParser, XMLBuilder } = require('fast-xml-parser');
 const store = require('./store')
 
 
 class XMLManager {
     constructor() {    
         this.openXMLFile = this.openXMLFile.bind(this)
-        this.saveXML = this.saveXML.bind(this)
+        this.readFile = this.readFile.bind(this)
+        this.createXMLFile = this.createXMLFile.bind(this)
 
         let rawdata = fs.readFileSync(path.join(__dirname, 'template.json'));
         this.template = JSON.parse(rawdata);
@@ -37,21 +39,25 @@ class XMLManager {
         }
     }
 
-    appendNewRecord(jsonObject) {
-        this.records.push(jsonObject)
+    getRecordList() {
         return this.records
     }
 
-    removeRecord(jsonObject) {
-        this.records = this.records.filter((record) => {
-            return record.id !== jsonObject.id
-        })
+    appendNewRecord(jsonObject) {
+        this.records.push(jsonObject)
+        return this.getRecordList()
+    }
 
-        return this.records
+    removeRecord(recordTodelete) {
+        this.records = this.records.filter((record) => {
+            return record.id !== recordTodelete.id
+        })
+        return this.getRecordList()
     }
 
     buildXMLContent() {
         const builder = new XMLBuilder(this.options);
+        console.log(this.jsonObj)
         const xmlOutput = builder.build(this.jsonObj);
         return xmlOutput
     }
@@ -70,14 +76,7 @@ class XMLManager {
         const parser = new XMLParser(options);
         const data = parser.parse(xmlDataStr);
 
-        if (!data.products.product.every(item => item === "")) {
-            const processedForFrontend = data.products.product.map((originalObject, index) => ({
-                id: index + 1,
-                product: originalObject
-            }));
-
-            data.products.product = processedForFrontend
-        } else {
+        if (data.products.product.every(item => item === "")) {
             data.products.product = []
         }
         
@@ -96,13 +95,14 @@ class XMLManager {
         return this.records
     }
 
-    saveXML(XMLString) {
-        const fs = require('fs');
+    saveTofile() {
+        const XMLString = this.buildXMLContent()
         try {
             fs.writeFileSync(this.filePath, XMLString, 'utf-8');
-            console.log("saved!")
+            return "success"
         } catch (e) {
             console.log(e)
+            return "failed to save records"
         }
     }
 

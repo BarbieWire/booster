@@ -30,10 +30,6 @@ function XMLInteractioncalls() {
 
     })
 
-    ipcMain.handle('get-parsed-XML', (event) => {
-        return managerxml.readFile()
-    })
-
     ipcMain.handle('open-existing-XML-file', (event, args) => {
         try {
             managerxml.openXMLFile(event)
@@ -42,17 +38,26 @@ function XMLInteractioncalls() {
         }
     })
 
+    ipcMain.handle("build-and-save", ((event) => {
+        const operationResult = managerxml.saveTofile()
+        return operationResult
+    }))
+
     ipcMain.on("append-new-record", (event, jsonObject) => {
         const data = managerxml.appendNewRecord(jsonObject)
-    
-        event.sender.send("return-record-list",data )
+        event.sender.send("return-record-list", data)
     });
 
     ipcMain.on("remove-record", (event, jsonObject) => {
         const data = managerxml.removeRecord(jsonObject)
-        
         event.sender.send("return-record-list", data)
     });
+
+    ipcMain.on("get-records", (event) => {
+        const data = managerxml.getRecordList()
+        event.sender.send("return-record-list", data)
+    });
+    
 }
 
 module.exports = {

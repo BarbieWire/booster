@@ -10,12 +10,10 @@ contextBridge.exposeInMainWorld('api', {
     retrieveCurrentFilePath: () => ipcRenderer.invoke('get-current-file-path'),
 
     receiveCurrentPathFromMain: (callback) => ipcRenderer.on('return-path', callback),
-
-    receiveParsedXMLFromMain: () => ipcRenderer.invoke('get-parsed-XML'),
-
-    receiveRecordsList: (callback) => ipcRenderer.on('return-record-list', callback),
-    executeActionOnRecords: (action, record) => {
-        const allowedMethods = ["append", "remove"]
+    receiveRecordList: (callback) => ipcRenderer.on('return-record-list', callback),
+    
+    executeActionOnRecords: (action, record, exceptionCallback) => {
+        const allowedMethods = ["append", "remove", "retrieve"]
         if (allowedMethods.includes(action)) {
             switch (action) {
                 case "append":
@@ -24,11 +22,13 @@ contextBridge.exposeInMainWorld('api', {
                 case "remove":
                     ipcRenderer.send("remove-record", record)
                     break
+                case "retrieve":
+                    ipcRenderer.send("get-records")
+                    break
                 default:
-                    console.log(`Sorry, we are out of ${expr}.`);
+                    exceptionCallback()
             }
         }
     },
-
-    saveFile: () => ipcRenderer.invoke('save-to-file'),
+    saveFile: (callback) => ipcRenderer.invoke('build-and-save', callback),
 });
