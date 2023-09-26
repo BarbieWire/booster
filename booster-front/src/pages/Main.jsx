@@ -19,27 +19,14 @@ import JSONTemplate from '../template.js';
 
 const MainPage = props => {
     const [records, setRecords] = useState([])
-    const [currentPath, setCurrentPath] = useState()
-
     const [newRecordName, setNewRecordName] = useState('')
     const [activeRecord, setActiveRecord] = useState(0)
-
-    async function retrieveCurrentPath() {
-        const path = await window.api.retrieveCurrentFilePath()
-        setCurrentPath(path)
-    }
-
 
     function handleNameChange(e) {
         setNewRecordName(e.target.value);
     };
 
-    async function saveFile() {
-        console.log(await window.api.saveFile())
-    }
-
     useEffect(() => {
-        retrieveCurrentPath()
         window.api.receiveRecordList((event, result) => {
             console.log(result)
             setRecords(result)
@@ -59,30 +46,36 @@ const MainPage = props => {
         await window.api.executeActionOnRecords("append", object)
     }
 
-    function createNewRecord() {
+    function createFirstRecord(record) {
+        const newRecord = {
+            id: 1,
+            product: record,
+        }
+        appendRecord(newRecord)
+        setNewRecordName("")
+        setActiveRecord(1)
+    }
+
+    function createNewRecord(record) {
+        const newId = records[records.length - 1].id + 1
+        const newRecord = {
+            id: newId,
+            product: record
+        }
+        appendRecord(newRecord)
+        setNewRecordName("")
+        setActiveRecord(newId)
+    }
+
+    function createRecord() {
         const newProduct = _.cloneDeep(JSONTemplate);
         newProduct['title-ru']['__cdata'] = newRecordName
 
         if (records.length !== 0) {
-            const newId = records[records.length - 1].id + 1
-            const newRecord = {
-                id: newId,
-                product: newProduct
-            }
-            setNewRecordName("")
-            setActiveRecord(newId)
-            appendRecord(newRecord)
-        } else {
-            const newRecord = {
-                id: 1,
-                product: newProduct,
-            }
-            setRecords([newRecord])
-            setNewRecordName("")
-            setActiveRecord(1)
-
-            appendRecord(newRecord)
+            createNewRecord(newProduct)
+            return
         }
+        createFirstRecord(newProduct)
     }
 
     return (
@@ -111,8 +104,6 @@ const MainPage = props => {
                 </div>
 
                 <div className={classes.settingSection}>
-                    <button onClick={saveFile}></button>
-
                     <NavLink to='/settings' className={classes.setting}>
                         <FontAwesomeIcon icon={faGear} className={`fontawesome-icon ${classes.menuIcon}`} />
                     </NavLink>
@@ -150,7 +141,7 @@ const MainPage = props => {
                                     value={newRecordName}
                                     onChange={handleNameChange}
                                 />
-                                <button onClick={createNewRecord} className={classes.submitNameButton} disabled={!newRecordName}>
+                                <button onClick={createRecord} className={classes.submitNameButton} disabled={!newRecordName}>
                                     <FontAwesomeIcon icon={faCheck} className={`fontawesome-icon ${classes.submitIcon}`} />
                                 </button>
                             </div>

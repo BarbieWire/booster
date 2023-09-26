@@ -26,7 +26,7 @@ const Record = ({ record, setActiveRecord, activeRecord}) => {
             </button>
             <span className={classes.name}>
                 <div className={classes.fadingText}></div>
-                {record.product["title-ru"]["__cdata"]}, {record.id}
+                {record.product["title-ru"]["__cdata"]}
             </span>
         </div>
     );

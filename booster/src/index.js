@@ -3,6 +3,10 @@ const path = require('path');
 
 const { configCalls, XMLInteractioncalls } = require('./handlers')
 
+const mode = {
+    current: "development"
+}
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     app.quit();
@@ -18,12 +22,12 @@ const createWindow = () => {
         },
     });
 
-    // and load the index.html of the app.
-
-    // development mode
     mainWindow.setMenuBarVisibility(false)
-    mainWindow.loadURL("http://localhost:3000");
 
+    // how to display based on mode
+    mode.current === "development" 
+    ? mainWindow.loadURL("http://localhost:3000/")
+    : mainWindow.loadFile(path.join(__dirname, "build/index.html"));
 
     mainWindow.on("ready-to-show", () => {
         mainWindow.webContents.openDevTools();

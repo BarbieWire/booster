@@ -20,9 +20,7 @@
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.1.0",
-    "fast-xml-parser": "^4.3.1",
-    "xml-parser": "^1.2.1",
-    "xml2js": "^0.6.2"
+    "fast-xml-parser": "^4.3.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.4.2",
