@@ -29,28 +29,30 @@ const MainPage = props => {
         setCurrentPath(path)
     }
 
-    async function getFormattedData() {
-        const data = await window.api.receiveParsedXMLFromMain()
-        setRecords(data)
-    }
 
     function handleNameChange(e) {
         setNewRecordName(e.target.value);
     };
 
+    async function saveFile() {
+        console.log(await window.api.saveFile())
+    }
+
     useEffect(() => {
         retrieveCurrentPath()
-        window.api.receiveRecordsList((event, result) => {
+        window.api.receiveRecordList((event, result) => {
             console.log(result)
             setRecords(result)
         })
     }, [])
 
     useEffect(() => {
-        if (currentPath) {
-            getFormattedData()
+        async function getFormattedData() {
+            await window.api.executeActionOnRecords("retrieve")
         }
-    }, [currentPath])
+
+        getFormattedData()
+    }, [])
 
 
     async function appendRecord(object) {
@@ -109,6 +111,8 @@ const MainPage = props => {
                 </div>
 
                 <div className={classes.settingSection}>
+                    <button onClick={saveFile}></button>
+
                     <NavLink to='/settings' className={classes.setting}>
                         <FontAwesomeIcon icon={faGear} className={`fontawesome-icon ${classes.menuIcon}`} />
                     </NavLink>

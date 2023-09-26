@@ -37,6 +37,8 @@ class XMLManager {
             this.setFilePath(store.get("previouslyOpenedFilePath"))
             this.readFile()
         }
+
+        this.records = []
     }
 
     getRecordList() {
@@ -49,16 +51,18 @@ class XMLManager {
     }
 
     removeRecord(recordTodelete) {
-        this.records = this.records.filter((record) => {
-            return record.id !== recordTodelete.id
-        })
+        const elementIndex = this.records.findIndex((element) => element.id === recordTodelete.id)
+        this.records.pop(elementIndex)
         return this.getRecordList()
     }
 
     buildXMLContent() {
+        if (this.records.length === 0) {
+            this.records.push("")
+        }
         const builder = new XMLBuilder(this.options);
-        console.log(this.jsonObj)
         const xmlOutput = builder.build(this.jsonObj);
+        
         return xmlOutput
     }
 
@@ -91,6 +95,8 @@ class XMLManager {
         if (this.lastReadFile !== this.filePath) {
             const result = fs.readFileSync(this.filePath, 'utf-8');
             this.parseXMLContent(result)
+
+            console.log(this.filePath)
         }
         return this.records
     }
@@ -124,11 +130,13 @@ class XMLManager {
                 this.setFilePath(filePath)
 
                 fs.openSync(filePath, "w");
-                fs.writeFile(filePath, this.XMLPrebuilt, err => {
+                fs.writeFileSync(filePath, this.XMLPrebuilt, err => {
                     if (err) console.error(err);
-                    e.sender.send('return-path', filePath);
                     // file written successfully
                 });
+
+                e.sender.send('return-path', filePath);
+                this.readFile()
                 store.set("previouslyOpenedFilePath", filePath)
             }
         }).catch(err => {
@@ -149,7 +157,7 @@ class XMLManager {
                 const filePath = result.filePaths[0];
                 this.setFilePath(filePath)
                 // read records from the file
-                this.readFile(filePath)
+                this.readFile()
                 store.set("previouslyOpenedFilePath", filePath)
 
                 e.sender.send('return-path', filePath)
