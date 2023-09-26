@@ -1,0 +1,62 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu {
+    width: 200px;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+}
+
+.setting {
+    padding: 10px;
+    background-color: #444654;
+    border-radius: 5px;
+}
+
+.menuIcon {
+    width: 22px;
+    height: 15px;
+    color: white;
+}
+
+.path {
+    color: white;
+    background-color: #2A2B32;
+    padding: 20px;
+    display: block;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    all: unset;
+    text-align: center;
+    color: white;
+    background-color: #2A2B32;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 50%;
+    padding: 20px;
+}
+
+.btn:hover {
+    background-color: #444654
+}

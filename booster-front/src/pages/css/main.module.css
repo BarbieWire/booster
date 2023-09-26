@@ -1,0 +1,169 @@
+.layout {
+    display: flex;
+}
+
+.recordPanel {
+    width: 30%;
+    min-width: 210px;
+    max-width: 250px;
+    height: 100vh;
+    background-color: #202123;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+}
+
+.createNewRecordSection {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.createNewRecordButton {
+    all: unset;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #4D4D4F;
+    border-radius: 5px;
+    color: white;
+}
+
+.buttonDecoration {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.plusIcon {
+    margin-right: 5px;
+    fill: white;
+    color: white;
+}
+
+.recordSection {
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 10px 0 10px 0;
+}
+
+.recordSection::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.recordSection:hover::-webkit-scrollbar-thumb {
+    display: block;
+}
+
+.settingSection {
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.setting {
+    padding: 10px;
+    background-color: #444654;
+    border-radius: 5px;
+}
+
+.settingsWide {
+    text-align: center;
+    flex: 1;
+}
+
+.menuIcon {
+    width: 22px;
+    height: 15px;
+    color: white;
+}
+
+.contentPanel {
+    height: 100vh;
+    padding: 10px;
+    flex: 1;
+    background-color: #343541;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.contentMainSection {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+}
+
+.buttonText {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.promptContainer {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.prompt {
+    font-size: 14px;
+    width: 500px;
+    height: 50px;
+    background-color: #40414F;
+    border: none;
+    border-color: rgba(32, 33, 35, .5);
+    padding: 10px;
+    padding-left: 20px;
+    color: white;
+}
+
+.prompt::placeholder {
+    color: #8E8EA0;
+    opacity: 1;
+}
+
+.boxShadow {
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+}
+
+.submitNameButton {
+    all: unset;
+    height: 50px;
+    width: 50px;
+    background-color: #40414F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.submitIcon {
+    color: #8E8EA0;
+}
+
+.promptHint {
+    font-size: 12px;
+    color: #8E8EA0;
+}
+
+.watermark {
+    pointer-events: none;
+    user-select: none;
+    color: #8e8ea041;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

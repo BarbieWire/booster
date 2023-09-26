@@ -1,0 +1,28 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 10px;
+}
+
+.menu {
+    width: 200px;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+}
+
+.setting {
+    padding: 10px;
+    background-color: #444654;
+    border-radius: 5px;
+}
+
+.menuIcon {
+    width: 22px;
+    height: 15px;
+    color: white;
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #202123;
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.fontawesome-icon {
+  fill: black;
+  color: black;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a6a6af;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ECECF1;
+}
+
+*:focus {
+  outline: 0 !important;
+}
