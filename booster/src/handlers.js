@@ -27,7 +27,6 @@ function XMLInteractioncalls() {
 
     ipcMain.handle('create-new-XML-file', (event) => {
         managerxml.createXMLFile(event)
-
     })
 
     ipcMain.handle('open-existing-XML-file', (event, args) => {
@@ -43,8 +42,8 @@ function XMLInteractioncalls() {
         return operationResult
     }))
 
-    ipcMain.on("append-new-record", (event, jsonObject) => {
-        const data = managerxml.appendNewRecord(jsonObject)
+    ipcMain.on("append-new-record", (event, name) => {
+        const data = managerxml.appendNewRecord(name)
         event.sender.send("return-record-list", data)
     });
 
@@ -57,6 +56,19 @@ function XMLInteractioncalls() {
         const data = managerxml.getRecordList()
         event.sender.send("return-record-list", data)
     });
+
+    ipcMain.on("update-record", (event, index, record) => {
+        const data = managerxml.updateExistingRecord(record, index)
+        event.sender.send("return-record-list", data)
+
+        message = managerxml.validateObject(record)
+        event.sender.send("display-server-message", message)
+    });
+
+    ipcMain.handle("merge-records-and-save", ((event) => {
+        const data = managerxml.mergeTwofiles()
+        event.sender.send("return-record-list", data)
+    }))
     
 }
 

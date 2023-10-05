@@ -3,21 +3,22 @@ const { dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const util = require('util');
+const _ = require('lodash')
+
+const Ajv = require('ajv');
 
 const { XMLParser, XMLBuilder } = require('fast-xml-parser');
 const store = require('./store')
+
+const recordTemplate = require('./RecordTemplate.json')
+
+const {schema} = require('./recordSchema')
 
 
 class XMLFileReader {
     constructor() {
         this.openXMLFile = this.openXMLFile.bind(this)
         this.createXMLFile = this.createXMLFile.bind(this)
-        this.XMLPrebuilt = `
-            <products>
-                <product>
-                </product>
-            </products>
-        `
     }
 
     createXMLFile(e) {
@@ -34,17 +35,12 @@ class XMLFileReader {
             properties: []
         }).then(result => {
             if (!result.canceled) {
-                const filePath = result.filePath;
-                this.setFilePath(filePath)
-
+                this.setFilePath(result.filePath)
                 fs.openSync(this.filePath, "w");
-                fs.writeFileSync(this.filePath, this.XMLPrebuilt, err => {
-                    if (err) console.error(err);
-                    // file written successfully
-                });
                 this.readFile()
-                e.sender.send('return-path', filePath);
-                store.set("previouslyOpenedFilePath", filePath)
+
+                e.sender.send('return-path', this.filePath);
+                store.set("previouslyOpenedFilePath", this.filePath)
             }
         }).catch(err => {
             console.log(err)
@@ -61,13 +57,11 @@ class XMLFileReader {
             ],
         }).then((result) => {
             if (!result.canceled) {
-                const filePath = result.filePaths[0];
-                this.setFilePath(filePath)
-                // read records from the file
+                this.setFilePath(result.filePaths[0])
                 this.readFile()
-                store.set("previouslyOpenedFilePath", filePath)
 
-                e.sender.send('return-path', filePath)
+                store.set("previouslyOpenedFilePath", this.filePath)
+                e.sender.send('return-path', this.filePath)
             }
         }).catch((err) => {
             console.error('Error opening file dialog:', err);
@@ -75,24 +69,24 @@ class XMLFileReader {
     }
 }
 
-
 class XMLManager extends XMLFileReader {
     constructor() {
         super()
-        this.records = []
         this.filePath = ""
         this.options = {
-            cdataPropName: "__cdata"
+            cdataPropName: "__cdata",
+            arrayNodeName: "product"
         }
         this.alwaysArray = [
-            "products.product"
+            "products.product",
+            "products.product.colours.colour.modifications.modification",
+            "products.product.colours.colour.images.image",
+            "products.product.properties.property"
         ];
 
-        this.readFile = this.readFile.bind(this)
-
-        const path = store.get("previouslyOpenedFilePath")
-        if (path && fs.existsSync(path)) {
-            this.setFilePath(path)
+        const prevPath = store.get("previouslyOpenedFilePath")
+        if (prevPath && fs.existsSync(prevPath)) {
+            this.filePath = prevPath
             this.readFile()
         }
     }
@@ -100,74 +94,79 @@ class XMLManager extends XMLFileReader {
     readFile() {
         if (this.lastReadFile !== this.filePath) {
             const result = fs.readFileSync(this.filePath, 'utf-8');
-            const data = this.parseXMLContent(result)
-            if (data.products.product[0] === "") {
-                data.products.product = []
+            const parsedXMLString = this.#parseXMLContent(result)
+
+            if (!_.isEmpty(parsedXMLString)) {
+                this.records = parsedXMLString.products.product
+            } else {
+                this.records = []
             }
-            
-            this.jsonObj = data
-            this.records = data.products.product
+
             this.lastReadFile = this.filePath
         }
         return this.records
     }
 
-    saveTofile() {
-        const XMLString = this.buildXMLContent()
+    #saveTofile() {
+        let XMLString = this.#buildXMLContent()
+        if (XMLString) {
+            XMLString = `<products>${XMLString}</products>`
+        }
+
         try {
             fs.writeFileSync(this.filePath, XMLString, 'utf-8');
             return "success"
         } catch (e) {
-            console.log(e)
             return "failed to save records"
         }
     }
 
-    setFilePath(filePath) {
-        this.filePath = filePath
-    }
+    validateObject(data) {
+        const ajv = new Ajv();
+        const validate = ajv.compile(schema);
+        const valid = validate(data);
 
-    getRecordList() {
-        return this.records
+        const template = {message: "", error: ""}
+
+        if (!valid) {
+            template.message = "some fields are missing, saved as draft"
+            template.error = validate.errors
+            return template
+        } 
+        template.message = "successfully saved"
+        return template
     }
-    
 
     // receives from front-end new object and replaces existing with modified 
-    updateExistingRecord(updatedRecord) {
+    updateExistingRecord(updatedRecord, index) {
+        this.records[index] = updatedRecord
+        this.#saveTofile()
 
-    }
-
-    appendNewRecord(jsonObject) {
-        this.records.push(jsonObject)
-        this.saveTofile()
         return this.getRecordList()
     }
 
-    removeRecord(recordTodelete) {
-        const elementIndex = this.records.findIndex((element) => element.id === recordTodelete.id)
-        this.records.splice(elementIndex, 1)
-        this.saveTofile()
+    appendNewRecord(name) {
+        const record = _.cloneDeep(recordTemplate)
+        record["title-ru"].__cdata = name
+        this.records.push(record)
 
-        this.records[0] === "" ? this.records = [] : null
         return this.getRecordList()
     }
-    
-    // receives a path of file which it merges with from handler  
-    // opens the file and writes current records to the file
-    mergeTwofiles() {
-        
+
+    removeRecord(index) {
+        this.records.splice(index, 1)
+        this.#saveTofile()
+        return this.getRecordList()
     }
 
-    buildXMLContent() {
-        if (this.records.length === 0) {
-            this.records.push("")
-        }
+
+    #buildXMLContent() {
         const builder = new XMLBuilder(this.options);
-        const xmlOutput = builder.build(this.jsonObj);
+        const xmlOutput = builder.build(this.records);
         return xmlOutput
     }
 
-    parseXMLContent(xmlDataStr) {
+    #parseXMLContent(xmlDataStr) {
         const options = {
             ...this.options,
             ignoreAttributes: false,
@@ -180,8 +179,41 @@ class XMLManager extends XMLFileReader {
 
         const parser = new XMLParser(options);
         const parsedData = parser.parse(xmlDataStr);
-        // console.log(util.inspect(this.jsonObj, { depth: Infinity }))
         return parsedData
+    }
+
+    // receives a path of file which it merges with from handler  
+    // opens the file and writes current records to the file
+    mergeTwofiles() {
+        // Show an "Open File" dialog
+        dialog.showOpenDialog({
+            title: 'Open File',
+            properties: ['openFile'], // Specify that you want to open a single file
+            filters: [
+                { name: 'XML Files', extensions: ['xml'] }, // Customize file filters
+            ],
+        }).then((result) => {
+            if (!result.canceled) {
+                const filePath = result.filePaths[0];
+                // read records from the file
+                const res = fs.readFileSync(filePath, 'utf-8');
+                let parsedXMLString = this.#parseXMLContent(res)
+                if (!_.isEmpty(parsedXMLString)) {
+                    this.records.push(...parsedXMLString.products.product)
+                }
+                this.#saveTofile()
+            }
+        }).catch((err) => {
+            console.error('Error opening file dialog:', err);
+        });
+    }
+
+    setFilePath(filePath) {
+        this.filePath = filePath
+    }
+
+    getRecordList() {
+        return this.records
     }
 }
 

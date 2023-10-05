@@ -1,34 +1,52 @@
 const { ipcRenderer, contextBridge } = require('electron');
 
 
-contextBridge.exposeInMainWorld('api', {
+const filePathCallbacks = {
+    retrieveCurrentFilePath: () => ipcRenderer.invoke('get-current-file-path'),
+    receiveCurrentPathFromMain: (listener) => ipcRenderer.on('return-path', listener),
+}
+
+const configFileCallbacks = {
     retrieveConfigFileAsJson: (args) => ipcRenderer.invoke('get-config-data', args),
     changeConfigFile: (args) => ipcRenderer.invoke('update-config-data', args),
+}
 
+const xmlFileCallbacks = {
     createNewXMLDocument: () => ipcRenderer.invoke('create-new-XML-file'),
     openExistingXMLDocument: () => ipcRenderer.invoke('open-existing-XML-file'),
-    retrieveCurrentFilePath: () => ipcRenderer.invoke('get-current-file-path'),
+}
 
-    receiveCurrentPathFromMain: (callback) => ipcRenderer.on('return-path', callback),
-    receiveRecordList: (callback) => ipcRenderer.on('return-record-list', callback),
-    
-    executeActionOnRecords: (action, record, exceptionCallback) => {
-        const allowedMethods = ["append", "remove", "retrieve"]
+const recordsCallback = {
+    mergeRecordsAndSave: () => ipcRenderer.invoke('merge-records-and-save'),
+    receiveRecordList: (listener) => ipcRenderer.on('return-record-list', listener),
+    executeActionOnRecords: (action, options, exceptionCallback) => {
+        const allowedMethods = ["append", "remove", "retrieve", "update"]
         if (allowedMethods.includes(action)) {
             switch (action) {
                 case "append":
-                    ipcRenderer.send("append-new-record", record)
+                    ipcRenderer.send("append-new-record", options.name)
                     break
                 case "remove":
-                    ipcRenderer.send("remove-record", record)
+                    ipcRenderer.send("remove-record", options.index)
                     break
                 case "retrieve":
                     ipcRenderer.send("get-records")
                     break
+                case "update":
+                    ipcRenderer.send("update-record", options.index, options.record)
+                    break
                 default:
-                    exceptionCallback()
+                    break
             }
         }
-    },
-    saveFile: (callback) => ipcRenderer.invoke('build-and-save', callback),
+    }
+}
+
+contextBridge.exposeInMainWorld('api', {
+    ...filePathCallbacks,
+    ...configFileCallbacks,
+    ...xmlFileCallbacks,
+    ...recordsCallback,
+    removeEventListener: (name, listener) => ipcRenderer.removeAllListeners(name, listener),
+    displayMessageFromServer: (listener) => ipcRenderer.on("display-server-message", listener)
 });

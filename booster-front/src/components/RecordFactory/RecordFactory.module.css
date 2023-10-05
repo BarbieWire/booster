@@ -1,0 +1,63 @@
+.watermark {
+    pointer-events: none;
+    user-select: none;
+    color: #8e8ea041;
+    text-transform: uppercase;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.promptContainer {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.prompt {
+    font-size: 14px;
+    width: 500px;
+    height: 50px;
+    background-color: #40414F;
+    border: none;
+    border-color: rgba(32, 33, 35, .5);
+    padding: 10px;
+    padding-left: 20px;
+    color: white;
+}
+
+.prompt::placeholder {
+    color: #8E8EA0;
+    opacity: 1;
+}
+
+.boxShadow {
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+}
+
+.submitNameButton {
+    all: unset;
+    height: 50px;
+    width: 50px;
+    background-color: #40414F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.submitIcon {
+    color: #8E8EA0;
+}
+
+.promptHint {
+    font-size: 12px;
+    color: #8E8EA0;
+}

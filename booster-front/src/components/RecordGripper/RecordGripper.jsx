@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import classes from './Record.module.css'
+import classes from './RecordGripper.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareMinus } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const Record = ({ record, setActiveRecord, activeRecord}) => {
+const RecordGripper = ({ record, setActiveRecord, activeRecord}) => {
     async function deleteRecord(e) {
         e.stopPropagation()
-        await window.api.executeActionOnRecords("remove", record)
+        
+        await window.api.executeActionOnRecords("remove", {index: record.id})
         if (record.id === activeRecord) {
             setActiveRecord(0)
         }
@@ -32,8 +33,8 @@ const Record = ({ record, setActiveRecord, activeRecord}) => {
     );
 };
 
-Record.propTypes = {
+RecordGripper.propTypes = {
 
 };
 
-export default Record;
+export default RecordGripper;

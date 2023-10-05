@@ -1,0 +1,4910 @@
+[
+    {
+     "value": 10896,
+     "label": "Prekės į minusą [10896]"
+    },
+    {
+     "value": 17817,
+     "label": "TOP piedāvājumi [17817]"
+    },
+    {
+     "value": 80,
+     "label": "Auto GPS [80]"
+    },
+    {
+     "value": 4597,
+     "label": "Sieviešu maki, karšu maki [4597]"
+    },
+    {
+     "value": 4675,
+     "label": "Sieviešu jostas [4675]"
+    },
+    {
+     "value": 4952,
+     "label": "Sieviešu pulksteņi [4952]"
+    },
+    {
+     "value": 5048,
+     "label": "Sieviešu šalles, lakati [5048]"
+    },
+    {
+     "value": 5828,
+     "label": "Lietussargi sievietēm [5828]"
+    },
+    {
+     "value": 8630,
+     "label": "Sieviešu cimdi [8630]"
+    },
+    {
+     "value": 9163,
+     "label": "Sieviešu cepures [9163]"
+    },
+    {
+     "value": 9325,
+     "label": "Saulesbrilles sievietēm [9325]"
+    },
+    {
+     "value": 9874,
+     "label": "Sieviešu somas [9874]"
+    },
+    {
+     "value": 20493,
+     "label": "Iepirkumu somas [20493]"
+    },
+    {
+     "value": 4955,
+     "label": "Vīriešu pulksteņi [4955]"
+    },
+    {
+     "value": 6830,
+     "label": "Vīriešu somas [6830]"
+    },
+    {
+     "value": 9142,
+     "label": "Vīriešu cepures, šalles, cimdi [9142]"
+    },
+    {
+     "value": 9145,
+     "label": "Vīriešu jostas [9145]"
+    },
+    {
+     "value": 9148,
+     "label": "Lietussargi vīriešiem [9148]"
+    },
+    {
+     "value": 9151,
+     "label": "Vīriešu maki, karšu maki [9151]"
+    },
+    {
+     "value": 9328,
+     "label": "Saulesbrilles  vīriešiem [9328]"
+    },
+    {
+     "value": 9928,
+     "label": "Vīriešu rotaslietas [9928]"
+    },
+    {
+     "value": 10827,
+     "label": "Kaklasaites, tauriņi [10827]"
+    },
+    {
+     "value": 1886,
+     "label": "Akumulatori [1886]"
+    },
+    {
+     "value": 2825,
+     "label": "Akumulatoru lādētāji [2825]"
+    },
+    {
+     "value": 4388,
+     "label": "Izolācijas materiāli [4388]"
+    },
+    {
+     "value": 4391,
+     "label": "Līmes [4391]"
+    },
+    {
+     "value": 7844,
+     "label": "Grunts, špaktelis  [7844]"
+    },
+    {
+     "value": 7847,
+     "label": "Impregnanti, kopšanas līdzekļi [7847]"
+    },
+    {
+     "value": 8543,
+     "label": "DO NOT ACTIVATE [8543]"
+    },
+    {
+     "value": 8948,
+     "label": "Krāsas [8948]"
+    },
+    {
+     "value": 10236,
+     "label": "Piederumi krāsošanai [10236]"
+    },
+    {
+     "value": 3728,
+     "label": "Piekaramās lampas [3728]"
+    },
+    {
+     "value": 3731,
+     "label": "Sienas lampas [3731]"
+    },
+    {
+     "value": 3737,
+     "label": "Stāvlampas [3737]"
+    },
+    {
+     "value": 3740,
+     "label": "Galda lampas [3740]"
+    },
+    {
+     "value": 3746,
+     "label": "Lampas bērnu istabai [3746]"
+    },
+    {
+     "value": 4775,
+     "label": "Griestu lampas [4775]"
+    },
+    {
+     "value": 8177,
+     "label": "Griestu lampas-ventilatori [8177]"
+    },
+    {
+     "value": 10072,
+     "label": "Iebūvējamās lampas, LED paneļi [10072]"
+    },
+    {
+     "value": 21999,
+     "label": "LED displeji [21999]"
+    },
+    {
+     "value": 971,
+     "label": "Pagarinātāji [971]"
+    },
+    {
+     "value": 1994,
+     "label": "Taimeri, termostati [1994]"
+    },
+    {
+     "value": 3407,
+     "label": "Spuldzes [3407]"
+    },
+    {
+     "value": 4757,
+     "label": "Lukturi [4757]"
+    },
+    {
+     "value": 5192,
+     "label": "Akumulatori, lādētāji un piederumi [5192]"
+    },
+    {
+     "value": 6767,
+     "label": "Baterijas [6767]"
+    },
+    {
+     "value": 10069,
+     "label": "LED lentes [10069]"
+    },
+    {
+     "value": 10075,
+     "label": "Barošanas avoti [10075]"
+    },
+    {
+     "value": 10866,
+     "label": "Elektrības slēdži, rozetes [10866]"
+    },
+    {
+     "value": 17165,
+     "label": "Auduma vadi un spaiļu bloki [17165]"
+    },
+    {
+     "value": 19876,
+     "label": "Saules paneļi, komponentes [19876]"
+    },
+    {
+     "value": 164,
+     "label": "Šujmašīnas [164]"
+    },
+    {
+     "value": 175,
+     "label": "Gludekļi [175]"
+    },
+    {
+     "value": 5777,
+     "label": "Pūku noņēmēji [5777]"
+    },
+    {
+     "value": 21133,
+     "label": "Tvaika gludināšanas sistēmas [21133]"
+    },
+    {
+     "value": 21138,
+     "label": "Tvaika gludekļi [21138]"
+    },
+    {
+     "value": 14500,
+     "label": "Šorti meitenēm [14500]"
+    },
+    {
+     "value": 14505,
+     "label": "Virsjakas un mēteļi meitenēm [14505]"
+    },
+    {
+     "value": 14510,
+     "label": "Peldkostīmi meitenēm [14510]"
+    },
+    {
+     "value": 14515,
+     "label": "Krekli, bodiji, blūzes meitenēm [14515]"
+    },
+    {
+     "value": 14520,
+     "label": "Svārki meitenēm [14520]"
+    },
+    {
+     "value": 14525,
+     "label": "Kleitas meitenēm [14525]"
+    },
+    {
+     "value": 14530,
+     "label": "Bikses meitenēm [14530]"
+    },
+    {
+     "value": 14535,
+     "label": "Halāti, naktskrekli, pidžamas meitenēm [14535]"
+    },
+    {
+     "value": 14540,
+     "label": "Jakas, džemperi, žaketes, vestes meitenēm [14540]"
+    },
+    {
+     "value": 14545,
+     "label": "Zeķes, zeķubikses meitenēm [14545]"
+    },
+    {
+     "value": 14550,
+     "label": "Meiteņu apakšveļa [14550]"
+    },
+    {
+     "value": 18277,
+     "label": "Cepures, cimdi, šalles meitenēm [18277]"
+    },
+    {
+     "value": 19446,
+     "label": "Komplekti meitenēm [19446]"
+    },
+    {
+     "value": 14450,
+     "label": "Zēnu virsjakas [14450]"
+    },
+    {
+     "value": 14455,
+     "label": "Zēnu pidžamas, halāti [14455]"
+    },
+    {
+     "value": 14460,
+     "label": "Bikses zēniem [14460]"
+    },
+    {
+     "value": 14465,
+     "label": "Peldbikses zēniem [14465]"
+    },
+    {
+     "value": 14470,
+     "label": "Zēnu zeķubikses, zeķes [14470]"
+    },
+    {
+     "value": 14475,
+     "label": "Zēnu apakšveļa [14475]"
+    },
+    {
+     "value": 14480,
+     "label": "Zēnu jakas, džemperi, žaketes, vestes [14480]"
+    },
+    {
+     "value": 14485,
+     "label": "Zēnu šorti [14485]"
+    },
+    {
+     "value": 14490,
+     "label": "Zēnu krekli [14490]"
+    },
+    {
+     "value": 18282,
+     "label": "Cepures, cimdi, šalles zēniem [18282]"
+    },
+    {
+     "value": 19451,
+     "label": "Komplekti zēniem [19451]"
+    },
+    {
+     "value": 12055,
+     "label": "Ziemas apģērbs bērniem [12055]"
+    },
+    {
+     "value": 12070,
+     "label": "Bērnu aksesuāri [12070]"
+    },
+    {
+     "value": 21944,
+     "label": "Lietus apģērbs bērniem [21944]"
+    },
+    {
+     "value": 553,
+     "label": "Sildītāji [553]"
+    },
+    {
+     "value": 1088,
+     "label": "Krāsnis [1088]"
+    },
+    {
+     "value": 1091,
+     "label": "Kamīni [1091]"
+    },
+    {
+     "value": 1094,
+     "label": "Apkures katli, akumulācijas tvertnes [1094]"
+    },
+    {
+     "value": 1103,
+     "label": "Ūdens sildītāji [1103]"
+    },
+    {
+     "value": 3304,
+     "label": "Kamīnu un krāšņu aksesuāri [3304]"
+    },
+    {
+     "value": 7301,
+     "label": "Siltās grīdas [7301]"
+    },
+    {
+     "value": 7904,
+     "label": "Apkures radiatori [7904]"
+    },
+    {
+     "value": 20658,
+     "label": "Izplešanās trauki [20658]"
+    },
+    {
+     "value": 20668,
+     "label": "Dūmvadi [20668]"
+    },
+    {
+     "value": 62,
+     "label": "Ārējie cietie diski [62]"
+    },
+    {
+     "value": 107,
+     "label": "USB Atmiņas kartes [107]"
+    },
+    {
+     "value": 9331,
+     "label": "Cieto disku somas un apvalki [9331]"
+    },
+    {
+     "value": 3497,
+     "label": "Augstspiediena mazgātāji [3497]"
+    },
+    {
+     "value": 3500,
+     "label": "Spiedienmazgātāju piederumi [3500]"
+    },
+    {
+     "value": 1481,
+     "label": "Dekoratīvie diski [1481]"
+    },
+    {
+     "value": 2282,
+     "label": "Logu slotiņas [2282]"
+    },
+    {
+     "value": 10322,
+     "label": "Izputēju uzgaļi [10322]"
+    },
+    {
+     "value": 10325,
+     "label": "Roku balsti [10325]"
+    },
+    {
+     "value": 10328,
+     "label": "Ātrumpārslēdzēja uzgaļi [10328]"
+    },
+    {
+     "value": 10331,
+     "label": "Stūres apvalki un stūres [10331]"
+    },
+    {
+     "value": 11930,
+     "label": "Logu tonēšanas plēves [11930]"
+    },
+    {
+     "value": 21783,
+     "label": "Automašīnu spoguļi, restes, lukturi [21783]"
+    },
+    {
+     "value": 21793,
+     "label": "Auto restes [21793]"
+    },
+    {
+     "value": 22217,
+     "label": "Auto logu tonēšanas plēves pēc spec. pasūtījuma [22217]"
+    },
+    {
+     "value": 3341,
+     "label": "Auto magnetolas [3341]"
+    },
+    {
+     "value": 3344,
+     "label": "Auto akustiskās sistēmas [3344]"
+    },
+    {
+     "value": 3347,
+     "label": "Auto jaudas pastiprinātāji [3347]"
+    },
+    {
+     "value": 6212,
+     "label": "USB adapteri automašīnas oriģinālai skaņas sistēmai [6212]"
+    },
+    {
+     "value": 1517,
+     "label": "Aptieciņas, drošības preces [1517]"
+    },
+    {
+     "value": 1520,
+     "label": "Ugunsdzēšamie aparāti [1520]"
+    },
+    {
+     "value": 812,
+     "label": "Eļļas citām autodaļām [812]"
+    },
+    {
+     "value": 2762,
+     "label": "Auto eļļu piedevas [2762]"
+    },
+    {
+     "value": 2855,
+     "label": "Motoreļļas [2855]"
+    },
+    {
+     "value": 4088,
+     "label": "Auto gaisa atsvaidzinātāji [4088]"
+    },
+    {
+     "value": 4523,
+     "label": "Auto ķīmija [4523]"
+    },
+    {
+     "value": 7901,
+     "label": "Tīrīšanai, salvetes [7901]"
+    },
+    {
+     "value": 11312,
+     "label": "Vējstiklu un dzesēšanas šķidrumi [11312]"
+    },
+    {
+     "value": 18182,
+     "label": "Auto krāsas [18182]"
+    },
+    {
+     "value": 4517,
+     "label": "Universālie paklājiņi [4517]"
+    },
+    {
+     "value": 4520,
+     "label": "Gumijas paklājiņi pēc auto modeļiem [4520]"
+    },
+    {
+     "value": 5132,
+     "label": "Bagāžnieka paklājiņi pēc auto modeļiem [5132]"
+    },
+    {
+     "value": 5636,
+     "label": "Tekstila paklājiņi pēc auto modeļiem [5636]"
+    },
+    {
+     "value": 6695,
+     "label": "Auto video reģistratori [6695]"
+    },
+    {
+     "value": 20413,
+     "label": "Lietie diski [20413]"
+    },
+    {
+     "value": 4532,
+     "label": "Radio antenas [4532]"
+    },
+    {
+     "value": 4535,
+     "label": "Rācijas [4535]"
+    },
+    {
+     "value": 17716,
+     "label": "Starteri [17716]"
+    },
+    {
+     "value": 21448,
+     "label": "Transmisijas daļas  [21448]"
+    },
+    {
+     "value": 21618,
+     "label": "Dzinēja detaļas [21618]"
+    },
+    {
+     "value": 21623,
+     "label": "Piekares daļas [21623]"
+    },
+    {
+     "value": 21949,
+     "label": "Automašīnas salona daļas [21949]"
+    },
+    {
+     "value": 22212,
+     "label": "Stikla tīrītāja motori [22212]"
+    },
+    {
+     "value": 1913,
+     "label": "Jumta kastes [1913]"
+    },
+    {
+     "value": 1916,
+     "label": "Jumta šķērsstieņi [1916]"
+    },
+    {
+     "value": 1919,
+     "label": "Velo turētāji [1919]"
+    },
+    {
+     "value": 271,
+     "label": "Autokrēsliņi [271]"
+    },
+    {
+     "value": 15172,
+     "label": "Autokrēsliņu aksesuāri [15172]"
+    },
+    {
+     "value": 2831,
+     "label": "Kafija, kakao [2831]"
+    },
+    {
+     "value": 17531,
+     "label": "Uzkodas, čipsi [17531]"
+    },
+    {
+     "value": 17536,
+     "label": "Zupas, buljoni [17536]"
+    },
+    {
+     "value": 17541,
+     "label": "Brokastu pārslas [17541]"
+    },
+    {
+     "value": 17546,
+     "label": "Rieksti, sēklas, žāvēti augļi [17546]"
+    },
+    {
+     "value": 17561,
+     "label": "Mērces [17561]"
+    },
+    {
+     "value": 17571,
+     "label": "Konservēti produkti [17571]"
+    },
+    {
+     "value": 17576,
+     "label": "Saldumi [17576]"
+    },
+    {
+     "value": 17586,
+     "label": "Eļļa, etiķis [17586]"
+    },
+    {
+     "value": 17591,
+     "label": "Putraimi, pārslas, putras [17591]"
+    },
+    {
+     "value": 17596,
+     "label": "Milti [17596]"
+    },
+    {
+     "value": 17601,
+     "label": "Makaroni [17601]"
+    },
+    {
+     "value": 17606,
+     "label": "Pārtikas piedevas [17606]"
+    },
+    {
+     "value": 21143,
+     "label": "Tēja [21143]"
+    },
+    {
+     "value": 15717,
+     "label": "Baseini [15717]"
+    },
+    {
+     "value": 15722,
+     "label": "Baseina kopšanas līdzekļi [15722]"
+    },
+    {
+     "value": 15727,
+     "label": "Baseinu piederumi [15727]"
+    },
+    {
+     "value": 15942,
+     "label": "Baseina filtri [15942]"
+    },
+    {
+     "value": 14705,
+     "label": "Basketbola bumbas [14705]"
+    },
+    {
+     "value": 14710,
+     "label": "Basketbola statīvi [14710]"
+    },
+    {
+     "value": 14715,
+     "label": "Basketbola grozi [14715]"
+    },
+    {
+     "value": 14720,
+     "label": "Citi basketbola aksesuāri [14720]"
+    },
+    {
+     "value": 14635,
+     "label": "Ziemas zābaki bērniem [14635]"
+    },
+    {
+     "value": 14640,
+     "label": "Bērnu apavi pludmalei [14640]"
+    },
+    {
+     "value": 14645,
+     "label": "Sporta apavi bērniem [14645]"
+    },
+    {
+     "value": 14655,
+     "label": "Gumijas zābaki bērniem [14655]"
+    },
+    {
+     "value": 14660,
+     "label": "Gumijas klogi bērniem [14660]"
+    },
+    {
+     "value": 14665,
+     "label": "Bērnu kurpes [14665]"
+    },
+    {
+     "value": 14670,
+     "label": "Bērnu čības, maiņas apavi [14670]"
+    },
+    {
+     "value": 14680,
+     "label": "Bērnu sandales [14680]"
+    },
+    {
+     "value": 14685,
+     "label": "Bērnu zābaki [14685]"
+    },
+    {
+     "value": 2660,
+     "label": "Manēžas [2660]"
+    },
+    {
+     "value": 3185,
+     "label": "Bērnu šūpuļkrēsliņi [3185]"
+    },
+    {
+     "value": 8690,
+     "label": "Staigulīši [8690]"
+    },
+    {
+     "value": 12110,
+     "label": "Mazuļa nospiedumi [12110]"
+    },
+    {
+     "value": 14430,
+     "label": "Slingi, ķengursomas [14430]"
+    },
+    {
+     "value": 2663,
+     "label": "Barošanas krēsli [2663]"
+    },
+    {
+     "value": 14980,
+     "label": "Bērnu pārtikas pagatavošanas ierīces [14980]"
+    },
+    {
+     "value": 14990,
+     "label": "Termosi un termosomas bērniem [14990]"
+    },
+    {
+     "value": 14995,
+     "label": "Pudelīšu sildītāji un sterilizatori [14995]"
+    },
+    {
+     "value": 15005,
+     "label": "Lacītes [15005]"
+    },
+    {
+     "value": 15015,
+     "label": "Bērnu trauki, piena uzglabāšanas trauciņi un piederumi [15015]"
+    },
+    {
+     "value": 15025,
+     "label": "Zobu riņķi [15025]"
+    },
+    {
+     "value": 15030,
+     "label": "Knupīši [15030]"
+    },
+    {
+     "value": 15045,
+     "label": "Bērnu pudelītes un to aksesuāri [15045]"
+    },
+    {
+     "value": 2639,
+     "label": "Smilšu kastes, smiltis [2639]"
+    },
+    {
+     "value": 2702,
+     "label": "Skrejriteņi [2702]"
+    },
+    {
+     "value": 3434,
+     "label": "Ragavas [3434]"
+    },
+    {
+     "value": 5996,
+     "label": "Ūdens, smilšu un pludmales rotaļlietas [5996]"
+    },
+    {
+     "value": 10334,
+     "label": "Trīsriteņi [10334]"
+    },
+    {
+     "value": 10337,
+     "label": "Balansa velosipēdi [10337]"
+    },
+    {
+     "value": 10340,
+     "label": "Elektromobīļi bērniem [10340]"
+    },
+    {
+     "value": 12105,
+     "label": "Bērnu rotaļu laukumi, mājiņas [12105]"
+    },
+    {
+     "value": 15147,
+     "label": "Slidkalniņi, kāpšanas konstruktori [15147]"
+    },
+    {
+     "value": 15152,
+     "label": "Šūpoles [15152]"
+    },
+    {
+     "value": 14240,
+     "label": "Bērnu gultas [14240]"
+    },
+    {
+     "value": 14245,
+     "label": "Zīdaiņu gultas [14245]"
+    },
+    {
+     "value": 14255,
+     "label": "Bērnu skapīši [14255]"
+    },
+    {
+     "value": 14280,
+     "label": "Bērnu krēsliņi un bērnu galdiņi [14280]"
+    },
+    {
+     "value": 14305,
+     "label": "Sēžammaisi, klubkrēsli, pufi bērniem [14305]"
+    },
+    {
+     "value": 14340,
+     "label": "Plaukti bērnu istabai [14340]"
+    },
+    {
+     "value": 14345,
+     "label": "Bērnu skapji [14345]"
+    },
+    {
+     "value": 14355,
+     "label": "Bērnu kumodes [14355]"
+    },
+    {
+     "value": 14390,
+     "label": "Bērnu istabas iekārtas [14390]"
+    },
+    {
+     "value": 12270,
+     "label": "Piena maisījumi (0-6 mēn.) [12270]"
+    },
+    {
+     "value": 12275,
+     "label": "Piena maisījumi (6+ mēn.) [12275]"
+    },
+    {
+     "value": 12280,
+     "label": "Biezeņi [12280]"
+    },
+    {
+     "value": 12285,
+     "label": "Putras [12285]"
+    },
+    {
+     "value": 12290,
+     "label": "Dzērieni, uzkodas bērniem [12290]"
+    },
+    {
+     "value": 2648,
+     "label": "Bērnu rati [2648]"
+    },
+    {
+     "value": 2654,
+     "label": "Aksesuāri bērnu ratiem [2654]"
+    },
+    {
+     "value": 3098,
+     "label": "Biroja krēsli [3098]"
+    },
+    {
+     "value": 3161,
+     "label": "Datorgaldi, rakstāmgaldi, biroja galdi [3161]"
+    },
+    {
+     "value": 69,
+     "label": "Skeneri [69]"
+    },
+    {
+     "value": 71,
+     "label": "Printeri un daudzfunkcionālās ierīces [71]"
+    },
+    {
+     "value": 298,
+     "label": "Projektori [298]"
+    },
+    {
+     "value": 1907,
+     "label": "Papīra smalcinātāji [1907]"
+    },
+    {
+     "value": 3611,
+     "label": "Projektoru piederumi [3611]"
+    },
+    {
+     "value": 8027,
+     "label": "Ekrāni projektoriem [8027]"
+    },
+    {
+     "value": 18386,
+     "label": "Piederumi printerim [18386]"
+    },
+    {
+     "value": 19146,
+     "label": "Interaktīvās tāfeles [19146]"
+    },
+    {
+     "value": 438,
+     "label": "Batuti [438]"
+    },
+    {
+     "value": 11068,
+     "label": "Piepūšamās rotaļlietas un pludmales preces [11068]"
+    },
+    {
+     "value": 12085,
+     "label": "Spēles brīvā dabā [12085]"
+    },
+    {
+     "value": 17947,
+     "label": "Medību piederumi [17947]"
+    },
+    {
+     "value": 461,
+     "label": "Alkometri [461]"
+    },
+    {
+     "value": 3449,
+     "label": "Auto piederumi [3449]"
+    },
+    {
+     "value": 7868,
+     "label": "Nanotehnoloģijas automašīnām [7868]"
+    },
+    {
+     "value": 8030,
+     "label": "Auto sēdekļu pārvalki [8030]"
+    },
+    {
+     "value": 22246,
+     "label": "Piekabes un to piederumi [22246]"
+    },
+    {
+     "value": 16925,
+     "label": "Klasika [16925]"
+    },
+    {
+     "value": 16930,
+     "label": "Fantāzija, fantastikas grāmatas [16930]"
+    },
+    {
+     "value": 16935,
+     "label": "Biogrāfijas, autobiogrāfijas, memuāri [16935]"
+    },
+    {
+     "value": 16940,
+     "label": "Stāsti, noveles [16940]"
+    },
+    {
+     "value": 16945,
+     "label": "Romāni [16945]"
+    },
+    {
+     "value": 16950,
+     "label": "Dzeja [16950]"
+    },
+    {
+     "value": 17852,
+     "label": "Komiksi [17852]"
+    },
+    {
+     "value": 21628,
+     "label": "Detektīvi [21628]"
+    },
+    {
+     "value": 7961,
+     "label": "Galvas aizsargi [7961]"
+    },
+    {
+     "value": 7964,
+     "label": "Darba apavi [7964]"
+    },
+    {
+     "value": 7967,
+     "label": "Aizsargi ceļgaliem [7967]"
+    },
+    {
+     "value": 7970,
+     "label": "Darba cimdi [7970]"
+    },
+    {
+     "value": 7985,
+     "label": "Darba apģērbi [7985]"
+    },
+    {
+     "value": 17390,
+     "label": "Aizsargbarjeras, dezinfekcijas līdzekļu dozatori [17390]"
+    },
+    {
+     "value": 20728,
+     "label": "Informatīvās zīmes [20728]"
+    },
+    {
+     "value": 1139,
+     "label": "Sniega pūtēji [1139]"
+    },
+    {
+     "value": 1463,
+     "label": "Saliekamās kāpnes, celtniecības sastatnes [1463]"
+    },
+    {
+     "value": 3446,
+     "label": "Rokas instrumenti [3446]"
+    },
+    {
+     "value": 4103,
+     "label": "Metāla detektori [4103]"
+    },
+    {
+     "value": 4214,
+     "label": "Saimniecības plaukti [4214]"
+    },
+    {
+     "value": 7775,
+     "label": "Plauktu sistēmas [7775]"
+    },
+    {
+     "value": 10717,
+     "label": "Instrumentu kastes [10717]"
+    },
+    {
+     "value": 17997,
+     "label": "Stiprinājumi [17997]"
+    },
+    {
+     "value": 19141,
+     "label": "Industriālie svari [19141]"
+    },
+    {
+     "value": 20693,
+     "label": "Sniega lāpstas, stūmēji [20693]"
+    },
+    {
+     "value": 7943,
+     "label": "Dārza baseini un to kopšanas līdzekļi [7943]"
+    },
+    {
+     "value": 11795,
+     "label": "Dārza mēbeļu komplekti [11795]"
+    },
+    {
+     "value": 11805,
+     "label": "Sauļošanās krēsli [11805]"
+    },
+    {
+     "value": 11810,
+     "label": "Šūpuļtīkli [11810]"
+    },
+    {
+     "value": 11815,
+     "label": "Dārza krēsli [11815]"
+    },
+    {
+     "value": 11820,
+     "label": "Krēslu paliktņi [11820]"
+    },
+    {
+     "value": 11825,
+     "label": "Dārza nojumes un lapenes [11825]"
+    },
+    {
+     "value": 11830,
+     "label": "Saulessargi, markīzes un statīvi [11830]"
+    },
+    {
+     "value": 11840,
+     "label": "Dārza galdi [11840]"
+    },
+    {
+     "value": 11845,
+     "label": "Dārza soli [11845]"
+    },
+    {
+     "value": 11850,
+     "label": "Dārza šūpoles [11850]"
+    },
+    {
+     "value": 12080,
+     "label": "Dārza mēbeles bērniem [12080]"
+    },
+    {
+     "value": 929,
+     "label": "Dārza instrumenti [929]"
+    },
+    {
+     "value": 3662,
+     "label": "Līdzekļi pret odiem un ērcēm [3662]"
+    },
+    {
+     "value": 5660,
+     "label": "Siltumnīcas [5660]"
+    },
+    {
+     "value": 6077,
+     "label": "Āra apgaismojums [6077]"
+    },
+    {
+     "value": 7856,
+     "label": "Ziedu statīvi, puķu podu turētāji [7856]"
+    },
+    {
+     "value": 7898,
+     "label": "Laistīšanas sistēmas [7898]"
+    },
+    {
+     "value": 7955,
+     "label": "Dārza dekori [7955]"
+    },
+    {
+     "value": 7997,
+     "label": "Grunts, zeme, kūdra, komposts [7997]"
+    },
+    {
+     "value": 8390,
+     "label": "Mājiņas\/novietnes malkai un instrumentiem [8390]"
+    },
+    {
+     "value": 8945,
+     "label": "Komposta kastes un āra konteineri [8945]"
+    },
+    {
+     "value": 9160,
+     "label": "Mikroorganismi, baktērijas [9160]"
+    },
+    {
+     "value": 11302,
+     "label": "Mulča, dekoratīvās šķembas [11302]"
+    },
+    {
+     "value": 20698,
+     "label": "Motorzāģi [20698]"
+    },
+    {
+     "value": 1229,
+     "label": "Lapu pūtēji, zaru smalcinātāji, slaucīšanas iekārtas [1229]"
+    },
+    {
+     "value": 3317,
+     "label": "Zāles pļāvēji [3317]"
+    },
+    {
+     "value": 3320,
+     "label": "Trimmeri, krūmgrieži [3320]"
+    },
+    {
+     "value": 5738,
+     "label": "Dārza traktori [5738]"
+    },
+    {
+     "value": 5741,
+     "label": "Zemes frēzes, kultivatori, aeratori [5741]"
+    },
+    {
+     "value": 6710,
+     "label": "Mitruma, temperatūras, pH, ORP mērītāji [6710]"
+    },
+    {
+     "value": 7889,
+     "label": "Malkas skaldītāji [7889]"
+    },
+    {
+     "value": 10316,
+     "label": "Ķerras [10316]"
+    },
+    {
+     "value": 11880,
+     "label": "Dzīvžogu un zāles šķēres [11880]"
+    },
+    {
+     "value": 13937,
+     "label": "Zāles pļāvēji roboti [13937]"
+    },
+    {
+     "value": 17756,
+     "label": "Dārza tehnikas rezerves daļas [17756]"
+    },
+    {
+     "value": 18626,
+     "label": "Zemes urbji [18626]"
+    },
+    {
+     "value": 49,
+     "label": "Stacionārie datori [49]"
+    },
+    {
+     "value": 10045,
+     "label": "Valūtas detektori [10045]"
+    },
+    {
+     "value": 12470,
+     "label": "Droni [12470]"
+    },
+    {
+     "value": 12485,
+     "label": "Atvērtā koda elektronika [12485]"
+    },
+    {
+     "value": 20738,
+     "label": "Serveri [20738]"
+    },
+    {
+     "value": 3620,
+     "label": "Adapteri un USB centrmezgli [3620]"
+    },
+    {
+     "value": 56,
+     "label": "Videokartes (GPU) [56]"
+    },
+    {
+     "value": 58,
+     "label": "Operatīvā atmiņa (RAM) [58]"
+    },
+    {
+     "value": 59,
+     "label": "Barošanas bloki (PSU) [59]"
+    },
+    {
+     "value": 4049,
+     "label": "Iekšējie cietie diski (HDD, SSD, Hybrid) [4049]"
+    },
+    {
+     "value": 13190,
+     "label": "Procesori (CPU) [13190]"
+    },
+    {
+     "value": 13195,
+     "label": "Mātesplates [13195]"
+    },
+    {
+     "value": 13200,
+     "label": "Datoru korpusi [13200]"
+    },
+    {
+     "value": 13205,
+     "label": "Diskdziņi [13205]"
+    },
+    {
+     "value": 13210,
+     "label": "Skaņas kartes [13210]"
+    },
+    {
+     "value": 13215,
+     "label": "Procesora dzesētāji [13215]"
+    },
+    {
+     "value": 13225,
+     "label": "Grafisko karšu dzesētāji [13225]"
+    },
+    {
+     "value": 13230,
+     "label": "Ūdens dzesēšana - aksesuāri [13230]"
+    },
+    {
+     "value": 13235,
+     "label": "Ūdens dzesēšana - komplekti [13235]"
+    },
+    {
+     "value": 13240,
+     "label": "Datora ventilatori [13240]"
+    },
+    {
+     "value": 13245,
+     "label": "Termopastas [13245]"
+    },
+    {
+     "value": 13250,
+     "label": "Kontrolieri [13250]"
+    },
+    {
+     "value": 13255,
+     "label": "TV uztvērēji, FM, video kartes [13255]"
+    },
+    {
+     "value": 13260,
+     "label": "Piederumi korpusiem [13260]"
+    },
+    {
+     "value": 13265,
+     "label": "Komponentu piederumi [13265]"
+    },
+    {
+     "value": 10015,
+     "label": "Biznesa dāvanas [10015]"
+    },
+    {
+     "value": 10057,
+     "label": "Šķiltavas un aksesuāri [10057]"
+    },
+    {
+     "value": 21872,
+     "label": "Asprātīgas dāvanas [21872]"
+    },
+    {
+     "value": 22437,
+     "label": "Labdarības preces [22437]"
+    },
+    {
+     "value": 3425,
+     "label": "220.lv dāvanu kartes [3425]"
+    },
+    {
+     "value": 11565,
+     "label": "Dāvanu kartes atpūtai [11565]"
+    },
+    {
+     "value": 141,
+     "label": "Acu ēnas, skropstu tušas, zīmuļi, serumi [141]"
+    },
+    {
+     "value": 3587,
+     "label": "Lūpu krāsas, balzāmi, spīdumi, vazelīns [3587]"
+    },
+    {
+     "value": 3590,
+     "label": "Grima bāzes, tonālie krēmi, pūderi [3590]"
+    },
+    {
+     "value": 3593,
+     "label": "Nagu lakas, stiprinātāji [3593]"
+    },
+    {
+     "value": 5987,
+     "label": "Kosmētikas otas, sūkļi [5987]"
+    },
+    {
+     "value": 7259,
+     "label": "Nagu kopšanas piederumi [7259]"
+    },
+    {
+     "value": 16007,
+     "label": "Uzacu krāsas, zīmuļi [16007]"
+    },
+    {
+     "value": 16012,
+     "label": "Bronzeri, vaigu sārtumi [16012]"
+    },
+    {
+     "value": 16017,
+     "label": "Mākslīgās skropstas, skropstu atliecēji [16017]"
+    },
+    {
+     "value": 16022,
+     "label": "Kosmētikas somas, spoguļi [16022]"
+    },
+    {
+     "value": 15262,
+     "label": "Distanču slēpes [15262]"
+    },
+    {
+     "value": 15267,
+     "label": "Distanču slēpju stiprinājumi [15267]"
+    },
+    {
+     "value": 15272,
+     "label": "Distanču slēpju zābaki [15272]"
+    },
+    {
+     "value": 15277,
+     "label": "Distanču slēpošanas nūjas [15277]"
+    },
+    {
+     "value": 15287,
+     "label": "Distanču slēpju kopšanas līdzekļi [15287]"
+    },
+    {
+     "value": 15292,
+     "label": "Citi distanču slēpošanas piederumi [15292]"
+    },
+    {
+     "value": 5156,
+     "label": "Ārdurvis [5156]"
+    },
+    {
+     "value": 5159,
+     "label": "Iekšdurvis [5159]"
+    },
+    {
+     "value": 5642,
+     "label": "Durvju rokturi [5642]"
+    },
+    {
+     "value": 7853,
+     "label": "Durvju jumtiņi [7853]"
+    },
+    {
+     "value": 7979,
+     "label": "Durvju stopētāji un citi aksesuāri [7979]"
+    },
+    {
+     "value": 9877,
+     "label": "Jumta logi [9877]"
+    },
+    {
+     "value": 17140,
+     "label": "Jumta segumi [17140]"
+    },
+    {
+     "value": 20618,
+     "label": "Durvju slēdzenes [20618]"
+    },
+    {
+     "value": 20708,
+     "label": "Revīzijas lūkas, piederumi [20708]"
+    },
+    {
+     "value": 22326,
+     "label": "Plastikāta logi [22326]"
+    },
+    {
+     "value": 529,
+     "label": "Dušas kabīnes [529]"
+    },
+    {
+     "value": 1322,
+     "label": "Dušas paliktņi [1322]"
+    },
+    {
+     "value": 1325,
+     "label": "Dušas komplekti un paneļi [1325]"
+    },
+    {
+     "value": 9886,
+     "label": "Dušas trapi [9886]"
+    },
+    {
+     "value": 11940,
+     "label": "Hidromasāžas dušas kabīnes [11940]"
+    },
+    {
+     "value": 11945,
+     "label": "Dušas durvis, dušas sienas [11945]"
+    },
+    {
+     "value": 17746,
+     "label": "Atsvaidzinoši dzērieni [17746]"
+    },
+    {
+     "value": 18017,
+     "label": "Sulas, nektāri un sulu dzērieni [18017]"
+    },
+    {
+     "value": 18272,
+     "label": "Ūdens [18272]"
+    },
+    {
+     "value": 20583,
+     "label": "Bezalkoholiskie dzērieni [20583]"
+    },
+    {
+     "value": 22351,
+     "label": "Preces eksotiskajiem dzīvniekiem [22351]"
+    },
+    {
+     "value": 22356,
+     "label": "Barība eksotiskajiem dzīvniekiem [22356]"
+    },
+    {
+     "value": 4055,
+     "label": "Parkošanas sistēmas [4055]"
+    },
+    {
+     "value": 5753,
+     "label": "FM Modulatori [5753]"
+    },
+    {
+     "value": 5756,
+     "label": "Sprieguma pārveidotāji [5756]"
+    },
+    {
+     "value": 5837,
+     "label": "Auto spuldzes [5837]"
+    },
+    {
+     "value": 5843,
+     "label": "Auto 12V el. piederumi [5843]"
+    },
+    {
+     "value": 21453,
+     "label": "Elektroauto uzlādes stacijas  [21453]"
+    },
+    {
+     "value": 845,
+     "label": "Frēzes [845]"
+    },
+    {
+     "value": 854,
+     "label": "Zāģi, ripzāģi [854]"
+    },
+    {
+     "value": 857,
+     "label": "Slīpmašīnas [857]"
+    },
+    {
+     "value": 860,
+     "label": "Perforatori [860]"
+    },
+    {
+     "value": 863,
+     "label": "Celtniecības fēni [863]"
+    },
+    {
+     "value": 872,
+     "label": "Skrūvgrieži, urbjmašīnas [872]"
+    },
+    {
+     "value": 1106,
+     "label": "Elektrības ģeneratori [1106]"
+    },
+    {
+     "value": 7769,
+     "label": "Kompresori [7769]"
+    },
+    {
+     "value": 7892,
+     "label": "Metināšanas iekārtas, lodāmuri [7892]"
+    },
+    {
+     "value": 7895,
+     "label": "Ēveles [7895]"
+    },
+    {
+     "value": 8942,
+     "label": "Betona maisītāji [8942]"
+    },
+    {
+     "value": 9349,
+     "label": "Krāsu pulverizatori [9349]"
+    },
+    {
+     "value": 11006,
+     "label": "Celtniecības putekļu sūcēji [11006]"
+    },
+    {
+     "value": 17791,
+     "label": "Vibro plāksnes [17791]"
+    },
+    {
+     "value": 11074,
+     "label": "Erotiskā veļa sievietēm [11074]"
+    },
+    {
+     "value": 11080,
+     "label": "Erotiskā veļa vīriešiem [11080]"
+    },
+    {
+     "value": 14760,
+     "label": "Stepa soli [14760]"
+    },
+    {
+     "value": 14765,
+     "label": "Atspiešanās rokturi [14765]"
+    },
+    {
+     "value": 14770,
+     "label": "Balansa dēļi un spilveni [14770]"
+    },
+    {
+     "value": 14775,
+     "label": "Espanderi [14775]"
+    },
+    {
+     "value": 14780,
+     "label": "Vingrošanas bumbas [14780]"
+    },
+    {
+     "value": 14785,
+     "label": "Vingrošanas riņķi un nūjas [14785]"
+    },
+    {
+     "value": 14795,
+     "label": "Riteņi preses vingrinājumiem [14795]"
+    },
+    {
+     "value": 14800,
+     "label": "Zviedru sienas [14800]"
+    },
+    {
+     "value": 14805,
+     "label": "Vingrošanas paklāji [14805]"
+    },
+    {
+     "value": 14815,
+     "label": "Konusi, treniņu barjeras [14815]"
+    },
+    {
+     "value": 14820,
+     "label": "Fitnesa gumijas, gredzeni [14820]"
+    },
+    {
+     "value": 14830,
+     "label": "Pievilkšanās stieņi [14830]"
+    },
+    {
+     "value": 14835,
+     "label": "Lecamauklas [14835]"
+    },
+    {
+     "value": 14850,
+     "label": "Svilpes [14850]"
+    },
+    {
+     "value": 14855,
+     "label": "Svaru bumbas [14855]"
+    },
+    {
+     "value": 14870,
+     "label": "Piekares treniņu sistēmas, gumijas espanderi [14870]"
+    },
+    {
+     "value": 14880,
+     "label": "Sporta cimdi [14880]"
+    },
+    {
+     "value": 14885,
+     "label": "Citas fitnesa preces [14885]"
+    },
+    {
+     "value": 14890,
+     "label": "Vēdera preses trenažieri [14890]"
+    },
+    {
+     "value": 14905,
+     "label": "Sporta trepes, bumbas reakcijas trenēšanai [14905]"
+    },
+    {
+     "value": 14910,
+     "label": "Rotācijas diski [14910]"
+    },
+    {
+     "value": 15157,
+     "label": "Jogas preces [15157]"
+    },
+    {
+     "value": 8963,
+     "label": "Stabilizētās rozes, augi [8963]"
+    },
+    {
+     "value": 17686,
+     "label": "Mākslīgie ziedi [17686]"
+    },
+    {
+     "value": 17691,
+     "label": "Materiāli floristikai [17691]"
+    },
+    {
+     "value": 20533,
+     "label": "Grieztie ziedi [20533]"
+    },
+    {
+     "value": 117,
+     "label": "Digitālās fotokameras [117]"
+    },
+    {
+     "value": 309,
+     "label": "Citi piederumi fotokamerām [309]"
+    },
+    {
+     "value": 462,
+     "label": "Akumulatori fotokamerām [462]"
+    },
+    {
+     "value": 504,
+     "label": "Fotokameru lādētāji [504]"
+    },
+    {
+     "value": 2609,
+     "label": "Atmiņas kartes fotokamerām [2609]"
+    },
+    {
+     "value": 3488,
+     "label": "Fotokameru statīvi [3488]"
+    },
+    {
+     "value": 4163,
+     "label": "Somas fotokamerām [4163]"
+    },
+    {
+     "value": 6080,
+     "label": "Filtri [6080]"
+    },
+    {
+     "value": 11575,
+     "label": "Objektīvi [11575]"
+    },
+    {
+     "value": 11590,
+     "label": "Momentfoto kameras [11590]"
+    },
+    {
+     "value": 17857,
+     "label": "Apgaismojums fotografēšanai [17857]"
+    },
+    {
+     "value": 14730,
+     "label": "Futbola apavi [14730]"
+    },
+    {
+     "value": 14735,
+     "label": "Futbola bumbas [14735]"
+    },
+    {
+     "value": 14740,
+     "label": "Futbola vārti un tīkls [14740]"
+    },
+    {
+     "value": 14745,
+     "label": "Futbola formas un citas preces [14745]"
+    },
+    {
+     "value": 14750,
+     "label": "Vārtsarga cimdi [14750]"
+    },
+    {
+     "value": 17616,
+     "label": "Gaļas produkti [17616]"
+    },
+    {
+     "value": 20503,
+     "label": "Zivju produkti [20503]"
+    },
+    {
+     "value": 15115,
+     "label": "Galda tenisa galdi un pārklāji [15115]"
+    },
+    {
+     "value": 15120,
+     "label": "Galda tenisa raketes, somas un komplekti [15120]"
+    },
+    {
+     "value": 15125,
+     "label": "Galda tenisa bumbiņas [15125]"
+    },
+    {
+     "value": 15130,
+     "label": "Galda tenisa tīkli [15130]"
+    },
+    {
+     "value": 267,
+     "label": "Spēļu konsoles [267]"
+    },
+    {
+     "value": 268,
+     "label": "Gaming aksesuāri [268]"
+    },
+    {
+     "value": 5765,
+     "label": "Datorspēles [5765]"
+    },
+    {
+     "value": 16062,
+     "label": "Datorspēļu suvenīri [16062]"
+    },
+    {
+     "value": 21538,
+     "label": "Spēļu kontrolieri [21538]"
+    },
+    {
+     "value": 21543,
+     "label": "VR brilles [21543]"
+    },
+    {
+     "value": 21548,
+     "label": "Spēļu stūres [21548]"
+    },
+    {
+     "value": 17761,
+     "label": "Grāmatzīmes [17761]"
+    },
+    {
+     "value": 20448,
+     "label": "Kalendāri, piezīmju grāmatas [20448]"
+    },
+    {
+     "value": 16960,
+     "label": "Grāmatas mazuļiem [16960]"
+    },
+    {
+     "value": 16975,
+     "label": "Pasakas [16975]"
+    },
+    {
+     "value": 16980,
+     "label": "Izglītojošas grāmatas [16980]"
+    },
+    {
+     "value": 16985,
+     "label": "Krāsojamās grāmatas [16985]"
+    },
+    {
+     "value": 16990,
+     "label": "Grāmatas pusaudžiem un jauniešiem [16990]"
+    },
+    {
+     "value": 20603,
+     "label": "Bērnu grāmatas [20603]"
+    },
+    {
+     "value": 17050,
+     "label": "Pašpalīdzības grāmatas [17050]"
+    },
+    {
+     "value": 17055,
+     "label": "Garīgā literatūra [17055]"
+    },
+    {
+     "value": 17060,
+     "label": "Bērnu audzināšana [17060]"
+    },
+    {
+     "value": 17065,
+     "label": "Grāmatas par attiecībām [17065]"
+    },
+    {
+     "value": 17070,
+     "label": "Grāmatas par veselīgu dzīvesveidu un uzturu [17070]"
+    },
+    {
+     "value": 10472,
+     "label": "Barība grauzējiem [10472]"
+    },
+    {
+     "value": 10478,
+     "label": "Pakaiši, siens grauzējiem [10478]"
+    },
+    {
+     "value": 10484,
+     "label": "Būri un aksesuāri grauzējiem [10484]"
+    },
+    {
+     "value": 5201,
+     "label": "Lamināts [5201]"
+    },
+    {
+     "value": 9871,
+     "label": "Āra grīdas segumi [9871]"
+    },
+    {
+     "value": 10681,
+     "label": "Grīdas flīzes [10681]"
+    },
+    {
+     "value": 11317,
+     "label": "Grīdlīstes un to savienošanas piederumi [11317]"
+    },
+    {
+     "value": 13675,
+     "label": "Profila savienošana [13675]"
+    },
+    {
+     "value": 15872,
+     "label": "Mangali [15872]"
+    },
+    {
+     "value": 15877,
+     "label": "Grili [15877]"
+    },
+    {
+     "value": 15887,
+     "label": "Kūpinātavas, piederumi [15887]"
+    },
+    {
+     "value": 15897,
+     "label": "Grila, barbekjū piederumi un aksesuāri [15897]"
+    },
+    {
+     "value": 15907,
+     "label": "Ugunskura vietas [15907]"
+    },
+    {
+     "value": 15922,
+     "label": "Kokogles, briketes, uguns aizdedzināšanas līdzekļi [15922]"
+    },
+    {
+     "value": 423,
+     "label": "Matrači [423]"
+    },
+    {
+     "value": 1262,
+     "label": "Gultas [1262]"
+    },
+    {
+     "value": 3113,
+     "label": "Skapji [3113]"
+    },
+    {
+     "value": 3281,
+     "label": "Komplekti guļamistabai [3281]"
+    },
+    {
+     "value": 4118,
+     "label": "Gultas restes [4118]"
+    },
+    {
+     "value": 4121,
+     "label": "Virsmatrači [4121]"
+    },
+    {
+     "value": 14210,
+     "label": "Naktsskapīši [14210]"
+    },
+    {
+     "value": 14215,
+     "label": "Kosmētikas galdiņi [14215]"
+    },
+    {
+     "value": 3377,
+     "label": "Dvieļi [3377]"
+    },
+    {
+     "value": 3386,
+     "label": "Segas [3386]"
+    },
+    {
+     "value": 3389,
+     "label": "Spilveni [3389]"
+    },
+    {
+     "value": 3392,
+     "label": "Gultas pārklāji, pledi [3392]"
+    },
+    {
+     "value": 3395,
+     "label": "Bērnu gultas veļa [3395]"
+    },
+    {
+     "value": 3398,
+     "label": "Gultas veļas komplekti [3398]"
+    },
+    {
+     "value": 5051,
+     "label": "Galdauti, salvetes [5051]"
+    },
+    {
+     "value": 7973,
+     "label": "Dekoratīvie spilveni un spilvendrānas [7973]"
+    },
+    {
+     "value": 10061,
+     "label": "Palagi [10061]"
+    },
+    {
+     "value": 20648,
+     "label": "Virtuves dvieļi, cimdi, priekšauti [20648]"
+    },
+    {
+     "value": 21298,
+     "label": "Mēbeļu pārvalki [21298]"
+    },
+    {
+     "value": 2684,
+     "label": "Radio un video aukles [2684]"
+    },
+    {
+     "value": 2696,
+     "label": "Autiņbiksītes [2696]"
+    },
+    {
+     "value": 3305,
+     "label": "Attīstošie paklājiņi [3305]"
+    },
+    {
+     "value": 8840,
+     "label": "Bērnu podiņi [8840]"
+    },
+    {
+     "value": 12075,
+     "label": "Mazuļa mazgāšana [12075]"
+    },
+    {
+     "value": 14825,
+     "label": "Pārtinamās virsmas un autiņi [14825]"
+    },
+    {
+     "value": 14865,
+     "label": "Bērnu drošības preces [14865]"
+    },
+    {
+     "value": 14945,
+     "label": "Spilveni, guļammaisi, konverti jaundzimušajiem [14945]"
+    },
+    {
+     "value": 14950,
+     "label": "Higiēnas preces bērniem [14950]"
+    },
+    {
+     "value": 14965,
+     "label": "Mitrās salvetes, vienreizlietojamie paladziņi [14965]"
+    },
+    {
+     "value": 15145,
+     "label": "Jaundzimušo aprūpes preces [15145]"
+    },
+    {
+     "value": 4127,
+     "label": "Zobu pastas, birstes [4127]"
+    },
+    {
+     "value": 4130,
+     "label": "Dezodoranti [4130]"
+    },
+    {
+     "value": 4139,
+     "label": "Depilācijas līdzekļi, vaksācijas piederumi [4139]"
+    },
+    {
+     "value": 4142,
+     "label": "Intīmās higiēnas līdzekļi [4142]"
+    },
+    {
+     "value": 6200,
+     "label": "Skūšanās piederumi, kosmētika [6200]"
+    },
+    {
+     "value": 10078,
+     "label": "Vates kociņi, mitrās salvetes [10078]"
+    },
+    {
+     "value": 21683,
+     "label": "Tamponi, higiēniskās paketes, ieliktnīši [21683]"
+    },
+    {
+     "value": 3428,
+     "label": "Dekoratīvās uzlīmes [3428]"
+    },
+    {
+     "value": 3503,
+     "label": "Aizslietņi [3503]"
+    },
+    {
+     "value": 4742,
+     "label": "Sienas pulksteņi [4742]"
+    },
+    {
+     "value": 7757,
+     "label": "Gleznas [7757]"
+    },
+    {
+     "value": 7862,
+     "label": "Foto rāmji, foto albumi [7862]"
+    },
+    {
+     "value": 7925,
+     "label": "Sveces un svečturi [7925]"
+    },
+    {
+     "value": 7928,
+     "label": "Vāzes [7928]"
+    },
+    {
+     "value": 15050,
+     "label": "Interjera priekšmeti [15050]"
+    },
+    {
+     "value": 10412,
+     "label": "Gardumi kaķiem [10412]"
+    },
+    {
+     "value": 10418,
+     "label": "Vitamīni, uztura bagātinātāji, pretparazītu līdzekļi kaķiem [10418]"
+    },
+    {
+     "value": 10421,
+     "label": "Smiltis un pakaiši [10421]"
+    },
+    {
+     "value": 10424,
+     "label": "Kaķu tualetes [10424]"
+    },
+    {
+     "value": 10427,
+     "label": "Kaķu mājas, nagu asināmie [10427]"
+    },
+    {
+     "value": 10442,
+     "label": "Pavadas, apkakles, siksnas kaķiem [10442]"
+    },
+    {
+     "value": 10451,
+     "label": "Rotaļlietas kaķiem [10451]"
+    },
+    {
+     "value": 10490,
+     "label": "Konservi kaķiem [10490]"
+    },
+    {
+     "value": 10493,
+     "label": "Sausā barība kaķiem [10493]"
+    },
+    {
+     "value": 751,
+     "label": "Slēpošanas aizsargi [751]"
+    },
+    {
+     "value": 2759,
+     "label": "Slēpošanas brilles [2759]"
+    },
+    {
+     "value": 4508,
+     "label": "Slēpošanas ķiveres [4508]"
+    },
+    {
+     "value": 15222,
+     "label": "Kalnu slēpes [15222]"
+    },
+    {
+     "value": 15232,
+     "label": "Kalnu slēpošanas zābaki [15232]"
+    },
+    {
+     "value": 15237,
+     "label": "Kalnu slēpošanas nūjas [15237]"
+    },
+    {
+     "value": 15242,
+     "label": "Somas kalnu slēpošanas inventāram [15242]"
+    },
+    {
+     "value": 15252,
+     "label": "Citi kalnu slēpošanas piederumi [15252]"
+    },
+    {
+     "value": 21855,
+     "label": "Snovborda dēļi [21855]"
+    },
+    {
+     "value": 21924,
+     "label": "Santehnikas savienojumi, ventiļi [21924]"
+    },
+    {
+     "value": 21939,
+     "label": "Radiatoru vārsti [21939]"
+    },
+    {
+     "value": 312,
+     "label": "Kārtridži lāzerprinteriem [312]"
+    },
+    {
+     "value": 313,
+     "label": "Tintes kārtridži [313]"
+    },
+    {
+     "value": 201,
+     "label": "Ķermeņa krēmi, losjoni [201]"
+    },
+    {
+     "value": 3230,
+     "label": "Sauļošanās krēmi [3230]"
+    },
+    {
+     "value": 3551,
+     "label": "Līdzekļi pret odiem, ērcēm [3551]"
+    },
+    {
+     "value": 3554,
+     "label": "Pretcelulīta līdzekļi, kosmētika ādas nostiprināšanai [3554]"
+    },
+    {
+     "value": 4133,
+     "label": "Dušas želejas, eļļas [4133]"
+    },
+    {
+     "value": 4136,
+     "label": "Ķermeņa skrubji [4136]"
+    },
+    {
+     "value": 10054,
+     "label": "Ēteriskās eļļas, kosmētiskās eļļas, hidrolāti [10054]"
+    },
+    {
+     "value": 10707,
+     "label": "Masāžas eļļas [10707]"
+    },
+    {
+     "value": 16027,
+     "label": "Solārija krēmi [16027]"
+    },
+    {
+     "value": 16047,
+     "label": "Ziepes [16047]"
+    },
+    {
+     "value": 21653,
+     "label": "Paštonējošie līdzekļi [21653]"
+    },
+    {
+     "value": 163,
+     "label": "Gaisa mitrinātāji [163]"
+    },
+    {
+     "value": 386,
+     "label": "Ventilatori vannas istabai [386]"
+    },
+    {
+     "value": 562,
+     "label": "Gaisa kondicionieri, siltumsūkņi, rekuperatori [562]"
+    },
+    {
+     "value": 3257,
+     "label": "Ventilatori [3257]"
+    },
+    {
+     "value": 3293,
+     "label": "Piederumi gaisa regulēšanas iekārtām [3293]"
+    },
+    {
+     "value": 5654,
+     "label": "Meteostacijas, āra termometri [5654]"
+    },
+    {
+     "value": 8987,
+     "label": "Gaisa sausinātāji, mitruma savācēji [8987]"
+    },
+    {
+     "value": 22421,
+     "label": "Gaisa attīrītāji [22421]"
+    },
+    {
+     "value": 17501,
+     "label": "Kolekcionējamie modeļi [17501]"
+    },
+    {
+     "value": 21128,
+     "label": "Numismātika, filatēlija [21128]"
+    },
+    {
+     "value": 21733,
+     "label": "Kolekcionējamas kartiņas [21733]"
+    },
+    {
+     "value": 21964,
+     "label": "Pastmarkas [21964]"
+    },
+    {
+     "value": 21984,
+     "label": "Investīciju zelts, sudrabs [21984]"
+    },
+    {
+     "value": 142,
+     "label": "Bērnu kosmētika, līdzekļi jaunajām māmiņām [142]"
+    },
+    {
+     "value": 4484,
+     "label": "Kosmētika ar feromoniem [4484]"
+    },
+    {
+     "value": 4487,
+     "label": "Lubrikanti [4487]"
+    },
+    {
+     "value": 4490,
+     "label": "Prezervatīvi [4490]"
+    },
+    {
+     "value": 4493,
+     "label": "Higiēnas preces [4493]"
+    },
+    {
+     "value": 9166,
+     "label": "Masāžas līdzekļi [9166]"
+    },
+    {
+     "value": 688,
+     "label": "Laivas un kajaki [688]"
+    },
+    {
+     "value": 1874,
+     "label": "Piederumi laivām un kajakiem [1874]"
+    },
+    {
+     "value": 9032,
+     "label": "Glābšanas vestes, piederumi  [9032]"
+    },
+    {
+     "value": 8666,
+     "label": "Auto ledusskapji [8666]"
+    },
+    {
+     "value": 8669,
+     "label": "Ledusskapji [8669]"
+    },
+    {
+     "value": 8672,
+     "label": "Saldētavas  [8672]"
+    },
+    {
+     "value": 13040,
+     "label": "Vīna ledusskapji [13040]"
+    },
+    {
+     "value": 5099,
+     "label": "Aizsardzībai pret kukaiņiem [5099]"
+    },
+    {
+     "value": 5102,
+     "label": "Dzīvnieku atbaidīšanas līdzekļi [5102]"
+    },
+    {
+     "value": 148,
+     "label": "Tvaika nosūcēji [148]"
+    },
+    {
+     "value": 150,
+     "label": "Mikroviļņu krāsnis [150]"
+    },
+    {
+     "value": 152,
+     "label": "Trauku mazgājamās mašīnas [152]"
+    },
+    {
+     "value": 153,
+     "label": "Cepeškrāsnis [153]"
+    },
+    {
+     "value": 319,
+     "label": "Plīts virsmas [319]"
+    },
+    {
+     "value": 11340,
+     "label": "Pārtikas atkritumu smalcinātāji [11340]"
+    },
+    {
+     "value": 11975,
+     "label": "Gāzes plītis [11975]"
+    },
+    {
+     "value": 11980,
+     "label": "Elektriskās plītis [11980]"
+    },
+    {
+     "value": 11990,
+     "label": "Mini cepeškrāsnis [11990]"
+    },
+    {
+     "value": 3671,
+     "label": "Ūdens attīrīšanas sistēmas un filtri [3671]"
+    },
+    {
+     "value": 7772,
+     "label": "Seifi [7772]"
+    },
+    {
+     "value": 8003,
+     "label": "Pastkastītes, mājas numuri [8003]"
+    },
+    {
+     "value": 8240,
+     "label": "Kāpnes [8240]"
+    },
+    {
+     "value": 10296,
+     "label": "Lietus notekūdeņu sistēmas [10296]"
+    },
+    {
+     "value": 7814,
+     "label": "Gāzes, dūmu detektori [7814]"
+    },
+    {
+     "value": 9175,
+     "label": "Durvju zvani, actiņas [9175]"
+    },
+    {
+     "value": 20873,
+     "label": "Novērošanas kameras [20873]"
+    },
+    {
+     "value": 20878,
+     "label": "Signalizācijas [20878]"
+    },
+    {
+     "value": 20883,
+     "label": "Sensori [20883]"
+    },
+    {
+     "value": 20888,
+     "label": "Drošības sistēmas, kontrolieri [20888]"
+    },
+    {
+     "value": 20893,
+     "label": "Domofoni [20893]"
+    },
+    {
+     "value": 20898,
+     "label": "Drošības sistēmu piederumi [20898]"
+    },
+    {
+     "value": 22341,
+     "label": "Preces lauksaimniecības dzīvniekiem [22341]"
+    },
+    {
+     "value": 22346,
+     "label": "Lopbarība [22346]"
+    },
+    {
+     "value": 15527,
+     "label": "Makšķeres, spiningi, makšķeru turētāji un statīvi [15527]"
+    },
+    {
+     "value": 15532,
+     "label": "Makšķernieku apģērbs, zābaki [15532]"
+    },
+    {
+     "value": 15557,
+     "label": "Makšķernieku kastes, makšķeru somas, mugursomas [15557]"
+    },
+    {
+     "value": 15562,
+     "label": "Zivju tīkli [15562]"
+    },
+    {
+     "value": 15577,
+     "label": "Makšķerēšanas atsvari [15577]"
+    },
+    {
+     "value": 15582,
+     "label": "Makšķerēšanas āķi [15582]"
+    },
+    {
+     "value": 15587,
+     "label": "Makšķerēšanas un spininga spoles [15587]"
+    },
+    {
+     "value": 15592,
+     "label": "Pludiņi, copes signalizatori [15592]"
+    },
+    {
+     "value": 15597,
+     "label": "Zivju barotavas [15597]"
+    },
+    {
+     "value": 15602,
+     "label": "Ēsmas [15602]"
+    },
+    {
+     "value": 15607,
+     "label": "Makšķerauklas [15607]"
+    },
+    {
+     "value": 15612,
+     "label": "Vobleri, ēsmas, vizuļi [15612]"
+    },
+    {
+     "value": 15622,
+     "label": "Citi makšķerēšanas piederumi [15622]"
+    },
+    {
+     "value": 7811,
+     "label": "Šampūni [7811]"
+    },
+    {
+     "value": 7817,
+     "label": "Matu kondicionieri, balzāmi [7817]"
+    },
+    {
+     "value": 7820,
+     "label": "Matu veidošanas līdzekļi [7820]"
+    },
+    {
+     "value": 7823,
+     "label": "Matu uzlabošanai [7823]"
+    },
+    {
+     "value": 7826,
+     "label": "Matu krāsas [7826]"
+    },
+    {
+     "value": 7829,
+     "label": "Matu sukas, ķemmes, šķēres [7829]"
+    },
+    {
+     "value": 15972,
+     "label": "Matu aksesuāri [15972]"
+    },
+    {
+     "value": 149,
+     "label": "Kafijas automāti [149]"
+    },
+    {
+     "value": 166,
+     "label": "Vafeļu pannas un elektriskās pankūku pannas [166]"
+    },
+    {
+     "value": 167,
+     "label": "Tosteri [167]"
+    },
+    {
+     "value": 168,
+     "label": "Sviestmaižu tosteri [168]"
+    },
+    {
+     "value": 170,
+     "label": "Mikseri [170]"
+    },
+    {
+     "value": 179,
+     "label": "Virtuves kombaini [179]"
+    },
+    {
+     "value": 180,
+     "label": "Sulu spiedes [180]"
+    },
+    {
+     "value": 182,
+     "label": "Elektriskās tējkannas [182]"
+    },
+    {
+     "value": 509,
+     "label": "Blenderi, smalcinātāji [509]"
+    },
+    {
+     "value": 510,
+     "label": "Taukvāres katli, aerogrili [510]"
+    },
+    {
+     "value": 522,
+     "label": "Maizes krāsnis [522]"
+    },
+    {
+     "value": 523,
+     "label": "Kafijas dzirnaviņas [523]"
+    },
+    {
+     "value": 550,
+     "label": "Virtuves svari [550]"
+    },
+    {
+     "value": 818,
+     "label": "Smūtiju blenderi [818]"
+    },
+    {
+     "value": 980,
+     "label": "Elektriskie grili [980]"
+    },
+    {
+     "value": 1289,
+     "label": "Gaļas maļamās mašīnas [1289]"
+    },
+    {
+     "value": 2723,
+     "label": "Augļu žāvētāji [2723]"
+    },
+    {
+     "value": 2768,
+     "label": "Multivārāmie katli [2768]"
+    },
+    {
+     "value": 3437,
+     "label": "Ūdens filtri [3437]"
+    },
+    {
+     "value": 9011,
+     "label": "Griezēji, nažu asināmie [9011]"
+    },
+    {
+     "value": 12520,
+     "label": "Īpašas ierīces ēdiena pagatavošanai [12520]"
+    },
+    {
+     "value": 19151,
+     "label": "Vakuuma iepakotāji [19151]"
+    },
+    {
+     "value": 20718,
+     "label": "Ūdens aparāti [20718]"
+    },
+    {
+     "value": 21874,
+     "label": "Diedzēšanas trauki, augu lampas [21874]"
+    },
+    {
+     "value": 22311,
+     "label": "Gāzētā ūdens aparāti [22311]"
+    },
+    {
+     "value": 3038,
+     "label": "Spoguļi [3038]"
+    },
+    {
+     "value": 21333,
+     "label": "Mēbeles skaistumkopšanas saloniem [21333]"
+    },
+    {
+     "value": 21503,
+     "label": "Mēbeļu riteņi [21503]"
+    },
+    {
+     "value": 21508,
+     "label": "Mēbeļu rokturi  [21508]"
+    },
+    {
+     "value": 21513,
+     "label": "Mēbeļu kājas [21513]"
+    },
+    {
+     "value": 21518,
+     "label": "Mīkstie sienas paneļi [21518]"
+    },
+    {
+     "value": 21523,
+     "label": "Virsmas galdiem [21523]"
+    },
+    {
+     "value": 21528,
+     "label": "Atvilktnes, veļas kastes [21528]"
+    },
+    {
+     "value": 21563,
+     "label": "Citi piederumi mēbelēm [21563]"
+    },
+    {
+     "value": 12140,
+     "label": "Medicīniskā aprūpe [12140]"
+    },
+    {
+     "value": 12145,
+     "label": "Pirmā palīdzība [12145]"
+    },
+    {
+     "value": 17781,
+     "label": "Dzirdes aparāti [17781]"
+    },
+    {
+     "value": 20379,
+     "label": "Medicīnas apģērbs  [20379]"
+    },
+    {
+     "value": 20438,
+     "label": "Balzāmi, ziedes [20438]"
+    },
+    {
+     "value": 21038,
+     "label": "COVID-19 antigēnu testi, siekalu testi [21038]"
+    },
+    {
+     "value": 22163,
+     "label": "Medicīnas apavi [22163]"
+    },
+    {
+     "value": 22208,
+     "label": "Autiņbiksītes, higiēniskās paketes, vienreizlietojamie paladziņi pieaugušajiem [22208]"
+    },
+    {
+     "value": 7871,
+     "label": "Šķidrie mēslošanas līdzekļi [7871]"
+    },
+    {
+     "value": 7874,
+     "label": "Beramie mēslošanas līdzekļi [7874]"
+    },
+    {
+     "value": 7877,
+     "label": "Augu kopšanas līdzekļi [7877]"
+    },
+    {
+     "value": 85,
+     "label": "Mobilie telefoni [85]"
+    },
+    {
+     "value": 396,
+     "label": "Mobilo telefonu aksesuāri [396]"
+    },
+    {
+     "value": 3560,
+     "label": "Akumulatori mobilajiem telefoniem [3560]"
+    },
+    {
+     "value": 3563,
+     "label": "Savienotājkabeļi [3563]"
+    },
+    {
+     "value": 3566,
+     "label": "Lādētāji un adapteri [3566]"
+    },
+    {
+     "value": 4148,
+     "label": "Bezvadu garnitūra [4148]"
+    },
+    {
+     "value": 4154,
+     "label": "Atmiņas kartes mobilajiem telefoniem [4154]"
+    },
+    {
+     "value": 5042,
+     "label": "Telefonu vāciņi, maciņi [5042]"
+    },
+    {
+     "value": 5177,
+     "label": "Auto turētāji [5177]"
+    },
+    {
+     "value": 5222,
+     "label": "Lādētāji-akumulatori (Power bank) [5222]"
+    },
+    {
+     "value": 5228,
+     "label": "Ekrāna aizsargstikli [5228]"
+    },
+    {
+     "value": 10661,
+     "label": "Selfie Sticks [10661]"
+    },
+    {
+     "value": 21043,
+     "label": "Telefonu rezerves daļas un instrumenti to remontam [21043]"
+    },
+    {
+     "value": 463,
+     "label": "Digitālie foto rāmji [463]"
+    },
+    {
+     "value": 8837,
+     "label": "Teleskopi un mikroskopi [8837]"
+    },
+    {
+     "value": 11580,
+     "label": "Stacionārie telefoni [11580]"
+    },
+    {
+     "value": 11610,
+     "label": "Smart ierīces un piederumi [11610]"
+    },
+    {
+     "value": 11650,
+     "label": "Binokļi [11650]"
+    },
+    {
+     "value": 17867,
+     "label": "Termokameras [17867]"
+    },
+    {
+     "value": 74,
+     "label": "Monitori [74]"
+    },
+    {
+     "value": 13720,
+     "label": "Monitora turētāji [13720]"
+    },
+    {
+     "value": 11690,
+     "label": "Moto ķiveres [11690]"
+    },
+    {
+     "value": 11700,
+     "label": "Moto jakas [11700]"
+    },
+    {
+     "value": 11705,
+     "label": "Moto bikses [11705]"
+    },
+    {
+     "value": 11710,
+     "label": "Moto cimdi, aizsargi [11710]"
+    },
+    {
+     "value": 11720,
+     "label": "Moto apavi [11720]"
+    },
+    {
+     "value": 11985,
+     "label": "Moto akumulatori [11985]"
+    },
+    {
+     "value": 11995,
+     "label": "Moto eļļas [11995]"
+    },
+    {
+     "value": 12000,
+     "label": "Moto piederumi [12000]"
+    },
+    {
+     "value": 22203,
+     "label": "Motociklu riepas un kameras [22203]"
+    },
+    {
+     "value": 122,
+     "label": "MP3 atskaņotāji [122]"
+    },
+    {
+     "value": 159,
+     "label": "Diktofoni [159]"
+    },
+    {
+     "value": 21403,
+     "label": "Ģitāras [21403]"
+    },
+    {
+     "value": 21408,
+     "label": "Sitamie instrumenti [21408]"
+    },
+    {
+     "value": 21413,
+     "label": "Taustiņinstrumenti [21413]"
+    },
+    {
+     "value": 21418,
+     "label": "Pūšamie instrumenti [21418]"
+    },
+    {
+     "value": 21423,
+     "label": "Vijoles [21423]"
+    },
+    {
+     "value": 21428,
+     "label": "Perkusijas [21428]"
+    },
+    {
+     "value": 21433,
+     "label": "Dj pultis [21433]"
+    },
+    {
+     "value": 21443,
+     "label": "Mūzikas instrumentu piederumi [21443]"
+    },
+    {
+     "value": 15357,
+     "label": "Niršanas maskas [15357]"
+    },
+    {
+     "value": 15362,
+     "label": "Niršanas trubiņas [15362]"
+    },
+    {
+     "value": 15367,
+     "label": "Niršanas komplekti [15367]"
+    },
+    {
+     "value": 15377,
+     "label": "Niršanas pleznas [15377]"
+    },
+    {
+     "value": 15382,
+     "label": "Citi niršanas piederumi [15382]"
+    },
+    {
+     "value": 22004,
+     "label": "Brilles [22004]"
+    },
+    {
+     "value": 22014,
+     "label": "Kontaktlēcas [22014]"
+    },
+    {
+     "value": 22019,
+     "label": "Kontaktlēcu šķidrumi [22019]"
+    },
+    {
+     "value": 22024,
+     "label": "Acu pilieni [22024]"
+    },
+    {
+     "value": 8198,
+     "label": "Citas oriģinālas dāvanas [8198]"
+    },
+    {
+     "value": 8204,
+     "label": "Ballītēm un svētkiem [8204]"
+    },
+    {
+     "value": 8207,
+     "label": "Oriģinālas krūzes [8207]"
+    },
+    {
+     "value": 8219,
+     "label": "Oriģināli pulksteņi [8219]"
+    },
+    {
+     "value": 10836,
+     "label": "Oriģinālas krājkasītes [10836]"
+    },
+    {
+     "value": 10841,
+     "label": "Atslēgu piekariņi [10841]"
+    },
+    {
+     "value": 20344,
+     "label": "Pasaules kartes, globusi [20344]"
+    },
+    {
+     "value": 20349,
+     "label": "Oriģināli spilveni, pārvalki [20349]"
+    },
+    {
+     "value": 8222,
+     "label": "Oriģināli priekšauti [8222]"
+    },
+    {
+     "value": 10634,
+     "label": "Oriģināli T-krekli [10634]"
+    },
+    {
+     "value": 11086,
+     "label": "Oriģināli džemperi [11086]"
+    },
+    {
+     "value": 20179,
+     "label": "Oriģinālas zeķes [20179]"
+    },
+    {
+     "value": 20249,
+     "label": "Oriģinālas cepures [20249]"
+    },
+    {
+     "value": 20254,
+     "label": "Oriģināla apakšveļa [20254]"
+    },
+    {
+     "value": 13775,
+     "label": "Preces ar bojājumiem [13775]"
+    },
+    {
+     "value": 4190,
+     "label": "Kājslauķi [4190]"
+    },
+    {
+     "value": 5213,
+     "label": "Paklāji [5213]"
+    },
+    {
+     "value": 17611,
+     "label": "Piena produkti [17611]"
+    },
+    {
+     "value": 17776,
+     "label": "Gatavā kulinārija [17776]"
+    },
+    {
+     "value": 21643,
+     "label": "Augu izcelsmes produkti [21643]"
+    },
+    {
+     "value": 15307,
+     "label": "Peldēšanas brilles [15307]"
+    },
+    {
+     "value": 15312,
+     "label": "Peldcepures [15312]"
+    },
+    {
+     "value": 15317,
+     "label": "Peldēšanas komplekti [15317]"
+    },
+    {
+     "value": 15322,
+     "label": "Peldēšanas dēļi un nūjas [15322]"
+    },
+    {
+     "value": 15332,
+     "label": "Peldvestes, peldēšanas piedurknes [15332]"
+    },
+    {
+     "value": 15337,
+     "label": "Pleznas peldēšanai [15337]"
+    },
+    {
+     "value": 15342,
+     "label": "Citi peldēšanas piederumi [15342]"
+    },
+    {
+     "value": 15347,
+     "label": "Peldēšanas apavi [15347]"
+    },
+    {
+     "value": 15352,
+     "label": "Ūdens aerobikas hanteles [15352]"
+    },
+    {
+     "value": 57,
+     "label": "UPS- Nepārtrauktās barošanas bloki [57]"
+    },
+    {
+     "value": 67,
+     "label": "Peles [67]"
+    },
+    {
+     "value": 68,
+     "label": "Klaviatūras [68]"
+    },
+    {
+     "value": 98,
+     "label": "TV uztvērēji [98]"
+    },
+    {
+     "value": 160,
+     "label": "Skaļruņi [160]"
+    },
+    {
+     "value": 269,
+     "label": "Datoru (WEB) kameras [269]"
+    },
+    {
+     "value": 3452,
+     "label": "Austiņas [3452]"
+    },
+    {
+     "value": 20713,
+     "label": "Mikrofoni [20713]"
+    },
+    {
+     "value": 1334,
+     "label": "Piederumi vannām un dušas kabīnēm [1334]"
+    },
+    {
+     "value": 1337,
+     "label": "Piederumi tualetes podiem un bidē [1337]"
+    },
+    {
+     "value": 3284,
+     "label": "Aksesuāri jaucējkrāniem un dušai [3284]"
+    },
+    {
+     "value": 3287,
+     "label": "Sifoni [3287]"
+    },
+    {
+     "value": 8714,
+     "label": "Santehniskās šļūtenes [8714]"
+    },
+    {
+     "value": 5237,
+     "label": "Somas, maciņi [5237]"
+    },
+    {
+     "value": 5564,
+     "label": "Planšetdatori [5564]"
+    },
+    {
+     "value": 8180,
+     "label": "E-grāmatu lasītāji [8180]"
+    },
+    {
+     "value": 8966,
+     "label": "Citi aksesuāri planšetēm un e-grāmatām [8966]"
+    },
+    {
+     "value": 22188,
+     "label": "Grafiskās planšetes [22188]"
+    },
+    {
+     "value": 50,
+     "label": "Portatīvie datori [50]"
+    },
+    {
+     "value": 99,
+     "label": "Somas portatīvajiem datoriem [99]"
+    },
+    {
+     "value": 315,
+     "label": "Portatīvo datoru dzesēšanas paliktņi un citi piederumi [315]"
+    },
+    {
+     "value": 3650,
+     "label": "Lādētāji portatīvajiem datoriem [3650]"
+    },
+    {
+     "value": 13670,
+     "label": "Akumulatori portatīvajiem datoriem [13670]"
+    },
+    {
+     "value": 8843,
+     "label": "Krūts piena pumpji [8843]"
+    },
+    {
+     "value": 14405,
+     "label": "Grūtnieču spilveni [14405]"
+    },
+    {
+     "value": 14410,
+     "label": "Higiēnas preces māmiņām [14410]"
+    },
+    {
+     "value": 14420,
+     "label": "Preces zīdaiņu barošanai [14420]"
+    },
+    {
+     "value": 4454,
+     "label": "Erotiskie komplekti [4454]"
+    },
+    {
+     "value": 4457,
+     "label": "BDSM un fetišs [4457]"
+    },
+    {
+     "value": 4460,
+     "label": "Vakuuma sūkņi un sūknīši [4460]"
+    },
+    {
+     "value": 4478,
+     "label": "Suvenīri un dāvanas pieaugušajiem [4478]"
+    },
+    {
+     "value": 3233,
+     "label": "Skolas somas [3233]"
+    },
+    {
+     "value": 3236,
+     "label": "Sporta somas un mugursomas [3236]"
+    },
+    {
+     "value": 8102,
+     "label": "Kancelejas preces [8102]"
+    },
+    {
+     "value": 12235,
+     "label": "Burtnīcas un papīra preces [12235]"
+    },
+    {
+     "value": 13035,
+     "label": "Koferi, ceļojumu somas [13035]"
+    },
+    {
+     "value": 14985,
+     "label": "Penāļi [14985]"
+    },
+    {
+     "value": 15702,
+     "label": "Pārgājienu un ceļojumu mugursomas [15702]"
+    },
+    {
+     "value": 17215,
+     "label": "Rakstāmpiederumi [17215]"
+    },
+    {
+     "value": 17220,
+     "label": "Modelēšanas un zīmēšanas piederumi [17220]"
+    },
+    {
+     "value": 18331,
+     "label": "Mācību grāmatas [18331]"
+    },
+    {
+     "value": 18336,
+     "label": "Darba burtnīcas [18336]"
+    },
+    {
+     "value": 14265,
+     "label": "Priekšnama iekārtas [14265]"
+    },
+    {
+     "value": 14270,
+     "label": "Apavu skapji, apavu plaukti, priekšnama soliņi [14270]"
+    },
+    {
+     "value": 14275,
+     "label": "Drēbju pakaramie [14275]"
+    },
+    {
+     "value": 14285,
+     "label": "Priekšnama skapji [14285]"
+    },
+    {
+     "value": 14290,
+     "label": "Priekšnama spoguļi [14290]"
+    },
+    {
+     "value": 14310,
+     "label": "Priekšnama skapīši [14310]"
+    },
+    {
+     "value": 17080,
+     "label": "Vēstures grāmatas [17080]"
+    },
+    {
+     "value": 17085,
+     "label": "Enciklopēdijas, uzziņu literatūra [17085]"
+    },
+    {
+     "value": 17090,
+     "label": "Ekonomikas grāmatas [17090]"
+    },
+    {
+     "value": 17095,
+     "label": "Mārketinga grāmatas [17095]"
+    },
+    {
+     "value": 17100,
+     "label": "Sociālo zinātņu grāmatas [17100]"
+    },
+    {
+     "value": 17105,
+     "label": "Svešvalodu mācību materiāli [17105]"
+    },
+    {
+     "value": 108,
+     "label": "Antivīrusa programmatūras [108]"
+    },
+    {
+     "value": 109,
+     "label": "Lietojumprogrammas [109]"
+    },
+    {
+     "value": 110,
+     "label": "Operētājsistēmas [110]"
+    },
+    {
+     "value": 6044,
+     "label": "Puķu podi [6044]"
+    },
+    {
+     "value": 6047,
+     "label": "Podi stādiem un pārstādīšanai [6047]"
+    },
+    {
+     "value": 6050,
+     "label": "Balkona kastes [6050]"
+    },
+    {
+     "value": 6053,
+     "label": "Puķu podu paliktņi un piederumi [6053]"
+    },
+    {
+     "value": 10457,
+     "label": "Putnu barība [10457]"
+    },
+    {
+     "value": 10466,
+     "label": "Putnu būri un barotavas [10466]"
+    },
+    {
+     "value": 20364,
+     "label": "Līmējamie modeļ [20364]"
+    },
+    {
+     "value": 3206,
+     "label": "Badmintons [3206]"
+    },
+    {
+     "value": 11645,
+     "label": "Skvošs [11645]"
+    },
+    {
+     "value": 22238,
+     "label": "Padels [22238]"
+    },
+    {
+     "value": 17751,
+     "label": "Baznīcas sveces, svečturi [17751]"
+    },
+    {
+     "value": 18322,
+     "label": "Baznīcas piederumi [18322]"
+    },
+    {
+     "value": 11660,
+     "label": "Vasaras riepas [11660]"
+    },
+    {
+     "value": 11665,
+     "label": "Ziemas riepas [11665]"
+    },
+    {
+     "value": 11670,
+     "label": "Vissezonas riepas [11670]"
+    },
+    {
+     "value": 21343,
+     "label": "Adīšana [21343]"
+    },
+    {
+     "value": 21348,
+     "label": "Tamborēšana [21348]"
+    },
+    {
+     "value": 21353,
+     "label": "Šūšanas piederumi [21353]"
+    },
+    {
+     "value": 21358,
+     "label": "Izšūšanas piederumi [21358]"
+    },
+    {
+     "value": 21363,
+     "label": "Filcēšanas piederumi [21363]"
+    },
+    {
+     "value": 21368,
+     "label": "Ādas apstrādes instrumenti [21368]"
+    },
+    {
+     "value": 21373,
+     "label": "Kniepadatas, adatiņas, drošības adatas [21373]"
+    },
+    {
+     "value": 21378,
+     "label": "Aplikācijas, rotājumi, uzlīmes [21378]"
+    },
+    {
+     "value": 21388,
+     "label": "Rotu veidošana, pērļošana [21388]"
+    },
+    {
+     "value": 21798,
+     "label": "Audumi [21798]"
+    },
+    {
+     "value": 440,
+     "label": "Galda futbols [440]"
+    },
+    {
+     "value": 2621,
+     "label": "Attīstošās rotaļlietas [2621]"
+    },
+    {
+     "value": 2630,
+     "label": "Konstruktori [2630]"
+    },
+    {
+     "value": 3299,
+     "label": "Azartspēles, pokers [3299]"
+    },
+    {
+     "value": 10669,
+     "label": "Puzles, 3D puzles [10669]"
+    },
+    {
+     "value": 12100,
+     "label": "Galda spēles [12100]"
+    },
+    {
+     "value": 17862,
+     "label": "Dimantu mozaīkas [17862]"
+    },
+    {
+     "value": 18057,
+     "label": "Gleznas pēc numuriem [18057]"
+    },
+    {
+     "value": 18217,
+     "label": "Mīkstās (plīša) rotaļlietas [18217]"
+    },
+    {
+     "value": 2615,
+     "label": "Rotaļlietas zīdaiņiem [2615]"
+    },
+    {
+     "value": 2624,
+     "label": "Rotaļlietas meitenēm [2624]"
+    },
+    {
+     "value": 2627,
+     "label": "Rotaļlietas zēniem [2627]"
+    },
+    {
+     "value": 4961,
+     "label": "Rokassprādzes [4961]"
+    },
+    {
+     "value": 4964,
+     "label": "Auskari [4964]"
+    },
+    {
+     "value": 4967,
+     "label": "Rotaslietu komplekti [4967]"
+    },
+    {
+     "value": 4970,
+     "label": "Kaklarotas [4970]"
+    },
+    {
+     "value": 4985,
+     "label": "Gredzeni [4985]"
+    },
+    {
+     "value": 16910,
+     "label": "Piespraudes, brošas [16910]"
+    },
+    {
+     "value": 3461,
+     "label": "Rullo žalūzijas [3461]"
+    },
+    {
+     "value": 3653,
+     "label": "Moskītu tīkli [3653]"
+    },
+    {
+     "value": 5207,
+     "label": "Aizkaru stangas, karnīzes [5207]"
+    },
+    {
+     "value": 5210,
+     "label": "Žalūzijas [5210]"
+    },
+    {
+     "value": 6797,
+     "label": "Aizkari [6797]"
+    },
+    {
+     "value": 2294,
+     "label": "Piederumi sadzīves tehnikai skaistumam [2294]"
+    },
+    {
+     "value": 2300,
+     "label": "Putekļu sūcēju piederumi [2300]"
+    },
+    {
+     "value": 2303,
+     "label": "Kafijas automātu piederumi [2303]"
+    },
+    {
+     "value": 4718,
+     "label": "Tvaika nosūcēju filtri [4718]"
+    },
+    {
+     "value": 9922,
+     "label": "Lielās sadzīves tehnikas piederumi [9922]"
+    },
+    {
+     "value": 145,
+     "label": "Putekļu sūcēji [145]"
+    },
+    {
+     "value": 165,
+     "label": "Ķermeņa svari, bagāžas svari [165]"
+    },
+    {
+     "value": 7865,
+     "label": "Tvaika tīrītāji, grīdas mazgāšanas ierīces [7865]"
+    },
+    {
+     "value": 13660,
+     "label": "Akumulatori putekļu sūcējiem [13660]"
+    },
+    {
+     "value": 20543,
+     "label": "Putekļu sūcēji - roboti [20543]"
+    },
+    {
+     "value": 20548,
+     "label": "Putekļu sūcēji - slotas [20548]"
+    },
+    {
+     "value": 20773,
+     "label": "Logu tīrītāji, logu mazgāšanas roboti [20773]"
+    },
+    {
+     "value": 4112,
+     "label": "Veļas žāvēšana [4112]"
+    },
+    {
+     "value": 4115,
+     "label": "Veļas gludināšana [4115]"
+    },
+    {
+     "value": 5186,
+     "label": "Veļas grozi un mantu uzglabāšanas kastes [5186]"
+    },
+    {
+     "value": 5831,
+     "label": "Pakaramie un apģērbu maisi [5831]"
+    },
+    {
+     "value": 21293,
+     "label": "Miskastes [21293]"
+    },
+    {
+     "value": 392,
+     "label": "Jaucējkrāni [392]"
+    },
+    {
+     "value": 393,
+     "label": "Vannas istabas aksesuāri [393]"
+    },
+    {
+     "value": 455,
+     "label": "Vannas [455]"
+    },
+    {
+     "value": 456,
+     "label": "Tualetes podi [456]"
+    },
+    {
+     "value": 458,
+     "label": "Izlietnes [458]"
+    },
+    {
+     "value": 459,
+     "label": "Bidē [459]"
+    },
+    {
+     "value": 1310,
+     "label": "Dvieļu žāvētāji [1310]"
+    },
+    {
+     "value": 7919,
+     "label": "Cilvēkiem ar īpašām vajadzībām [7919]"
+    },
+    {
+     "value": 12115,
+     "label": "Pisuāri [12115]"
+    },
+    {
+     "value": 11620,
+     "label": "Saunas un pirts krāsnis [11620]"
+    },
+    {
+     "value": 11625,
+     "label": "Pirts lietas [11625]"
+    },
+    {
+     "value": 200,
+     "label": "Sejas krēmi [200]"
+    },
+    {
+     "value": 6188,
+     "label": "Serumi sejai, eļļas [6188]"
+    },
+    {
+     "value": 6191,
+     "label": "Acu krēmi, serumi [6191]"
+    },
+    {
+     "value": 6194,
+     "label": "Sejas ādas kopšana [6194]"
+    },
+    {
+     "value": 15977,
+     "label": "Sejas maskas, acu maskas [15977]"
+    },
+    {
+     "value": 21663,
+     "label": "Sejas tīrīšanas un masāžas ierīces [21663]"
+    },
+    {
+     "value": 5057,
+     "label": "Dārzeņu, ogu sēklas [5057]"
+    },
+    {
+     "value": 5060,
+     "label": "Puķu sēklas [5060]"
+    },
+    {
+     "value": 5063,
+     "label": "Garšvielu sēklas [5063]"
+    },
+    {
+     "value": 5129,
+     "label": "Zāliena sēklas [5129]"
+    },
+    {
+     "value": 9094,
+     "label": "Sīpolpuķes [9094]"
+    },
+    {
+     "value": 4442,
+     "label": "Vibratori [4442]"
+    },
+    {
+     "value": 4445,
+     "label": "Anālās rotaļlietas [4445]"
+    },
+    {
+     "value": 4448,
+     "label": "Dildo [4448]"
+    },
+    {
+     "value": 4451,
+     "label": "Vaginālās bumbiņas [4451]"
+    },
+    {
+     "value": 4472,
+     "label": "Mīlas lelles \/ Masturbātori [4472]"
+    },
+    {
+     "value": 4475,
+     "label": "Locekļa uzmavas un gredzeni [4475]"
+    },
+    {
+     "value": 8186,
+     "label": "Tapetes [8186]"
+    },
+    {
+     "value": 8189,
+     "label": "Fototapetes [8189]"
+    },
+    {
+     "value": 8192,
+     "label": "DO NOT ACTIVATE [8192]"
+    },
+    {
+     "value": 10684,
+     "label": "Sienas flīzes [10684]"
+    },
+    {
+     "value": 10687,
+     "label": "Dekoratīvie akmeņi [10687]"
+    },
+    {
+     "value": 10901,
+     "label": "Līmplēves [10901]"
+    },
+    {
+     "value": 16779,
+     "label": "Griestu, sienu dekoru elementi [16779]"
+    },
+    {
+     "value": 22223,
+     "label": "Pašlīmējošā plēve uz pasūtījumu [22223]"
+    },
+    {
+     "value": 4021,
+     "label": "Krūšturi [4021]"
+    },
+    {
+     "value": 4024,
+     "label": "Sieviešu biksītes [4024]"
+    },
+    {
+     "value": 4030,
+     "label": "Naktskrekli, pidžamas [4030]"
+    },
+    {
+     "value": 4033,
+     "label": "Koriģējošā veļa [4033]"
+    },
+    {
+     "value": 4036,
+     "label": "Sieviešu bodiji, apakškrekli [4036]"
+    },
+    {
+     "value": 9041,
+     "label": "Termoveļa sievietēm [9041]"
+    },
+    {
+     "value": 16342,
+     "label": "Peldkostīmi [16342]"
+    },
+    {
+     "value": 17967,
+     "label": "Sieviešu halāti [17967]"
+    },
+    {
+     "value": 2018,
+     "label": "Sieviešu zābaki, puszābaki [2018]"
+    },
+    {
+     "value": 5669,
+     "label": "Gumijas zābaki sievietēm [5669]"
+    },
+    {
+     "value": 5789,
+     "label": "Sporta apavi sievietēm [5789]"
+    },
+    {
+     "value": 6731,
+     "label": "Sieviešu sandales [6731]"
+    },
+    {
+     "value": 6740,
+     "label": "Iešļūcenes, čības sievietēm [6740]"
+    },
+    {
+     "value": 17982,
+     "label": "Sieviešu kurpes [17982]"
+    },
+    {
+     "value": 5696,
+     "label": "Sporta apģērbs sievietēm [5696]"
+    },
+    {
+     "value": 5699,
+     "label": "Kleitas [5699]"
+    },
+    {
+     "value": 5702,
+     "label": "T-krekli sievietēm [5702]"
+    },
+    {
+     "value": 5705,
+     "label": "Tunikas [5705]"
+    },
+    {
+     "value": 5708,
+     "label": "Sieviešu džemperi [5708]"
+    },
+    {
+     "value": 5711,
+     "label": "Sieviešu zeķes [5711]"
+    },
+    {
+     "value": 7310,
+     "label": "Sieviešu mēteļi [7310]"
+    },
+    {
+     "value": 7379,
+     "label": "Slēpošanas apģērbs [7379]"
+    },
+    {
+     "value": 8708,
+     "label": "Bikses sievietēm [8708]"
+    },
+    {
+     "value": 8969,
+     "label": "Svārki [8969]"
+    },
+    {
+     "value": 8972,
+     "label": "Žaketes sievietēm [8972]"
+    },
+    {
+     "value": 8975,
+     "label": "Jakas sievietēm [8975]"
+    },
+    {
+     "value": 17952,
+     "label": "Blūzes, sieviešu krekli [17952]"
+    },
+    {
+     "value": 17957,
+     "label": "Sieviešu džinsi [17957]"
+    },
+    {
+     "value": 17962,
+     "label": "Sieviešu virsjakas [17962]"
+    },
+    {
+     "value": 19156,
+     "label": "Sieviešu kostīmi [19156]"
+    },
+    {
+     "value": 20359,
+     "label": "Sieviešu vestes [20359]"
+    },
+    {
+     "value": 20443,
+     "label": "Sieviešu kombinezoni [20443]"
+    },
+    {
+     "value": 20458,
+     "label": "Sieviešu šorti [20458]"
+    },
+    {
+     "value": 20523,
+     "label": "Zeķubikses [20523]"
+    },
+    {
+     "value": 172,
+     "label": "Matu fēni [172]"
+    },
+    {
+     "value": 177,
+     "label": "Epilatori [177]"
+    },
+    {
+     "value": 178,
+     "label": "Bārdas skuvekļi [178]"
+    },
+    {
+     "value": 526,
+     "label": "Matu griežamās mašīnas [526]"
+    },
+    {
+     "value": 527,
+     "label": "Matu veidotāji, taisnotāji [527]"
+    },
+    {
+     "value": 559,
+     "label": "Elektriskās zobu birstes [559]"
+    },
+    {
+     "value": 2771,
+     "label": "Pedikīra, manikīra piederumi [2771]"
+    },
+    {
+     "value": 2774,
+     "label": "Kāju vannas [2774]"
+    },
+    {
+     "value": 2777,
+     "label": "Masāžas ierīces [2777]"
+    },
+    {
+     "value": 3572,
+     "label": "Asinsspiediena mērītāji [3572]"
+    },
+    {
+     "value": 4727,
+     "label": "Termometri [4727]"
+    },
+    {
+     "value": 5762,
+     "label": "Sejas kopšanas ierīces [5762]"
+    },
+    {
+     "value": 18371,
+     "label": "Inhalatori [18371]"
+    },
+    {
+     "value": 20428,
+     "label": "Sildošās preces [20428]"
+    },
+    {
+     "value": 20768,
+     "label": "Uzgaļi elektriskajām zobu birstēm [20768]"
+    },
+    {
+     "value": 22153,
+     "label": "Irigatori [22153]"
+    },
+    {
+     "value": 352,
+     "label": "Sieviešu smaržas [352]"
+    },
+    {
+     "value": 353,
+     "label": "Vīriešu smaržas [353]"
+    },
+    {
+     "value": 369,
+     "label": "Bērnu smaržas [369]"
+    },
+    {
+     "value": 3203,
+     "label": "Parfimēta vīriešu kosmētika [3203]"
+    },
+    {
+     "value": 3221,
+     "label": "Parfimēta sieviešu kosmētika [3221]"
+    },
+    {
+     "value": 11860,
+     "label": "Mājas aromāti [11860]"
+    },
+    {
+     "value": 15135,
+     "label": "Biljards [15135]"
+    },
+    {
+     "value": 15732,
+     "label": "Citi spēļu galdi [15732]"
+    },
+    {
+     "value": 437,
+     "label": "Handbols [437]"
+    },
+    {
+     "value": 533,
+     "label": "Ķermeņa daļu fiksatori [533]"
+    },
+    {
+     "value": 536,
+     "label": "Pedometri, hronometri, sirds ritma monitori [536]"
+    },
+    {
+     "value": 1028,
+     "label": "Bokss un austrumu cīņas [1028]"
+    },
+    {
+     "value": 3512,
+     "label": "Šautriņmešana, dārts [3512]"
+    },
+    {
+     "value": 4205,
+     "label": "Nūjošanas nūjas [4205]"
+    },
+    {
+     "value": 10712,
+     "label": "Beisbols [10712]"
+    },
+    {
+     "value": 12010,
+     "label": "Florbols [12010]"
+    },
+    {
+     "value": 15187,
+     "label": "Bumbu pumpji un adatas [15187]"
+    },
+    {
+     "value": 15822,
+     "label": "Masāžas piederumi [15822]"
+    },
+    {
+     "value": 20041,
+     "label": "Golfs [20041]"
+    },
+    {
+     "value": 20598,
+     "label": "Baleta apģērbs [20598]"
+    },
+    {
+     "value": 21743,
+     "label": "Disku golfs [21743]"
+    },
+    {
+     "value": 21759,
+     "label": "Zirglietas [21759]"
+    },
+    {
+     "value": 15747,
+     "label": "Aminoskābes [15747]"
+    },
+    {
+     "value": 15752,
+     "label": "Ogļhidrāti [15752]"
+    },
+    {
+     "value": 15757,
+     "label": "Slāpekļa oksīda veicinātāji [15757]"
+    },
+    {
+     "value": 15762,
+     "label": "Proteīni [15762]"
+    },
+    {
+     "value": 15767,
+     "label": "Batoniņi [15767]"
+    },
+    {
+     "value": 15772,
+     "label": "Citas piedevas un preparāti [15772]"
+    },
+    {
+     "value": 15782,
+     "label": "Uztura bagātinātāji enerģijai [15782]"
+    },
+    {
+     "value": 15787,
+     "label": "Funkcionālā pārtika (superēdiens) [15787]"
+    },
+    {
+     "value": 15792,
+     "label": "Glutamīni [15792]"
+    },
+    {
+     "value": 15802,
+     "label": "Kreatīni [15802]"
+    },
+    {
+     "value": 15807,
+     "label": "L-karnitīns [15807]"
+    },
+    {
+     "value": 15812,
+     "label": "Uztura bagātinātāji, preparāti muskuļu masas palielināšanai [15812]"
+    },
+    {
+     "value": 15817,
+     "label": "Uztura bagātinātāji, preparāti locītavām [15817]"
+    },
+    {
+     "value": 15827,
+     "label": "Tauku dedzinātāji [15827]"
+    },
+    {
+     "value": 15832,
+     "label": "Uztura bagātinātāji tievēšanai [15832]"
+    },
+    {
+     "value": 15837,
+     "label": "Testosterona veicinātāji [15837]"
+    },
+    {
+     "value": 15842,
+     "label": "Vitamīni [15842]"
+    },
+    {
+     "value": 15857,
+     "label": "Uztura bagātinātāji atjaunošanai pēc slodzes [15857]"
+    },
+    {
+     "value": 10370,
+     "label": "Sausā barība suņiem [10370]"
+    },
+    {
+     "value": 10373,
+     "label": "Konservi suņiem [10373]"
+    },
+    {
+     "value": 10376,
+     "label": "Gardumi suņiem [10376]"
+    },
+    {
+     "value": 10379,
+     "label": "Vitamīni, uztura bagātinātāji, pretparazītu līdzekļi suņiem [10379]"
+    },
+    {
+     "value": 10382,
+     "label": "Suņu gultas, spilveni, būdas [10382]"
+    },
+    {
+     "value": 10385,
+     "label": "Transportēšanas būri, somas [10385]"
+    },
+    {
+     "value": 10388,
+     "label": "Apkakles, siksnas suņiem [10388]"
+    },
+    {
+     "value": 10391,
+     "label": "Bļodas, kastes pārtikas [10391]"
+    },
+    {
+     "value": 10394,
+     "label": "Suņu rotaļlietas [10394]"
+    },
+    {
+     "value": 10400,
+     "label": "Piederumi suņu trenēšanai [10400]"
+    },
+    {
+     "value": 10403,
+     "label": "Ceļojumu piederumi [10403]"
+    },
+    {
+     "value": 10415,
+     "label": "Apģērbi suņiem [10415]"
+    },
+    {
+     "value": 21553,
+     "label": "Kosmētiskie līdzekļi dzīvniekiem [21553]"
+    },
+    {
+     "value": 21558,
+     "label": "Kopšanas līdzekļi dzīvniekiem [21558]"
+    },
+    {
+     "value": 21813,
+     "label": "Suņu pavadas [21813]"
+    },
+    {
+     "value": 3374,
+     "label": "Karogi un aksesuāri [3374]"
+    },
+    {
+     "value": 5804,
+     "label": "Kapu sveces [5804]"
+    },
+    {
+     "value": 5849,
+     "label": "Dāvanu saiņošanas materiāli [5849]"
+    },
+    {
+     "value": 8675,
+     "label": "Karnevāla kostīmi, maskas un parūkas [8675]"
+    },
+    {
+     "value": 9889,
+     "label": "Svētku dekorācijas [9889]"
+    },
+    {
+     "value": 9937,
+     "label": "Nenaudojama [9937]"
+    },
+    {
+     "value": 14435,
+     "label": "Baloni [14435]"
+    },
+    {
+     "value": 14440,
+     "label": "Vienreizējie trauki [14440]"
+    },
+    {
+     "value": 20244,
+     "label": "Aploksnes [20244]"
+    },
+    {
+     "value": 101,
+     "label": "TV kronšteini [101]"
+    },
+    {
+     "value": 158,
+     "label": "Televizori [158]"
+    },
+    {
+     "value": 2588,
+     "label": "Virszemes TV uztverēji [2588]"
+    },
+    {
+     "value": 2594,
+     "label": "Kabeļi un vadi [2594]"
+    },
+    {
+     "value": 2597,
+     "label": "Antenas un piederumi [2597]"
+    },
+    {
+     "value": 4202,
+     "label": "Televizoru un Smart TV aksesuāri [4202]"
+    },
+    {
+     "value": 5651,
+     "label": "Multimediju atskaņotāji [5651]"
+    },
+    {
+     "value": 442,
+     "label": "Āra tenisa preces [442]"
+    },
+    {
+     "value": 20683,
+     "label": "Āra tenisa apavi [20683]"
+    },
+    {
+     "value": 13855,
+     "label": "Rūteri (maršrutētāji) [13855]"
+    },
+    {
+     "value": 13860,
+     "label": "Bezvadu piekļuves punkti (Access Point) [13860]"
+    },
+    {
+     "value": 13865,
+     "label": "Komutatori (Switch) [13865]"
+    },
+    {
+     "value": 13870,
+     "label": "Wi-Fi pastiprinātāji [13870]"
+    },
+    {
+     "value": 6086,
+     "label": "Tīrīšanas līdzekļi [6086]"
+    },
+    {
+     "value": 6089,
+     "label": "Mazgāšanas līdzekļi [6089]"
+    },
+    {
+     "value": 6092,
+     "label": "Tīrīšanas piederumi [6092]"
+    },
+    {
+     "value": 6095,
+     "label": "Līdzekļi apģērbu un apavu kopšanai [6095]"
+    },
+    {
+     "value": 9940,
+     "label": "Miskastes maisi [9940]"
+    },
+    {
+     "value": 10051,
+     "label": "Gaisa atsvaidzinātāji [10051]"
+    },
+    {
+     "value": 10911,
+     "label": "Trauku mazgāšanas līdzekļi [10911]"
+    },
+    {
+     "value": 20463,
+     "label": "Tualetes papīrs, papīra dvieļi [20463]"
+    },
+    {
+     "value": 452,
+     "label": "Velotrenažieri [452]"
+    },
+    {
+     "value": 469,
+     "label": "Skrejceliņi [469]"
+    },
+    {
+     "value": 470,
+     "label": "Eliptiskie trenažieri [470]"
+    },
+    {
+     "value": 471,
+     "label": "Airēšanas trenažieri [471]"
+    },
+    {
+     "value": 473,
+     "label": "Hanteles, svaru stieņi un diski [473]"
+    },
+    {
+     "value": 474,
+     "label": "Treniņu soli un stendi [474]"
+    },
+    {
+     "value": 475,
+     "label": "Spēka trenažieri [475]"
+    },
+    {
+     "value": 1859,
+     "label": "Piederumi un aksesuāri trenažieriem [1859]"
+    },
+    {
+     "value": 2735,
+     "label": "Steperi [2735]"
+    },
+    {
+     "value": 12440,
+     "label": "Citi trenažieri [12440]"
+    },
+    {
+     "value": 13294,
+     "label": "Sporta batuti [13294]"
+    },
+    {
+     "value": 15637,
+     "label": "Aukstuma somas, aukstuma kastes un aukstuma elementi [15637]"
+    },
+    {
+     "value": 15642,
+     "label": "Apavu bahilas, pretslīdes uzlikas [15642]"
+    },
+    {
+     "value": 15647,
+     "label": "Tūrisma naži, daudzfunkcionālie instrumenti [15647]"
+    },
+    {
+     "value": 15652,
+     "label": "Kompasi [15652]"
+    },
+    {
+     "value": 15657,
+     "label": "Tūrisma gāzes plītis, gāzes baloni [15657]"
+    },
+    {
+     "value": 15662,
+     "label": "Ugunskura katli, trauki un galda piederumi  [15662]"
+    },
+    {
+     "value": 15677,
+     "label": "Ūdensizturīgas somas, maisi, lietusmēteļi [15677]"
+    },
+    {
+     "value": 15687,
+     "label": "Lukturi un prožektori [15687]"
+    },
+    {
+     "value": 15697,
+     "label": "Citas tūrisma preces [15697]"
+    },
+    {
+     "value": 433,
+     "label": "Teltis [433]"
+    },
+    {
+     "value": 434,
+     "label": "Guļammaisi [434]"
+    },
+    {
+     "value": 3710,
+     "label": "Tūrisma ekipējuma kopšanas līdzekļi [3710]"
+    },
+    {
+     "value": 5162,
+     "label": "Ūdens pudeles [5162]"
+    },
+    {
+     "value": 5639,
+     "label": "Piepūšamie matrači un mēbeles [5639]"
+    },
+    {
+     "value": 10218,
+     "label": "Biotualetes [10218]"
+    },
+    {
+     "value": 13299,
+     "label": "Tūrisma matrači un paklājiņi [13299]"
+    },
+    {
+     "value": 13304,
+     "label": "Tūrisma mēbeles [13304]"
+    },
+    {
+     "value": 13490,
+     "label": "Alpīnisma inventārs [13490]"
+    },
+    {
+     "value": 146,
+     "label": "Veļas mašīnas [146]"
+    },
+    {
+     "value": 147,
+     "label": "Veļas žāvētāji [147]"
+    },
+    {
+     "value": 11116,
+     "label": "SUP dēļi, sērfa dēļi un piederumi [11116]"
+    },
+    {
+     "value": 11122,
+     "label": "Gaisa pūķi [11122]"
+    },
+    {
+     "value": 20703,
+     "label": "Hidrotērpi [20703]"
+    },
+    {
+     "value": 21989,
+     "label": "Veikbords [21989]"
+    },
+    {
+     "value": 4061,
+     "label": "Sūkņi tīram ūdenim [4061]"
+    },
+    {
+     "value": 4064,
+     "label": "Kanalizācijas sūkņi, ūdens sūkņi netīram ūdenim  [4064]"
+    },
+    {
+     "value": 4067,
+     "label": "Strūklaku sūkņi [4067]"
+    },
+    {
+     "value": 4070,
+     "label": "Dārza sūkņi [4070]"
+    },
+    {
+     "value": 4502,
+     "label": "Kanalizācijas vāki [4502]"
+    },
+    {
+     "value": 6032,
+     "label": "Hidrofori [6032]"
+    },
+    {
+     "value": 7991,
+     "label": "Benzīna ūdens sūkņi [7991]"
+    },
+    {
+     "value": 17005,
+     "label": "Pavārgrāmatas [17005]"
+    },
+    {
+     "value": 17010,
+     "label": "Grāmatas par fotografēšanu [17010]"
+    },
+    {
+     "value": 17015,
+     "label": "Ceļojumu apraksti, ceļveži [17015]"
+    },
+    {
+     "value": 17020,
+     "label": "Grāmatas par dārzkopību [17020]"
+    },
+    {
+     "value": 17025,
+     "label": "Grāmatas par modi [17025]"
+    },
+    {
+     "value": 17030,
+     "label": "Dizaina grāmatas [17030]"
+    },
+    {
+     "value": 17035,
+     "label": "Mākslas grāmatas [17035]"
+    },
+    {
+     "value": 17040,
+     "label": "Grāmatas par arhitektūru [17040]"
+    },
+    {
+     "value": 21638,
+     "label": "Ezotērika [21638]"
+    },
+    {
+     "value": 14320,
+     "label": "Vannas istabas skapīši [14320]"
+    },
+    {
+     "value": 14330,
+     "label": "Vannas istabas mēbeļu komplekti [14330]"
+    },
+    {
+     "value": 14335,
+     "label": "Vannas istabas spoguļi [14335]"
+    },
+    {
+     "value": 15392,
+     "label": "Velo lukturi un atstarotāji [15392]"
+    },
+    {
+     "value": 15397,
+     "label": "Velo slēdzenes [15397]"
+    },
+    {
+     "value": 15402,
+     "label": "Velo pumpji [15402]"
+    },
+    {
+     "value": 15407,
+     "label": "Bērnu velosipēdu sēdeklīši [15407]"
+    },
+    {
+     "value": 15412,
+     "label": "Velosipēdu piekabes, rati [15412]"
+    },
+    {
+     "value": 15422,
+     "label": "Velodatori, navigācijas [15422]"
+    },
+    {
+     "value": 15427,
+     "label": "Velo somas, telefona turētāji [15427]"
+    },
+    {
+     "value": 15437,
+     "label": "Velosipēdu zvaniņi, signāli [15437]"
+    },
+    {
+     "value": 15447,
+     "label": "Velo pudeles un pudeļu turētāji [15447]"
+    },
+    {
+     "value": 15452,
+     "label": "Velo apģērbs [15452]"
+    },
+    {
+     "value": 15457,
+     "label": "Velo cimdi [15457]"
+    },
+    {
+     "value": 15462,
+     "label": "Velo mugursomas [15462]"
+    },
+    {
+     "value": 15467,
+     "label": "Velo instrumenti, kopšanas līdzekļi [15467]"
+    },
+    {
+     "value": 15472,
+     "label": "Velo sēdekļi un sēdekļu pārvalki [15472]"
+    },
+    {
+     "value": 15477,
+     "label": "Velo bagāžnieki [15477]"
+    },
+    {
+     "value": 15482,
+     "label": "Velo dubļu sargi [15482]"
+    },
+    {
+     "value": 15487,
+     "label": "Velo riepas, kameras [15487]"
+    },
+    {
+     "value": 15492,
+     "label": "Velo rokturi [15492]"
+    },
+    {
+     "value": 15497,
+     "label": "Citas velosipēdu rezerves daļas [15497]"
+    },
+    {
+     "value": 15502,
+     "label": "Citi velo piederumi un aksesuāri [15502]"
+    },
+    {
+     "value": 1475,
+     "label": "Velosipēdi [1475]"
+    },
+    {
+     "value": 3143,
+     "label": "Skrituļslidas [3143]"
+    },
+    {
+     "value": 9118,
+     "label": "Skrituļdēļi [9118]"
+    },
+    {
+     "value": 12715,
+     "label": "Elektriskie skrejriteņi [12715]"
+    },
+    {
+     "value": 15507,
+     "label": "Ķiveres [15507]"
+    },
+    {
+     "value": 15512,
+     "label": "Aizsargi [15512]"
+    },
+    {
+     "value": 16297,
+     "label": "Sporta brilles [16297]"
+    },
+    {
+     "value": 20733,
+     "label": "Elektro motorolleri [20733]"
+    },
+    {
+     "value": 21867,
+     "label": "Piederumi elektriskajiem skrejriteņiem [21867]"
+    },
+    {
+     "value": 22029,
+     "label": "Elektrovelosipēdi [22029]"
+    },
+    {
+     "value": 156,
+     "label": "DVD atskaņotāji [156]"
+    },
+    {
+     "value": 157,
+     "label": "Mājas kinozāles [157]"
+    },
+    {
+     "value": 162,
+     "label": "Magnetolas [162]"
+    },
+    {
+     "value": 511,
+     "label": "Radioaparāti, modinātājpulksteņi [511]"
+    },
+    {
+     "value": 1136,
+     "label": "Mājas akustika, Sound Bar sistēmas [1136]"
+    },
+    {
+     "value": 4439,
+     "label": "Mūzikas centri [4439]"
+    },
+    {
+     "value": 5993,
+     "label": "Vinila plates, CD, DVD [5993]"
+    },
+    {
+     "value": 10092,
+     "label": "Plašu atskaņotāji [10092]"
+    },
+    {
+     "value": 115,
+     "label": "Videokameras [115]"
+    },
+    {
+     "value": 310,
+     "label": "Aksesuāri videokamerām [310]"
+    },
+    {
+     "value": 3569,
+     "label": "Akumulatori videokamerām [3569]"
+    },
+    {
+     "value": 3641,
+     "label": "Lādētāji videokamerām [3641]"
+    },
+    {
+     "value": 4169,
+     "label": "Somas videokamerām [4169]"
+    },
+    {
+     "value": 8954,
+     "label": "Sporta kameras [8954]"
+    },
+    {
+     "value": 13730,
+     "label": "Viedpulksteņi (smartwatch) [13730]"
+    },
+    {
+     "value": 13735,
+     "label": "Fitnesa aproces [13735]"
+    },
+    {
+     "value": 13740,
+     "label": "Viedpulksteņu un viedo aproču aksesuāri [13740]"
+    },
+    {
+     "value": 1268,
+     "label": "Dīvāni [1268]"
+    },
+    {
+     "value": 3104,
+     "label": "Plaukti [3104]"
+    },
+    {
+     "value": 3107,
+     "label": "Sekcijas [3107]"
+    },
+    {
+     "value": 3110,
+     "label": "Kumodes [3110]"
+    },
+    {
+     "value": 3215,
+     "label": "TV galdiņi [3215]"
+    },
+    {
+     "value": 6716,
+     "label": "Žurnālgaldiņi [6716]"
+    },
+    {
+     "value": 8051,
+     "label": "Sēžammaisi, pufi [8051]"
+    },
+    {
+     "value": 9023,
+     "label": "Vitrīnas, bufetes [9023]"
+    },
+    {
+     "value": 14190,
+     "label": "Stūra dīvāni [14190]"
+    },
+    {
+     "value": 14195,
+     "label": "Atpūtas krēsli [14195]"
+    },
+    {
+     "value": 14200,
+     "label": "Dīvānu komplekti [14200]"
+    },
+    {
+     "value": 14205,
+     "label": "Skapīši viesistabai [14205]"
+    },
+    {
+     "value": 14391,
+     "label": "Konsoles galdiņi [14391]"
+    },
+    {
+     "value": 4039,
+     "label": "Vīriešu apakšbikses [4039]"
+    },
+    {
+     "value": 4042,
+     "label": "Vīriešu apakškrekli [4042]"
+    },
+    {
+     "value": 9065,
+     "label": "Vīriešu halāti, pidžamas [9065]"
+    },
+    {
+     "value": 9071,
+     "label": "Vīriešu termoveļa [9071]"
+    },
+    {
+     "value": 17827,
+     "label": "Peldšorti, peldbikses [17827]"
+    },
+    {
+     "value": 5786,
+     "label": "Vīriešu iešļūcenes, čības, sandales [5786]"
+    },
+    {
+     "value": 6749,
+     "label": "Vīriešu kurpes, zābaki [6749]"
+    },
+    {
+     "value": 6758,
+     "label": "Sporta apavi vīriešiem [6758]"
+    },
+    {
+     "value": 21778,
+     "label": "Gumijas zābaki vīriešiem [21778]"
+    },
+    {
+     "value": 5717,
+     "label": "Sporta apģērbs vīriešiem [5717]"
+    },
+    {
+     "value": 5720,
+     "label": "Vīriešu džemperi [5720]"
+    },
+    {
+     "value": 5723,
+     "label": "Vīriešu T-krekli [5723]"
+    },
+    {
+     "value": 5726,
+     "label": "Vīriešu krekli [5726]"
+    },
+    {
+     "value": 7382,
+     "label": "Vīriešu slēpošanas apģērbs [7382]"
+    },
+    {
+     "value": 9050,
+     "label": "Vīriešu virsjakas [9050]"
+    },
+    {
+     "value": 9053,
+     "label": "Vīriešu žaketes [9053]"
+    },
+    {
+     "value": 9056,
+     "label": "Vīriešu jakas [9056]"
+    },
+    {
+     "value": 9059,
+     "label": "Vīriešu džinsi [9059]"
+    },
+    {
+     "value": 9068,
+     "label": "Vīriešu zeķes [9068]"
+    },
+    {
+     "value": 17972,
+     "label": "Vīriešu vestes [17972]"
+    },
+    {
+     "value": 17977,
+     "label": "Vīriešu bikses [17977]"
+    },
+    {
+     "value": 18012,
+     "label": "Vīriešu mēteļi [18012]"
+    },
+    {
+     "value": 19161,
+     "label": "Uzvalki [19161]"
+    },
+    {
+     "value": 19576,
+     "label": "Vīriešu šorti [19576]"
+    },
+    {
+     "value": 1391,
+     "label": "Virtuves izlietnes [1391]"
+    },
+    {
+     "value": 1469,
+     "label": "Piederumi virtuves izlietnēm un jaucējkrāniem [1469]"
+    },
+    {
+     "value": 1472,
+     "label": "Ūdens maisītāji virtuvei [1472]"
+    },
+    {
+     "value": 1253,
+     "label": "Virtuves un ēdamistabas krēsli [1253]"
+    },
+    {
+     "value": 1259,
+     "label": "Virtuves galdi, ēdamgaldi [1259]"
+    },
+    {
+     "value": 2168,
+     "label": "Virtuves komplekti [2168]"
+    },
+    {
+     "value": 4151,
+     "label": "Ēdamistabas komplekti [4151]"
+    },
+    {
+     "value": 14220,
+     "label": "Virtuves skapīši [14220]"
+    },
+    {
+     "value": 14225,
+     "label": "Galda virsmas [14225]"
+    },
+    {
+     "value": 14230,
+     "label": "Virtuves furnitūra [14230]"
+    },
+    {
+     "value": 3356,
+     "label": "Virtuves piederumi [3356]"
+    },
+    {
+     "value": 3359,
+     "label": "Glāzes, krūzes, karafes [3359]"
+    },
+    {
+     "value": 3362,
+     "label": "Katli, tvaika katli [3362]"
+    },
+    {
+     "value": 3365,
+     "label": "Pannas [3365]"
+    },
+    {
+     "value": 4100,
+     "label": "Cepamais papīrs, trauki, formas [4100]"
+    },
+    {
+     "value": 4106,
+     "label": "Termosi, termokrūzes [4106]"
+    },
+    {
+     "value": 4145,
+     "label": "Garšvielas, garšvielu komplekti [4145]"
+    },
+    {
+     "value": 10063,
+     "label": "Trauki, šķīvji, pusdienu servīzes [10063]"
+    },
+    {
+     "value": 10066,
+     "label": "Trauki pārtikas uzglabāšanai [10066]"
+    },
+    {
+     "value": 12240,
+     "label": "Galda piederumi [12240]"
+    },
+    {
+     "value": 12245,
+     "label": "Naži un to piederumi [12245]"
+    },
+    {
+     "value": 12250,
+     "label": "Griešanas dēlīši [12250]"
+    },
+    {
+     "value": 12255,
+     "label": "Trauki un piederumi konservēšanai [12255]"
+    },
+    {
+     "value": 20578,
+     "label": "Garšvielu trauki, dzirnaviņas [20578]"
+    },
+    {
+     "value": 20643,
+     "label": "Kafijas kannas, tējkannas [20643]"
+    },
+    {
+     "value": 11865,
+     "label": "Vitamīni, preparāti, uztura bagātinātāji labsajūtai [11865]"
+    },
+    {
+     "value": 11870,
+     "label": "Vitamīni, preparāti, uztura bagātinātāji skaistumam [11870]"
+    },
+    {
+     "value": 11875,
+     "label": "Vitamīni, preparāti, uztura bagātinātāji imunitātei [11875]"
+    },
+    {
+     "value": 12550,
+     "label": "Tējas un ārstniecības augi [12550]"
+    },
+    {
+     "value": 15085,
+     "label": "Volejbola bumbas [15085]"
+    },
+    {
+     "value": 15090,
+     "label": "Volejbola tīkli [15090]"
+    },
+    {
+     "value": 15095,
+     "label": "Volejbola aizsargi [15095]"
+    },
+    {
+     "value": 15100,
+     "label": "Citas volejbola preces [15100]"
+    },
+    {
+     "value": 14560,
+     "label": "Virsjakas, mēteļi jaundzimušajiem [14560]"
+    },
+    {
+     "value": 14565,
+     "label": "Kleitas, svārki jaundzimušajiem [14565]"
+    },
+    {
+     "value": 14570,
+     "label": "Rāpulīši [14570]"
+    },
+    {
+     "value": 14575,
+     "label": "Krekliņi, bodiji zīdaiņiem [14575]"
+    },
+    {
+     "value": 14585,
+     "label": "Apģērbu komplekti jaundzimušajiem [14585]"
+    },
+    {
+     "value": 14590,
+     "label": "Kombinezoni zīdaiņiem [14590]"
+    },
+    {
+     "value": 14595,
+     "label": "Zīdaiņu cepures, cimdi, šalles [14595]"
+    },
+    {
+     "value": 14600,
+     "label": "Zīdaiņu bikses [14600]"
+    },
+    {
+     "value": 14605,
+     "label": "Peldkostīmi un peldbikses zīdaiņiem [14605]"
+    },
+    {
+     "value": 14610,
+     "label": "Zīdaiņu zeķes, zeķubikses, apakšveļa [14610]"
+    },
+    {
+     "value": 14615,
+     "label": "Džemperi, vestes, jaciņas zīdaiņiem [14615]"
+    },
+    {
+     "value": 14620,
+     "label": "Šorti jaundzimušajiem [14620]"
+    },
+    {
+     "value": 14625,
+     "label": "Krekli jaundzimušajiem [14625]"
+    },
+    {
+     "value": 2927,
+     "label": "Slidas [2927]"
+    },
+    {
+     "value": 8399,
+     "label": "Hokejs [8399]"
+    },
+    {
+     "value": 4544,
+     "label": "Mākslīgās egles, vainagi, statīvi [4544]"
+    },
+    {
+     "value": 4547,
+     "label": "Ziemassvētku lampiņas, LED virtenes [4547]"
+    },
+    {
+     "value": 4583,
+     "label": "Ziemassvētku dekorācijas [4583]"
+    },
+    {
+     "value": 4589,
+     "label": "Eglīšu rotājumi [4589]"
+    },
+    {
+     "value": 10496,
+     "label": "Akvārija augi, dekori [10496]"
+    },
+    {
+     "value": 10502,
+     "label": "Akvāriji un aprīkojums [10502]"
+    },
+    {
+     "value": 10508,
+     "label": "Zivju barība [10508]"
+    },
+    {
+     "value": 8384,
+     "label": "Žogi un piederumi [8384]"
+    },
+    {
+     "value": 8717,
+     "label": "Vārtu automātika un piederumi [8717]"
+    }
+   ]

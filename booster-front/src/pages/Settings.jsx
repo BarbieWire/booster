@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import classes from './css/settings.module.css'
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import ConfigPair from '../components/configPair/ConfigPair';
+import classes from './css/settings.module.css'
+
+import ConfigProperty from '../components/ConfigProperty/ConfigProperty'
+
+import ConfigContext from '../context/ConfigContext';
 
 
-const SettingsPage = props => {
-    const [configJSON, setConfigJSON] = useState({})
-    useEffect(() => {
-        const fetch = async () => {
-            const config = await window.api.retrieveConfigFileAsJson()
-            setConfigJSON(config)
-        }
+const SettingsPage = () => {
+    const { configJSON, setConfigJSON } = useContext(ConfigContext)
 
-        fetch()
-    }, [setConfigJSON])
+    function handleChange(name, value) {
+        const config = { ...configJSON }
+        config[name] = value
+        setConfigJSON(config)
+    }
 
     return (
-
         <main className={classes.layout}>
             <section className={classes.menu}>
                 <NavLink to='/'>
@@ -33,16 +30,19 @@ const SettingsPage = props => {
                 </NavLink>
             </section>
             <section className={classes.mainContent}>
-                {Object.entries(configJSON).map(pair => {
-                    return <ConfigPair pair={pair}/>
-                })}
+                {
+                    Object.entries(configJSON).map((pair, index) => {
+                        return <ConfigProperty
+                            name={pair[0]}
+                            value={pair[1]}
+                            handleChange={handleChange}
+                            key={`config_${index}`}
+                        />
+                    })
+                }
             </section>
         </main>
     );
-};
-
-SettingsPage.propTypes = {
-
 };
 
 export default SettingsPage;    

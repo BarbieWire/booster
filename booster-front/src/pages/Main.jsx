@@ -1,36 +1,35 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
-import PropTypes from 'prop-types';
-
-import _ from 'lodash';
-
 import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faPlus, faFile, faCheck } from '@fortawesome/free-solid-svg-icons';
-
-import Record from '../components/record/Record.jsx';
+import { faGear, faPlus, faFile } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './css/main.module.css'
 
-import JSONTemplate from '../template.js';
+import RecordGripper from '../components/RecordGripper/RecordGripper';
+import RecordEditorWindow from '../components/RecordEditors/RecordEditorWindow/RecordEditorWindow';
+import RecordFactory from '../components/RecordFactory/RecordFactory';
 
 
-const MainPage = props => {
+const MainPage = () => {
     const [records, setRecords] = useState([])
-    const [newRecordName, setNewRecordName] = useState('')
-    const [activeRecord, setActiveRecord] = useState(0)
-
-    function handleNameChange(e) {
-        setNewRecordName(e.target.value);
-    };
+    const [activeRecord, setActiveRecord] = useState(-1)
+    const [recordCount, setRecordCount] = useState(0)
 
     useEffect(() => {
-        window.api.receiveRecordList((event, result) => {
-            console.log(result)
-            setRecords(result)
-        })
+        const listener = (event, result) => {
+            const recordList = result.map((record, index) => {
+                return { id: index, product: record }
+            })
+
+            setRecordCount(recordList.length)
+            setRecords(recordList)
+        }
+        window.api.receiveRecordList(listener)
+        return () => {
+            window.api.removeEventListener('return-record-list', listener);
+        }
     }, [])
 
     useEffect(() => {
@@ -41,48 +40,11 @@ const MainPage = props => {
         getFormattedData()
     }, [])
 
-
-    async function appendRecord(object) {
-        await window.api.executeActionOnRecords("append", object)
-    }
-
-    function createFirstRecord(record) {
-        const newRecord = {
-            id: 1,
-            product: record,
-        }
-        appendRecord(newRecord)
-        setNewRecordName("")
-        setActiveRecord(1)
-    }
-
-    function createNewRecord(record) {
-        const newId = records[records.length - 1].id + 1
-        const newRecord = {
-            id: newId,
-            product: record
-        }
-        appendRecord(newRecord)
-        setNewRecordName("")
-        setActiveRecord(newId)
-    }
-
-    function createRecord() {
-        const newProduct = _.cloneDeep(JSONTemplate);
-        newProduct['title-ru']['__cdata'] = newRecordName
-
-        if (records.length !== 0) {
-            createNewRecord(newProduct)
-            return
-        }
-        createFirstRecord(newProduct)
-    }
-
     return (
         <main className={classes.layout}>
             <section className={classes.recordPanel}>
                 <div className={classes.createNewRecordSection}>
-                    <button className={classes.createNewRecordButton} onClick={() => setActiveRecord(0)}>
+                    <button className={classes.createNewRecordButton} onClick={() => setActiveRecord(-1)}>
                         <span className={classes.buttonDecoration}>
                             <FontAwesomeIcon icon={faPlus} className={`fontawesome-icon ${classes.plusIcon}`} />
                             New Record
@@ -93,7 +55,7 @@ const MainPage = props => {
                 <div className={classes.recordSection}>
                     {
                         records.map(record => {
-                            return <Record
+                            return <RecordGripper
                                 key={record.id}
                                 record={record}
                                 setActiveRecord={setActiveRecord}
@@ -103,7 +65,12 @@ const MainPage = props => {
                     }
                 </div>
 
+                <div className={classes.recordCountContainer}>
+                    <span>Record count: </span>
+                    <span>{recordCount}</span>
+                </div>
                 <div className={classes.settingSection}>
+
                     <NavLink to='/settings' className={classes.setting}>
                         <FontAwesomeIcon icon={faGear} className={`fontawesome-icon ${classes.menuIcon}`} />
                     </NavLink>
@@ -117,47 +84,28 @@ const MainPage = props => {
 
             <section className={classes.contentPanel}>
                 <div className={classes.contentMainSection}>
+
+                    {/* Workaround that allows to change displayed record based on variable "activeRecord" */}
                     {
-                        !activeRecord
-                            ? <span className={classes.watermark}>Booster By Barbiewir3❤️</span>
+                        records.map((currentRecord) => {
+                            return activeRecord === currentRecord.id
+                                ? <RecordEditorWindow currentRecord={currentRecord} />
+                                : null
+                        })
+                    }
+
+                    {/* if none of the records are selected fatory will appear */}
+                    {
+                        activeRecord === -1
+                            ? <RecordFactory />
                             : null
                     }
 
-                    {
-                        activeRecord
-                            ? <pre style={{ color: "white" }}>{JSON.stringify(records.filter((obj) => obj.id === activeRecord), null, 2)}</pre>
-                            : null
-                    }
                 </div>
-                {
-                    !activeRecord
-                        ?
-                        <div className={classes.promptContainer}>
-                            <div className={classes.boxShadow}>
-                                <input
-                                    type="text"
-                                    className={classes.prompt}
-                                    placeholder='Send me a name'
-                                    value={newRecordName}
-                                    onChange={handleNameChange}
-                                />
-                                <button onClick={createRecord} className={classes.submitNameButton} disabled={!newRecordName}>
-                                    <FontAwesomeIcon icon={faCheck} className={`fontawesome-icon ${classes.submitIcon}`} />
-                                </button>
-                            </div>
-                            <span className={classes.promptHint}>input your text here in russian language</span>
-                        </div>
-                        :
-                        null
-                }
             </section>
         </main>
 
     );
-};
-
-MainPage.propTypes = {
-
 };
 
 export default MainPage;

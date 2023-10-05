@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 
 import classes from './css/selectFile.module.css'
 
@@ -8,21 +7,19 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { NavLink } from 'react-router-dom';
 
-const SelectFilePage = props => {
-    const [currentPath, setCurrentPath] = useState()
+import PathContext from '../context/PathContext';
 
-    async function retrieveCurrentPath() {
-        const path = await window.api.retrieveCurrentFilePath()
-        setCurrentPath(path)
+
+const FileManagementPage = ({ }) => {
+    const {filePath} = useContext(PathContext)
+
+    console.log(filePath)
+
+    async function mergeTwofiles() {
+        if (filePath) {
+            await window.api.mergeRecordsAndSave("merge-records-and-save")
+        }
     }
-
-    useEffect(() => {
-        retrieveCurrentPath()
-
-        window.api.receiveCurrentPathFromMain((event, result) => {
-            setCurrentPath(result)
-        })
-    }, [])
 
     async function createXMLFile() {
         window.api.createNewXMLDocument()
@@ -43,19 +40,16 @@ const SelectFilePage = props => {
             </section>
             <section className={classes.mainContent}>
                 <span className={classes.path}>
-                    current file location: <span>{currentPath}</span>
+                    current file location: <span>{filePath}</span>
                 </span>
                 <div className={classes.btnContainer}>
                     <button onClick={createXMLFile} className={classes.btn}>Create new file</button>
                     <button onClick={openExistingFile} className={classes.btn}>Open</button>
+                    <button onClick={mergeTwofiles} className={classes.btn}>Merge</button>
                 </div>
             </section>
         </main>
     );
 };
 
-SelectFilePage.propTypes = {
-
-};
-
-export default SelectFilePage;
+export default FileManagementPage;

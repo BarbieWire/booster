@@ -15,14 +15,15 @@
 }
 
 .createNewRecordSection {
+    display: flex;
+    flex-direction: column;
     height: 50px;
-    margin-bottom: 10px;
 }
 
 .createNewRecordButton {
     all: unset;
     width: 100%;
-    height: 100%;
+    flex: 1;
     cursor: pointer;
     border: 1px solid #4D4D4F;
     border-radius: 5px;
@@ -43,7 +44,7 @@
 .recordSection {
     flex: 1;
     width: 100%;
-    overflow: auto;
+    overflow-y: overlay;
     overflow-x: hidden;
     padding: 10px 0 10px 0;
 }
@@ -83,7 +84,9 @@
 .contentPanel {
     height: 100vh;
     padding: 10px;
-    flex: 1;
+    max-width: 100%;
+    flex: 1 1 0%;
+
     background-color: #343541;
     display: flex;
     flex-direction: column;
@@ -104,66 +107,10 @@
     font-size: 14px;
 }
 
-.promptContainer {
+.recordCountContainer {
+    padding: 5px;
     display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.prompt {
     font-size: 14px;
-    width: 500px;
-    height: 50px;
-    background-color: #40414F;
-    border: none;
-    border-color: rgba(32, 33, 35, .5);
-    padding: 10px;
-    padding-left: 20px;
+    justify-content: space-between;
     color: white;
-}
-
-.prompt::placeholder {
-    color: #8E8EA0;
-    opacity: 1;
-}
-
-.boxShadow {
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
-}
-
-.submitNameButton {
-    all: unset;
-    height: 50px;
-    width: 50px;
-    background-color: #40414F;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.submitIcon {
-    color: #8E8EA0;
-}
-
-.promptHint {
-    font-size: 12px;
-    color: #8E8EA0;
-}
-
-.watermark {
-    pointer-events: none;
-    user-select: none;
-    color: #8e8ea041;
-    text-transform: uppercase;
-    font-weight: 700;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }

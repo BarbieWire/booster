@@ -1,0 +1,45 @@
+{
+    "category-id": 0,
+    "category-name": {
+        "__cdata": ""
+    },
+    "title": {
+        "__cdata": ""
+    },
+    "title-ru": {
+        "__cdata": ""
+    },
+    "title-lv": {
+        "__cdata": ""
+    },
+    "title-ee": {
+        "__cdata": ""
+    },
+    "long-description": {
+        "__cdata": ""
+    },
+    "long-description-ru": {
+        "__cdata": ""
+    },
+    "long-description-lv": {
+        "__cdata": ""
+    },
+    "long-description-ee": {
+        "__cdata": ""
+    },
+    
+    "properties": {
+        "property": [""]
+    },
+    "colours": {
+        "colour": {
+            "colour-title": "",
+            "images": {
+                "image": [""]
+            },
+            "modifications": {
+                "modification": [""]
+            }
+        }
+    }
+}
