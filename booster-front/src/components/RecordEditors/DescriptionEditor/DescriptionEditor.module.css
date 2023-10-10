@@ -1,0 +1,26 @@
+textarea {
+    height: 250px;
+}
+
+.btn {
+    background-color: rgb(17, 139, 34);
+    width: 100%;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn:disabled {
+    background-color: rgb(70, 70, 70);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}

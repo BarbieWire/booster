@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useImmer } from 'use-immer';
 
 import classes from './ModificationEditor.module.css'
+import fieldClasses from '../../../common/css/fields.module.css'
+
+import { createModification } from './modifications';
+
+import _ from 'lodash'
 
 
-const ModificationEditor = ({ record, setRecord }) => {
-    function getModificationArray() {
-        const modifications = record.product.colours.colour.modifications.modification
-        return modifications[0] === "" || modifications.length == 0 ? [] : modifications
-    }
+const ModificationEditor = ({ modificationList, setRecord }) => {
+    const [modifications, setModifications] = useImmer(modificationList)
 
-    const [modifications, setModifications] = useImmer(getModificationArray())
-    const [modificationTitles, setModificationTitles] = useState(['S', 'M', 'L', "XL"]); // Example initial titles
-    const [selectedTitle, setSelectedTitle] = useState("S");
+    const [modificationTitles, setModificationTitles] = useState(['S', 'M', 'L', "XL"]); // initial titles
+    const [selectedTitle, setSelectedTitle] = useState("");
 
     useEffect(() => {
         setRecord(draft => {
@@ -23,42 +24,16 @@ const ModificationEditor = ({ record, setRecord }) => {
     // Filter untaken titles
     const untakenModificationTitles = modificationTitles.filter((title) => !modifications.some(obj => obj["modification-title"].__cdata === title));
 
-    const generateSupplierCode = () => {
-        let code = '';
-        let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 1; i <= 12; i++) {
-            let char = Math.floor(Math.random() * str.length + 1);
-            code += str.charAt(char)
-        }
-        return code;
-    }
-
     // Function to handle object creation
-    const createModificationObject = () => {
+    const appendModification = () => {
         if (selectedTitle && !modifications.some(obj => obj["modification-title"].__cdata === selectedTitle)) {
-            const newObject = {
-                "modification-title": {
-                    "__cdata": selectedTitle
-                },
-                "weight": 1.2,
-                "length": 0.2,
-                "height": 0.1,
-                "width": 1.2,
-                "attributes": {
-                    "barcodes": {
-                        "barcode": {
-                            "__cdata": ""
-                        }
-                    },
-                    "supplier-code": {
-                        "__cdata": generateSupplierCode()
-                    }
-                }
+            const newModification = createModification(selectedTitle)
+            if (newModification) {
+                setModifications(draft => {
+                    draft.push(newModification)
+                })
+                setSelectedTitle('');
             }
-            setModifications(draft => {
-                draft.push(newObject)
-            })
-            setSelectedTitle('');
         }
     };
 
@@ -67,6 +42,8 @@ const ModificationEditor = ({ record, setRecord }) => {
             draft.splice(index, 1)
         })
     };
+
+
 
     // Function to handle title selection
     const handleTitleSelect = (e) => {
@@ -115,25 +92,22 @@ const ModificationEditor = ({ record, setRecord }) => {
         });
     }
 
-
-
     return (
         <div>
-            <div>
-                <h1 className={classes.sectionTitle}>Product Modifications</h1>
-                <div className={classes.createNewModificationContainer}>
-                    <label>Select a title:</label>
+            <div className={classes.upperContainer}>
+                <h1 className={fieldClasses.title}>Product Modifications</h1>
+                <div className={classes.createModification}>
                     <select value={selectedTitle} onChange={handleTitleSelect} className={classes.selectTitle}>
-                        <option value="" disabled>
-                            Select a title
-                        </option>
-                        {untakenModificationTitles.map((title, index) => (
-                            <option key={index} value={title}>
-                                {title}
-                            </option>
-                        ))}
+                        <option value="" disabled>Select a title</option>
+                        {
+                            untakenModificationTitles.map((title, index) => (
+                                <option key={index} value={title}>
+                                    {title}
+                                </option>
+                            ))
+                        }
                     </select>
-                    <button onClick={createModificationObject} className={classes.btn}>Create New Modification</button>
+                    <button onClick={appendModification} className={classes.btn}>Create New Modification</button>
                 </div>
             </div>
 
@@ -141,11 +115,11 @@ const ModificationEditor = ({ record, setRecord }) => {
                 {
                     modifications.map((modification, arrayIndex) => {
                         return (
-                            <div className={classes.modificationContainer}>
-                                <h1 className={classes.modificationTitle}>Modification {modification["modification-title"].__cdata}</h1>
+                            <div className={classes.modificationContainer} key={modification["modification-title"]["__cdata"]}>
+                                <h1 className={classes.modificationTitle}>Modification {modification["modification-title"]["__cdata"]}</h1>
 
-                                <div className={classes.fieldsHolder}>
-                                    <div className={classes.fieldHolder}>
+                                <div className={fieldClasses.container}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             min={0}
                                             type="number"
@@ -157,7 +131,7 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         <label htmlFor="weight">weight: </label>
                                     </div>
 
-                                    <div className={classes.fieldHolder}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             min={0}
                                             type="number"
@@ -169,7 +143,7 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         <label htmlFor="length">length: </label>
                                     </div>
 
-                                    <div className={classes.fieldHolder}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             type="number"
                                             value={modification.height}
@@ -180,7 +154,7 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         <label htmlFor="height">height:</label>
                                     </div>
 
-                                    <div className={classes.fieldHolder}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             type="number"
                                             value={modification.width}
@@ -191,7 +165,7 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         <label htmlFor="width">width: </label>
                                     </div>
 
-                                    <div className={classes.fieldHolder}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             type="number"
                                             value={modification.attributes.barcodes.barcode.__cdata}
@@ -202,7 +176,7 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         <label htmlFor="barcode">barcode: </label>
                                     </div>
 
-                                    <div className={classes.fieldHolder}>
+                                    <div className={fieldClasses.item}>
                                         <input
                                             type="text"
                                             value={modification.attributes["supplier-code"].__cdata}
@@ -212,15 +186,13 @@ const ModificationEditor = ({ record, setRecord }) => {
                                         />
                                         <label htmlFor="supplier-code">supplier code:</label>
                                     </div>
-                                    {
-                                        modifications.length > 1
-                                            ?
-                                            <button onClick={() => deleteModification(arrayIndex)} className={`${classes.btn} ${classes.deleteBtn}`}>
-                                                Delete {modification["modification-title"].__cdata}
-                                            </button>
-                                            :
-                                            null
-                                    }
+
+                                    <div className={fieldClasses.item}>
+                                        <button onClick={() => deleteModification(arrayIndex)} className={`${classes.btn} ${classes.item}`}>
+                                            Delete {modification["modification-title"].__cdata}
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
                         )

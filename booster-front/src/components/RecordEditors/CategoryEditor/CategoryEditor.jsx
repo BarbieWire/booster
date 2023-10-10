@@ -1,46 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import Select from 'react-select'
 
-import cats from "./Categories.json"
+import options from "./Categories.json"
+
+import classes from './CategoryEditor.module.css'
 
 
-const CategoryEditor = ({setRec, preselected}) => {
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [categories, setCategories] = useState([])
+const CategoryEditor = ({ setRecord, record }) => {
+    function extractDefaultCategory() {
+        const value = record.product["category-id"]
+        const label = record.product["category-name"]["__cdata"]
+        if (label && value) {
+            return { label: label, value: value }
+        }
+        return null
+    }
 
-    useEffect(() => {
-        setRec(draft => {
-            if (selectedCategory.id) {
-                draft.product["category-id"] = selectedCategory.id
-                draft.product["category-name"].__cdata = selectedCategory.title
+
+    function handleChange(option) {
+        setRecord(draft => {
+            if (option) {
+                draft.product["category-id"] = option.value
+                draft.product["category-name"]["__cdata"] = option.label
             }
         })
-    }, [selectedCategory])
-
-    useEffect(() => {
-        const data = [...cats].sort((a, b) => a.id - b.id)
-        setCategories(data)
-    }, [])
-
-    const handleCategoryChange = (e) => {
-        const categoryId = parseInt(e.target.value);
-        const selectedCategoryObject = categories.find((category) => category.id === categoryId);
-        setSelectedCategory(selectedCategoryObject);
-    };
+    }
 
     return (
         <div>
-            <label htmlFor="categoryDropdown">Select a Category:</label>
-            <select
-                id="categoryDropdown"
-                onChange={handleCategoryChange}
-                defaultValue={preselected}
-            >
-                {categories.map((category) => (
-                    <option key={category.id} value={category.id} selected={category.id === preselected}>
-                        {category.title}
-                    </option>
-                ))}
-            </select>
+            <div className={classes.header}>
+                <h1 className={classes.title}>Categories</h1>
+            </div>
+            <Select
+                options={options}
+                isClearable
+                isSearchable
+                onChange={handleChange}
+                defaultValue={extractDefaultCategory() || "Select"}
+            />
         </div>
     );
 };

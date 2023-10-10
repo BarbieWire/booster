@@ -1,77 +1,86 @@
 const { ipcMain } = require('electron');
-const { XMLManager } = require('./XMLFileHandlers')
+const { XMLManager } = require('./utils/XMLFileHandlers')
+const { ServerMessage } = require('./utils/ServerMessage')
 
-const store = require('./store')
-const managerxml = new XMLManager()
+const { ProcessImageManager } = require('./utils/processImages')
+
+const store = require('./sensitiveData/store')
+const manager = new XMLManager()
+const cloudinary = new ProcessImageManager()
+
 
 
 function configCalls() {
-    ipcMain.handle('get-config-data', (event, key) => {
-        if (!key) {
-            return store.get()
-        }
+    ipcMain.handle('get-config-data', (_, key) => {
+        if (!key) return store.get()
         return store.get(key)
     })
 
-    ipcMain.handle('update-config-data', (event, args) => {
-        store.set(args.key, args.value)
-        return args.value
+    ipcMain.handle('update-config-data', (event, configObject) => {
+        for (const [key, value] of Object.entries(configObject)) {
+            store.set(key, value)
+        }
+        const message = new ServerMessage("Config updated", "update-config", "success")
+        event.sender.send("display-server-message", message)
     })
 }
 
 
-function XMLInteractioncalls() {
-    ipcMain.handle('get-current-file-path', (event) => {
-        return managerxml.filePath
-    })
-
+function fileInteractionCalls() {
     ipcMain.handle('create-new-XML-file', (event) => {
-        managerxml.createXMLFile(event)
+        // always receives event MANDATORY
+        manager.createXMLFile(event)
     })
 
     ipcMain.handle('open-existing-XML-file', (event, args) => {
-        try {
-            managerxml.openXMLFile(event)
-        } catch (err) {
-            return "something went wrong"
-        }
+        // always receives event MANDATORY
+        manager.openXMLFile(event)
     })
-
-    ipcMain.handle("build-and-save", ((event) => {
-        const operationResult = managerxml.saveTofile()
-        return operationResult
-    }))
-
-    ipcMain.on("append-new-record", (event, name) => {
-        const data = managerxml.appendNewRecord(name)
-        event.sender.send("return-record-list", data)
-    });
-
-    ipcMain.on("remove-record", (event, jsonObject) => {
-        const data = managerxml.removeRecord(jsonObject)
-        event.sender.send("return-record-list", data)
-    });
-
-    ipcMain.on("get-records", (event) => {
-        const data = managerxml.getRecordList()
-        event.sender.send("return-record-list", data)
-    });
-
-    ipcMain.on("update-record", (event, index, record) => {
-        const data = managerxml.updateExistingRecord(record, index)
-        event.sender.send("return-record-list", data)
-
-        message = managerxml.validateObject(record)
-        event.sender.send("display-server-message", message)
-    });
-
-    ipcMain.handle("merge-records-and-save", ((event) => {
-        const data = managerxml.mergeTwofiles()
-        event.sender.send("return-record-list", data)
-    }))
-    
 }
 
+
+function XMLInteractionCalls() {
+    // returns current opende file
+    ipcMain.handle('get-current-file-path', () => {
+        return manager.getFilePath()
+    })
+
+    // receives a valid record list and ssaves all records to xml file
+    ipcMain.handle("save-records", ((event, recordList) => {
+        try {
+            manager.saveFile(recordList)
+        } catch (e) {
+            const message = new ServerMessage(e, "save-records", "failure")
+            event.sender.send("display-server-message", message)
+        }
+    }))
+
+    // application initially send a request to parse records from chosen file
+    ipcMain.handle("get-records", (event) => {
+        try {
+            const records = manager.readFile()
+            return records
+        } catch (e) {
+            const message = new ServerMessage(e, "get-records", "failure")
+            event.sender.send("display-server-message", message)
+        }
+    });
+
+    // handles record merging
+    ipcMain.handle("merge-records", (() => manager.mergeTwofiles()))
+}
+
+
+function ImageAPICalls() {
+    ipcMain.handle('upload-image', (event) => {
+        return cloudinary.getImageURL()
+    })
+}
+
+
 module.exports = {
-    configCalls, XMLInteractioncalls
+    ImageAPICalls,
+    configCalls,
+    XMLInteractionCalls,
+    fileInteractionCalls,
 }

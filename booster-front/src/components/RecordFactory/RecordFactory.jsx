@@ -5,8 +5,12 @@ import classes from "./RecordFactory.module.css"
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import template from './RecordTemplate.json';
 
-const RecordFactory = () => {
+import _ from 'lodash';
+
+
+const RecordFactory = ({ setRecords }) => {
     const [recordName, setRecordName] = useState('')
 
     function handleNameChange(e) {
@@ -14,7 +18,14 @@ const RecordFactory = () => {
     };
 
     async function appendRecord() {
-        await window.api.executeActionOnRecords("append", {name: recordName})
+        setRecords(records => {
+            const newRecord = _.cloneDeep(template)
+            newRecord["title-ru"]["__cdata"] = recordName
+            let newId = 0
+            if (records.length > 0) newId = records[records.length - 1].id + 1
+            return [...records, { id: newId, product: newRecord, valid: false }]
+        })
+
         setRecordName("")
     }
 
@@ -35,7 +46,7 @@ const RecordFactory = () => {
                         <FontAwesomeIcon icon={faCheck} className={`fontawesome-icon ${classes.submitIcon}`} />
                     </button>
                 </div>
-                <span className={classes.promptHint}>input your text here in russian language</span>
+                <span className={classes.promptHint}>input your text here in any desired language</span>
             </div>
         </>
     );

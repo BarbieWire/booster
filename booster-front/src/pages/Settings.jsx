@@ -20,6 +20,10 @@ const SettingsPage = () => {
         setConfigJSON(config)
     }
 
+    const save = async () => {
+        await window.api.changeConfigFile(configJSON)
+    }
+
     return (
         <main className={classes.layout}>
             <section className={classes.menu}>
@@ -40,6 +44,7 @@ const SettingsPage = () => {
                         />
                     })
                 }
+                <button className={classes.saveButton} onClick={save}>Save</button>
             </section>
         </main>
     );

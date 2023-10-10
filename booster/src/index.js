@@ -1,7 +1,7 @@
 const { app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
 
-const { configCalls, XMLInteractioncalls } = require('./handlers')
+const { configCalls, XMLInteractionCalls, fileInteractionCalls, ImageAPICalls } = require('./handlers')
 
 const mode = {
     current: "development"
@@ -17,6 +17,8 @@ const createWindow = () => {
     const mainWindow = new BrowserWindow({
         width: 1200,
         height: 800,
+        minHeight: 800,
+        minWidth: 1200,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
         },
@@ -25,9 +27,9 @@ const createWindow = () => {
     mainWindow.setMenuBarVisibility(false)
 
     // how to display based on mode
-    mode.current === "development" 
-    ? mainWindow.loadURL("http://localhost:3000/")
-    : mainWindow.loadFile(path.join(__dirname, "build/index.html"));
+    mode.current === "development"
+        ? mainWindow.loadURL("http://localhost:3000/")
+        : mainWindow.loadFile(path.join(__dirname, "build/index.html"));
 
     mainWindow.on("ready-to-show", () => {
         mainWindow.webContents.openDevTools();
@@ -41,7 +43,10 @@ const createWindow = () => {
 app.whenReady().then(() => {
     // handlers 
     configCalls()
-    XMLInteractioncalls()
+    fileInteractionCalls()
+    XMLInteractionCalls()
+    ImageAPICalls()
+    
     // create main window 
     createWindow()
 });

@@ -29,16 +29,18 @@
     },
     
     "properties": {
-        "property": [""]
+        "property": []
     },
     "colours": {
         "colour": {
             "colour-title": "",
             "images": {
-                "image": [""]
+                "image": {
+                    "url": []
+                }
             },
             "modifications": {
-                "modification": [""]
+                "modification": []
             }
         }
     }

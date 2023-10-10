@@ -13,11 +13,9 @@ import PathContext from '../context/PathContext';
 const FileManagementPage = ({ }) => {
     const {filePath} = useContext(PathContext)
 
-    console.log(filePath)
-
     async function mergeTwofiles() {
         if (filePath) {
-            await window.api.mergeRecordsAndSave("merge-records-and-save")
+            await window.api.mergeRecords()
         }
     }
 

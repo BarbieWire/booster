@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 
@@ -11,34 +11,74 @@ import RecordGripper from '../components/RecordGripper/RecordGripper';
 import RecordEditorWindow from '../components/RecordEditors/RecordEditorWindow/RecordEditorWindow';
 import RecordFactory from '../components/RecordFactory/RecordFactory';
 
+import { validateRecord } from '../utils/validate/validate';
+
+import PathContext from '../context/PathContext';
+
 
 const MainPage = () => {
+    const { filePath } = useContext(PathContext)
+
     const [records, setRecords] = useState([])
     const [activeRecord, setActiveRecord] = useState(-1)
     const [recordCount, setRecordCount] = useState(0)
 
-    useEffect(() => {
-        const listener = (event, result) => {
-            const recordList = result.map((record, index) => {
-                return { id: index, product: record }
-            })
+    const [saveFlag, setSaveFlag] = useState(false)
 
-            setRecordCount(recordList.length)
-            setRecords(recordList)
+    useEffect(() => {
+        setRecordCount(records.length)
+    }, [records])
+
+    useEffect(() => {
+        async function getRecords() {
+            const result = await window.api.getRecordList()
+            return result
         }
-        window.api.receiveRecordList(listener)
-        return () => {
-            window.api.removeEventListener('return-record-list', listener);
+
+        async function processResult() {
+            const result = await getRecords()
+            if (result) {
+                const recordList = result.map((record, index) => {
+                    return { id: index, product: record, valid: true }
+                })
+
+                setRecordCount(recordList.length)
+                setRecords(recordList)
+            }
         }
+
+        processResult()
     }, [])
 
     useEffect(() => {
-        async function getFormattedData() {
-            await window.api.executeActionOnRecords("retrieve")
+        async function writeTofile(recordList) {
+            const result = await window.api.saveRecordList(recordList)
+            console.log(result)
         }
 
-        getFormattedData()
-    }, [])
+        if (saveFlag) {
+            const newArray = records
+                .filter(element => {
+                    if (element.valid) return element
+                })
+                .map(element => element.product)
+
+            if (newArray.length) writeTofile(newArray)
+            setSaveFlag(false)
+        }
+
+    }, [saveFlag])
+
+    function save(record) {
+        // if valid returns true otherwise false 
+        const isValid = validateRecord(record.product)
+        record = isValid ? { ...record, valid: true } : { ...record, valid: false }
+
+        let newArray = [...records];
+        newArray[record.id] = record;
+        setRecords(newArray)
+        setSaveFlag(true)
+    }
 
     return (
         <main className={classes.layout}>
@@ -59,18 +99,28 @@ const MainPage = () => {
                                 key={record.id}
                                 record={record}
                                 setActiveRecord={setActiveRecord}
+                                setRecords={setRecords}
                                 activeRecord={activeRecord}
+                                setSaveFlag={setSaveFlag}
                             />
                         })
                     }
                 </div>
 
                 <div className={classes.recordCountContainer}>
-                    <span>Record count: </span>
-                    <span>{recordCount}</span>
+                    {
+                        filePath
+                            ?
+                            <>
+                                <span>Record count: </span>
+                                <span>{recordCount}</span>
+                            </>
+                            :
+                            <span>No file selected</span>
+                    }
                 </div>
-                <div className={classes.settingSection}>
 
+                <div className={classes.settingSection}>
                     <NavLink to='/settings' className={classes.setting}>
                         <FontAwesomeIcon icon={faGear} className={`fontawesome-icon ${classes.menuIcon}`} />
                     </NavLink>
@@ -89,7 +139,10 @@ const MainPage = () => {
                     {
                         records.map((currentRecord) => {
                             return activeRecord === currentRecord.id
-                                ? <RecordEditorWindow currentRecord={currentRecord} />
+                                ? <RecordEditorWindow
+                                    currentRecord={currentRecord}
+                                    saveCallback={save}
+                                />
                                 : null
                         })
                     }
@@ -97,7 +150,7 @@ const MainPage = () => {
                     {/* if none of the records are selected fatory will appear */}
                     {
                         activeRecord === -1
-                            ? <RecordFactory />
+                            ? <RecordFactory records={records} setRecords={setRecords} />
                             : null
                     }
 

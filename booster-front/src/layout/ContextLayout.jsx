@@ -6,6 +6,13 @@ import { ConfigProvider } from '../context/ConfigContext'
 import { PathProvider } from '../context/PathContext';
 
 
+import classes from './ContexLayout.module.css'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
+
+
 const ContextLayout = () => {
     const [configJSON, setConfigJSON] = useState({})
     useEffect(() => {
@@ -35,10 +42,12 @@ const ContextLayout = () => {
     }, [])
 
 
-    const [severMessages, setServerMessages] = useState([])
+    const [serverMessages, setServerMessages] = useState([])
     useEffect(() => {
         const listener = (event, result) => {
-            setServerMessages([result, ...severMessages])
+            setServerMessages(messages => {
+                return [...messages, result]
+            })
         }
         window.api.displayMessageFromServer(listener)
         return () => {
@@ -46,9 +55,30 @@ const ContextLayout = () => {
         }
     }, [])
 
+
+    function remove(index) {
+        setServerMessages(messages => {
+            const newMessages = [...messages]
+            newMessages.splice(index, 1)
+            return newMessages
+        })
+    }
+
     return (
         <ConfigProvider value={{ configJSON, setConfigJSON }}>
             <PathProvider value={{ filePath, setFilePath }}>
+                <div className={classes.messageContainer}>
+                    {
+                        serverMessages.map((message, index) => {
+                            return <div className={classes.messageBox} key={`message_${index}`}>
+                                <span className={classes.message}>{message.content.message}</span>
+                                <button onClick={() => remove(index)} className={classes.btn}>
+                                    <FontAwesomeIcon icon={faXmark} className={classes.close} />
+                                </button>
+                            </div>
+                        })
+                    }
+                </div>
                 <Outlet />
             </PathProvider>
         </ConfigProvider>

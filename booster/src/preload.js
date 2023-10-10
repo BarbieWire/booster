@@ -16,37 +16,25 @@ const xmlFileCallbacks = {
     openExistingXMLDocument: () => ipcRenderer.invoke('open-existing-XML-file'),
 }
 
-const recordsCallback = {
-    mergeRecordsAndSave: () => ipcRenderer.invoke('merge-records-and-save'),
-    receiveRecordList: (listener) => ipcRenderer.on('return-record-list', listener),
-    executeActionOnRecords: (action, options, exceptionCallback) => {
-        const allowedMethods = ["append", "remove", "retrieve", "update"]
-        if (allowedMethods.includes(action)) {
-            switch (action) {
-                case "append":
-                    ipcRenderer.send("append-new-record", options.name)
-                    break
-                case "remove":
-                    ipcRenderer.send("remove-record", options.index)
-                    break
-                case "retrieve":
-                    ipcRenderer.send("get-records")
-                    break
-                case "update":
-                    ipcRenderer.send("update-record", options.index, options.record)
-                    break
-                default:
-                    break
-            }
-        }
-    }
+const recordsCallbacks = {
+    getRecordList: () => ipcRenderer.invoke('get-records'),
+    saveRecordList: (recordList) => ipcRenderer.invoke('save-records', recordList),
+
+    mergeRecords: () => ipcRenderer.invoke('merge-records'),
+}
+
+const imageProcessingCallbacks = {
+    generateImageUrl: () => ipcRenderer.invoke('upload-image')
 }
 
 contextBridge.exposeInMainWorld('api', {
     ...filePathCallbacks,
     ...configFileCallbacks,
     ...xmlFileCallbacks,
-    ...recordsCallback,
+    ...recordsCallbacks,
+
+    ...imageProcessingCallbacks, 
+    
     removeEventListener: (name, listener) => ipcRenderer.removeAllListeners(name, listener),
-    displayMessageFromServer: (listener) => ipcRenderer.on("display-server-message", listener)
+    displayMessageFromServer: (listener) => ipcRenderer.on('display-server-message', listener)
 });

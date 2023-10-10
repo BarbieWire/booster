@@ -29,14 +29,3 @@
     background-color: #2A2B32;
     border-radius: 5px;
 }
-
-.saveButton {
-    all: unset;
-    background-color: rgb(24, 151, 24);
-    position: absolute;
-    right: 10px;
-    font-size: 12px;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}

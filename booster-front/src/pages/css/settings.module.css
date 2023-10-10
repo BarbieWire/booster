@@ -26,3 +26,17 @@
     height: 15px;
     color: white;
 }
+
+.saveButton {
+    all: unset;
+    background-color: rgb(24, 151, 24);
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    width: 70px;
+    text-align: center;
+}
