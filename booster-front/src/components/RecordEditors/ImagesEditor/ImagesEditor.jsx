@@ -8,12 +8,10 @@ import fieldClasses from '../../../common/css/fields.module.css'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faEraser } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faEraser, faSearch, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 
 const ImagesEditor = ({ setRecord, currentImages }) => {
-    console.log(currentImages)
-
     const [searchQuery, setSearchQuery] = useState('');
     const [images, setImages] = useState(currentImages);
 
@@ -60,12 +58,12 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
         const updatedImages = [...images];
         updatedImages.splice(index, 1);
         setImages(updatedImages);
-    };    
+    };
 
     const handleManualAppend = async (e) => {
         const urls = await window.api.generateImageUrl()
         if (urls) {
-            setImages([...urls, ...images]) 
+            setImages([...urls, ...images])
         }
     }
 
@@ -112,13 +110,17 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
                     <label htmlFor="imageCount">image count: (max count 10)</label>
                 </div>
                 <div className={fieldClasses.item}>
-                    <button onClick={handleSearch} className={classes.searchButton}>Search</button>
+                    <button onClick={handleSearch} className={classes.searchButton}><FontAwesomeIcon icon={faSearch} /></button>
                 </div>
                 <div className={fieldClasses.item}>
-                    <button onClick={resetStartIndex} className={classes.resetButton} style={{ background: "rgb(173, 23, 23)" }}>reset start index: {startIndex}</button>
+                    <button onClick={resetStartIndex} className={classes.resetButton}>
+                        <FontAwesomeIcon icon={faEraser} />
+                    </button>
                 </div>
                 <div className={fieldClasses.item}>
-                    <button onClick={handleManualAppend}/>
+                    <button onClick={handleManualAppend}>
+                        <FontAwesomeIcon icon={faUpload} />
+                    </button>
                 </div>
             </div>
 

@@ -15,11 +15,12 @@ import classes from './RecordEditorWindow.module.css'
 
 import OpenAI from "openai";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
+
 
 const RecordEditorWindow = ({ currentRecord, saveCallback }) => {
     const [record, setRecord] = useImmer(currentRecord)
-
-    console.log(currentRecord.product.colours.colour.images.image)
 
     const { configJSON } = useContext(ConfigContext)
     const openai = new OpenAI({
@@ -44,9 +45,9 @@ const RecordEditorWindow = ({ currentRecord, saveCallback }) => {
             }
 
             {
-                configJSON["GoogleCX"] && configJSON["GoogleApiKey"] 
-                ? <ImagesEditor setRecord={setRecord} currentImages={currentRecord.product.colours.colour.images.image.url}/>
-                : null
+                configJSON["GoogleCX"] && configJSON["GoogleApiKey"]
+                    ? <ImagesEditor setRecord={setRecord} currentImages={currentRecord.product.colours.colour.images.image.url} />
+                    : null
             }
 
             <ModificationEditor
@@ -54,10 +55,9 @@ const RecordEditorWindow = ({ currentRecord, saveCallback }) => {
                 setRecord={setRecord}
                 key={`modification_block`}
             />
-            <button onClick={() => saveCallback(record)}>update</button>
-
-
-            <pre style={{ color: "white", whiteSpace: "pre-wrap", width: "100%" }}>{JSON.stringify(record, null, 2)}</pre>
+            <button onClick={() => saveCallback(record)} className={classes.saveButton}>
+                <FontAwesomeIcon icon={faFloppyDisk} />
+            </button>
         </div>
     );
 };

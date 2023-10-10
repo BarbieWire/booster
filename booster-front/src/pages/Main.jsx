@@ -52,8 +52,7 @@ const MainPage = () => {
 
     useEffect(() => {
         async function writeTofile(recordList) {
-            const result = await window.api.saveRecordList(recordList)
-            console.log(result)
+            await window.api.saveRecordList(recordList)
         }
 
         if (saveFlag) {
@@ -63,7 +62,7 @@ const MainPage = () => {
                 })
                 .map(element => element.product)
 
-            if (newArray.length) writeTofile(newArray)
+            writeTofile(newArray)
             setSaveFlag(false)
         }
 

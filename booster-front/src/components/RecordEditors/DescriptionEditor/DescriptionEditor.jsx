@@ -4,6 +4,9 @@ import classes from './DescriptionEditor.module.css'
 
 import fieldClasses from '../../../common/css/fields.module.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGears } from '@fortawesome/free-solid-svg-icons';
+
 const DescriptionEditor = ({ record, openai, setRecord }) => {
     const [generating, setGenerating] = useState(false)
     const functions = [
@@ -86,7 +89,7 @@ const DescriptionEditor = ({ record, openai, setRecord }) => {
 
             <div>
                 <button onClick={generateData} disabled={generating} className={classes.btn}>
-                    Generate Descriptions
+                <FontAwesomeIcon icon={faGears}/>
                 </button>
             </div>
 

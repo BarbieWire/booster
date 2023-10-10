@@ -27,14 +27,33 @@ function configCalls() {
 
 
 function fileInteractionCalls() {
-    ipcMain.handle('create-new-XML-file', (event) => {
-        // always receives event MANDATORY
-        manager.createXMLFile(event)
+    ipcMain.handle('create-new-XML-file', async (event) => {
+        try {
+            const filePath = await manager.createXMLFile()
+
+            event.sender.send('return-path', filePath);
+
+            const message = new ServerMessage("File created", "create-new-XML", "success")
+            event.sender.send("display-server-message", message)
+        } catch {
+            const message = new ServerMessage("Something went wrong creating the file", "create-new-XML", "success")
+            event.sender.send("display-server-message", message)
+        }
+
     })
 
-    ipcMain.handle('open-existing-XML-file', (event, args) => {
+    ipcMain.handle('open-existing-XML-file', async (event, args) => {
         // always receives event MANDATORY
-        manager.openXMLFile(event)
+        try {
+            const filePath = await manager.openXMLFile()
+            event.sender.send('return-path', filePath)
+
+            const message = new ServerMessage("File opened", "open-existing-XML", "success")
+            event.sender.send("display-server-message", message)
+        } catch {
+            const message = new ServerMessage("Something went wrong opening the file", "open-existing-XML", "failure")
+            event.sender.send("display-server-message", message)
+        }
     })
 }
 

@@ -4,6 +4,9 @@ import classes from './TitlesEditor.module.css';
 
 import fieldClasses from '../../../common/css/fields.module.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGears } from '@fortawesome/free-solid-svg-icons';
+
 const TitlesEditor = ({ openai, record, setRecord }) => {
     const [generating, setGenerating] = useState(false)
 
@@ -90,7 +93,7 @@ const TitlesEditor = ({ openai, record, setRecord }) => {
 
             <div className={fieldClasses.container}>
                 <div className={fieldClasses.item}>
-                    <button disabled={generating} onClick={generateData} className={classes.btn}>Generate Titles</button>
+                    <button disabled={generating} onClick={generateData} className={classes.btn}><FontAwesomeIcon icon={faGears}/></button>
                 </div>
                 <div className={fieldClasses.item}>
                     <input

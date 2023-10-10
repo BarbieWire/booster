@@ -12,15 +12,64 @@ const { ServerMessage } = require('./ServerMessage')
 
 
 class FileManager {
-    // to be filled in future with file calls
-}
-
-
-class XMLManager {
     constructor() {
         this.openXMLFile = this.openXMLFile.bind(this)
         this.createXMLFile = this.createXMLFile.bind(this)
+    }
 
+    async createXMLFile() {
+        // Resolves to a Promise<Object>
+        const result = await dialog.showSaveDialog({
+            title: 'Select file to override or create a new one',
+            buttonLabel: 'Proceed',
+            filters: [
+                {
+                    name: '.xml',
+                    extensions: ['xml']
+                },
+            ],
+            properties: []
+        })
+        if (!result.canceled) {
+            this.setFilePath(result.filePath)
+            store.set("previouslyOpenedFilePath", this.filePath)
+
+            fs.openSync(this.filePath, "w");
+        }
+        return this.getFilePath()
+    }
+
+    async openXMLFile() {
+        // Show an "Open File" dialog
+        const result = await dialog.showOpenDialog({
+            title: 'Open File',
+            properties: ['openFile'], // Specify that you want to open a single file
+            filters: [
+                { name: 'XML Files', extensions: ['xml'] }, // Customize file filters
+            ],
+        })
+
+        if (!result.canceled) {
+            this.setFilePath(result.filePaths[0])
+            store.set("previouslyOpenedFilePath", this.filePath)
+        }
+        return this.getFilePath()
+    }
+
+    setFilePath(filePath) {
+        this.filePath = filePath
+    }
+
+    getFilePath() {
+        return this.filePath
+    }
+}
+
+
+class XMLManager extends FileManager {
+    constructor() {
+        super()
+        
         this.filePath = ""
         this.options = {
             cdataPropName: "__cdata",
@@ -37,58 +86,6 @@ class XMLManager {
         if (path && fs.existsSync(path)) this.filePath = path
     }
 
-    createXMLFile(e) {
-        // Resolves to a Promise<Object>
-        dialog.showSaveDialog({
-            title: 'Select file to override or create a new one',
-            buttonLabel: 'Proceed',
-            filters: [
-                {
-                    name: '.xml',
-                    extensions: ['xml']
-                },
-            ],
-            properties: []
-        }).then(result => {
-            if (!result.canceled) {
-                this.setFilePath(result.filePath)
-                store.set("previouslyOpenedFilePath", this.filePath)
-
-                fs.openSync(this.filePath, "w");
-
-                e.sender.send('return-path', this.filePath);
-
-                const message = new ServerMessage("File created", "create-new-XML", "success")
-                e.sender.send("display-server-message", message)
-            }
-        }).catch(() => {
-            const message = new ServerMessage("Something went wrong creating the file", "create-new-XML", "success")
-            e.sender.send("display-server-message", message)
-        });
-    }
-
-    async openXMLFile(e) {
-        // Show an "Open File" dialog
-        dialog.showOpenDialog({
-            title: 'Open File',
-            properties: ['openFile'], // Specify that you want to open a single file
-            filters: [
-                { name: 'XML Files', extensions: ['xml'] }, // Customize file filters
-            ],
-        }).then((result) => {
-            if (!result.canceled) {
-                this.setFilePath(result.filePaths[0])
-                store.set("previouslyOpenedFilePath", this.filePath)
-
-                e.sender.send('return-path', this.filePath)
-                const message = new ServerMessage("File opened", "open-existing-XML", "success")
-                e.sender.send("display-server-message", message)
-            }
-        }).catch(() => {
-            const message = new ServerMessage("Something went wrong opening the file", "open-existing-XML", "failure")
-            e.sender.send("display-server-message", message)
-        });
-    }
 
     readFile(path = this.filePath) {
         if (path && fs.existsSync(path)) {
@@ -142,7 +139,7 @@ class XMLManager {
 
     // receives a path of file which it merges with from handler  
     // opens the file and writes current records to the file
-    mergeTwofiles() {
+    async mergeTwofiles() {
         // Show an "Open File" dialog
         dialog.showOpenDialog({
             title: 'Open File',
@@ -163,14 +160,6 @@ class XMLManager {
         }).catch((err) => {
             console.error('Error opening file dialog:', err);
         });
-    }
-
-    setFilePath(filePath) {
-        this.filePath = filePath
-    }
-
-    getFilePath() {
-        return this.filePath
     }
 }
 

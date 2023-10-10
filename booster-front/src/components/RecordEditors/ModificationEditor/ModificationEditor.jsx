@@ -9,6 +9,11 @@ import { createModification } from './modifications';
 import _ from 'lodash'
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAdd, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
+
+
 const ModificationEditor = ({ modificationList, setRecord }) => {
     const [modifications, setModifications] = useImmer(modificationList)
 
@@ -107,7 +112,7 @@ const ModificationEditor = ({ modificationList, setRecord }) => {
                             ))
                         }
                     </select>
-                    <button onClick={appendModification} className={classes.btn}>Create New Modification</button>
+                    <button onClick={appendModification} className={classes.btn}><FontAwesomeIcon icon={faAdd}/></button>
                 </div>
             </div>
 
@@ -188,8 +193,8 @@ const ModificationEditor = ({ modificationList, setRecord }) => {
                                     </div>
 
                                     <div className={fieldClasses.item}>
-                                        <button onClick={() => deleteModification(arrayIndex)} className={`${classes.btn} ${classes.item}`}>
-                                            Delete {modification["modification-title"].__cdata}
+                                        <button onClick={() => deleteModification(arrayIndex)}>
+                                        <FontAwesomeIcon icon={faTrashCan}/>
                                         </button>
                                     </div>
 
