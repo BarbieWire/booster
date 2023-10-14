@@ -1,0 +1,177 @@
+.block {
+    width: 100%;
+    height: 50px;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.block.active {
+    background-color: #343541;
+}
+
+.block:hover {
+    background-color: #2A2B32;
+}
+
+.block.active:hover {
+    background-color: #343541;
+}
+
+
+.name {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+.deleteRecord {
+    all: unset;
+    text-align: center;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.deleteRecord:hover {
+    background-color: #343541;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.fadingText {
+    -tw-gradient-from: #202123;
+    --tw-gradient-to: rgba(32, 33, 35, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    width: 32px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+
+    background-image: linear-gradient(to left, #202123, rgba(32, 33, 35, 0));
+}
+
+.block.active .fadingText,
+.block.active:hover .fadingText {
+    background-image: linear-gradient(to left, #343541, rgba(52, 53, 65, 0));
+}
+
+.block:hover .fadingText {
+    background-image: none
+}
+
+.rmv {
+    color: #737375;
+}
+
+.recordPanel {
+    width: 30%;
+    min-width: 210px;
+    max-width: 250px;
+    height: 100vh;
+    background-color: #202123;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+}
+
+.createNewRecordSection {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.createNewRecordButton {
+    all: unset;
+    flex: 1;
+    cursor: pointer;
+    border: 1px solid #4D4D4F;
+    border-radius: 5px;
+    color: white;
+}
+
+.searchBar {
+    border: 1px solid #4D4D4F;
+    padding-left: 20px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.searchBar::placeholder {
+    color: white;
+}
+
+.buttonDecoration {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.plusIcon {
+    margin-right: 5px;
+    fill: white;
+    color: white;
+}
+
+.recordSection {
+    flex: 1;
+    width: 100%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    padding: 10px 0 10px 0;
+}
+
+.recordSection::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.recordSection:hover::-webkit-scrollbar-thumb {
+    display: block;
+}
+
+.settingSection {
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.setting {
+    padding: 10px;
+    background-color: #444654;
+    border-radius: 5px;
+}
+
+.settingsWide {
+    text-align: center;
+    flex: 1;
+}
+
+.menuIcon {
+    width: 22px;
+    height: 15px;
+    color: white;
+}
+
+.buttonText {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.recordCountContainer {
+    padding: 5px;
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    color: white;
+}

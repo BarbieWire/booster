@@ -1,8 +1,6 @@
 const cloudinary = require('cloudinary').v2;
 const store = require('../sensitiveData/store')
 
-const { ServerMessage } = require('./ServerMessage')
-
 const { dialog } = require('electron');
 
 
@@ -26,14 +24,15 @@ class ProcessImageManager {
             use_filename: true,
             unique_filename: false,
             overwrite: true,
+            format: "jpg"
         };
 
         try {
             // Upload the image
             const result = await cloudinary.uploader.upload(imagePath, options);
-            return result.url
+            return result
         } catch (error) {
-            console.log(error);
+            return error
         }
     };
 
@@ -57,11 +56,22 @@ class ProcessImageManager {
             for (const image of imageArray) {
                 // Upload the image
                 const result = await this.uploadImage(image);
+                if (result?.name === "Error") {
+                    throw result
+                } 
                 links.push(result)
             }
-            return links 
+            return links
         }
-    };
+    }
+
+    async convertImage(imageUrl) {
+        const data =  await this.uploadImage(imageUrl);
+        if (data?.name === "Error") {
+            throw data
+        }
+        return data
+    }
 }
 
 module.exports = {

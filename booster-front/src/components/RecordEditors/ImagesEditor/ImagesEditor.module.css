@@ -6,14 +6,18 @@
 }
 
 .image {
-    width: 200px;
-    height: 200px;
+    flex-basis: 200px;
+    max-height: 300px;
+    flex-grow: 1;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
     object-fit: cover;
     vertical-align: top;
 }
@@ -34,7 +38,9 @@ img {
     cursor: pointer;
 }
 
-.overlayButton {
+.overlayButton,
+.controlsButton,
+.extensionContainer {
     display: none;
 }
 
@@ -46,7 +52,51 @@ img {
     gap: 5px;
 }
 
+.image:hover .controlsButton {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.image:hover .extensionContainer {
+    display: block;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    color: white;
+    display: flex;
+    gap: 5px;
+}
+
+.extension {
+    flex-grow: 1;
+    background-color: #202123;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .icon {
     color: white;
     fill: white;
+}
+
+.imageFullSizeContainer {
+    position: absolute;
+    z-index: 1001;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageFullSizeContainer img {
+    max-width: 50%;
+    height: auto;
 }

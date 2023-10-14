@@ -15,6 +15,10 @@
     "title-ee": {
         "__cdata": ""
     },
+    "title-fi": {
+        "__cdata": ""
+    },
+
     "long-description": {
         "__cdata": ""
     },
@@ -27,6 +31,9 @@
     "long-description-ee": {
         "__cdata": ""
     },
+    "long-description-fi": {
+        "__cdata": ""
+    },
     
     "properties": {
         "property": []
@@ -35,9 +42,7 @@
         "colour": {
             "colour-title": "",
             "images": {
-                "image": {
-                    "url": []
-                }
+                "image": []
             },
             "modifications": {
                 "modification": []

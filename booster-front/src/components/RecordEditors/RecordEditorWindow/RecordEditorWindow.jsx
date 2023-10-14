@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useImmer } from "use-immer";
 
 import ConfigContext from '../../../context/ConfigContext';
 
@@ -19,46 +18,49 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 
-const RecordEditorWindow = ({ currentRecord, saveCallback }) => {
-    const [record, setRecord] = useImmer(currentRecord)
-
+const RecordEditorWindow = ({ activeRecord, saveCallback }) => {
     const { configJSON } = useContext(ConfigContext)
     const openai = new OpenAI({
         apiKey: configJSON["chatGPTApiKey"],
         dangerouslyAllowBrowser: true
     })
 
+    const { values, actions } = activeRecord
+
     return (
-        <div className={classes.container}>
-            <CategoryEditor setRecord={setRecord} record={record} />
-
-            {
-                configJSON["chatGPTApiKey"]
-                    ? <TitlesEditor openai={openai} record={record} setRecord={setRecord} />
-                    : null
-            }
-
-            {
-                configJSON["chatGPTApiKey"]
-                    ? <DescriptionEditor openai={openai} record={record} setRecord={setRecord} />
-                    : null
-            }
-
-            {
-                configJSON["GoogleCX"] && configJSON["GoogleApiKey"]
-                    ? <ImagesEditor setRecord={setRecord} currentImages={currentRecord.product.colours.colour.images.image.url} />
-                    : null
-            }
-
-            <ModificationEditor
-                modificationList={currentRecord.product.colours.colour.modifications.modification}
-                setRecord={setRecord}
-                key={`modification_block`}
+        <>
+            <CategoryEditor
+                record={values.record}
+                setRecord={actions.setRecord}
             />
-            <button onClick={() => saveCallback(record)} className={classes.saveButton}>
+            {
+                configJSON["chatGPTApiKey"] && <TitlesEditor
+                    openai={openai}
+                    record={values.record}
+                    setRecord={actions.setRecord}
+                />
+
+            }
+            {
+                configJSON["chatGPTApiKey"] && <DescriptionEditor
+                    openai={openai}
+                    record={values.record}
+                    setRecord={actions.setRecord}
+                />
+            }
+
+            {
+                (configJSON["GoogleCX"] && configJSON["GoogleApiKey"]) && <ImagesEditor
+                    images={values.images}
+                    setImages={actions.setImages}
+                />
+            }
+
+            <ModificationEditor modifications={values.modifications} setModifications={actions.setModifications} />
+            <button onClick={() => saveCallback(values.record)} className={classes.saveButton}>
                 <FontAwesomeIcon icon={faFloppyDisk} />
             </button>
-        </div>
+        </>
     );
 };
 

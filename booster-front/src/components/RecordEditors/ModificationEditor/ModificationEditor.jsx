@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useImmer } from 'use-immer';
+import React, { useState } from 'react';
 
 import classes from './ModificationEditor.module.css'
 import fieldClasses from '../../../common/css/fields.module.css'
 
 import { createModification } from './modifications';
-
-import _ from 'lodash'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,17 +11,9 @@ import { faAdd, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const ModificationEditor = ({ modificationList, setRecord }) => {
-    const [modifications, setModifications] = useImmer(modificationList)
-
-    const [modificationTitles, setModificationTitles] = useState(['S', 'M', 'L', "XL"]); // initial titles
+const ModificationEditor = ({ modifications, setModifications }) => {
+    const [modificationTitles] = useState(["XS", "S", "M", "L", "XL", "2XL", "3XL"]); // initial titles
     const [selectedTitle, setSelectedTitle] = useState("");
-
-    useEffect(() => {
-        setRecord(draft => {
-            draft.product.colours.colour.modifications.modification = modifications
-        })
-    }, [modifications])
 
     // Filter untaken titles
     const untakenModificationTitles = modificationTitles.filter((title) => !modifications.some(obj => obj["modification-title"].__cdata === title));

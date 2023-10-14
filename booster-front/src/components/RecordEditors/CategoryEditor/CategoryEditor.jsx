@@ -6,17 +6,7 @@ import options from "./Categories.json"
 import classes from './CategoryEditor.module.css'
 
 
-const CategoryEditor = ({ setRecord, record }) => {
-    function extractDefaultCategory() {
-        const value = record.product["category-id"]
-        const label = record.product["category-name"]["__cdata"]
-        if (label && value) {
-            return { label: label, value: value }
-        }
-        return null
-    }
-
-
+const CategoryEditor = ({ record, setRecord }) => {
     function handleChange(option) {
         setRecord(draft => {
             if (option) {
@@ -26,18 +16,26 @@ const CategoryEditor = ({ setRecord, record }) => {
         })
     }
 
+    const value = {
+        label: record.product["category-name"]["__cdata"],
+        value: record.product["category-id"]
+    }
+
+
     return (
         <div>
             <div className={classes.header}>
                 <h1 className={classes.title}>Categories</h1>
             </div>
+
             <Select
                 options={options}
                 isClearable
                 isSearchable
                 onChange={handleChange}
-                defaultValue={extractDefaultCategory() || "Select"}
+                value={value}
             />
+
         </div>
     );
 };

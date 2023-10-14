@@ -10,7 +10,7 @@ import template from './RecordTemplate.json';
 import _ from 'lodash';
 
 
-const RecordFactory = ({ setRecords }) => {
+const RecordFactory = ({ setRecords, setActiveRecord }) => {
     const [recordName, setRecordName] = useState('')
 
     function handleNameChange(e) {
@@ -23,7 +23,11 @@ const RecordFactory = ({ setRecords }) => {
             newRecord["title-ru"]["__cdata"] = recordName
             let newId = 0
             if (records.length > 0) newId = records[records.length - 1].id + 1
-            return [...records, { id: newId, product: newRecord, valid: false }]
+
+            const newRecordObject = { id: newId, product: newRecord, valid: false }
+
+            setActiveRecord(newRecordObject)
+            return [...records, newRecordObject]
         })
 
         setRecordName("")
@@ -34,7 +38,7 @@ const RecordFactory = ({ setRecords }) => {
             <span className={classes.watermark}>Booster By Barbiewir3❤️</span>
 
             <div className={classes.promptContainer}>
-                <div className={classes.boxShadow}>
+                <form onSubmit={appendRecord} className={classes.boxShadow}>
                     <input
                         type="text"
                         className={classes.prompt}
@@ -42,10 +46,10 @@ const RecordFactory = ({ setRecords }) => {
                         value={recordName}
                         onChange={handleNameChange}
                     />
-                    <button onClick={appendRecord} className={classes.submitNameButton} disabled={!recordName}>
+                    <button className={classes.submitNameButton} disabled={!recordName} type="submit">
                         <FontAwesomeIcon icon={faCheck} className={`fontawesome-icon ${classes.submitIcon}`} />
                     </button>
-                </div>
+                </form>
                 <span className={classes.promptHint}>input your text here in any desired language</span>
             </div>
         </>

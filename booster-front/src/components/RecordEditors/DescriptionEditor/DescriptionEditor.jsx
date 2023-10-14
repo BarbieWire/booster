@@ -32,6 +32,10 @@ const DescriptionEditor = ({ record, openai, setRecord }) => {
                         "type": "string",
                         "description": "Description translated into Lithuanian."
                     },
+                    finnish_description: {
+                        "type": "string",
+                        "description": "Description translated into Finnish."
+                    },
                 },
             }
         }
@@ -50,11 +54,11 @@ const DescriptionEditor = ({ record, openai, setRecord }) => {
                     },
                     {
                         "role": "user",
-                        "content": `Perform the following actions on the given title delimited by triple quotation marks """${title}"""\n\nActions:\n1. based on the given title you have to generate description describe them as much as possible, description consists of approximately 100 WORDS\n2. translate generated description into: Estonian\n3. translate generated description into: Latvian\n4. translate generated description into: Lithuanian\n5. translate generated description into: Russian\n\n\n`
+                        "content": `Perform the following actions on the given title delimited by triple quotation marks """${title}"""\n\nActions:\n1. based on the given title you have to generate description describe them as much as possible, description consists of approximately 130 WORDS\n2. translate generated description into: Estonian\n3. translate generated description into: Latvian\n4. translate generated description into: Lithuanian\n5. translate generated description into: Russian\n6. translate generated description into: Finnish\n\n\n`
                     }
                 ],
                 temperature: 0.5,
-                max_tokens: 3000,
+                max_tokens: 3700,
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
@@ -70,6 +74,7 @@ const DescriptionEditor = ({ record, openai, setRecord }) => {
                     draft.product["long-description-ru"]["__cdata"] = newObject["russian_description"]
                     draft.product["long-description-lv"]["__cdata"] = newObject["latvian_description"]
                     draft.product["long-description-ee"]["__cdata"] = newObject["estonian_description"]
+                    draft.product["long-description-fi"]["__cdata"] = newObject["finnish_description"]
                 })
                 setGenerating(false)
             } catch (err) {
@@ -145,6 +150,19 @@ const DescriptionEditor = ({ record, openai, setRecord }) => {
                         })}
                     />
                     <label htmlFor="ee-desc">long-description-ee:</label>
+                </div>
+                <div className={fieldClasses.item}>
+                    <textarea
+                        spellCheck="false"
+                        type="text"
+                        id="fi-desc"
+                        placeholder=' '
+                        value={record.product["long-description-fi"]["__cdata"]}
+                        onChange={e => setRecord(draft => {
+                            draft.product["long-description-fi"]["__cdata"] = e.target.value
+                        })}
+                    />
+                    <label htmlFor="fi-desc">long-description-fi:</label>
                 </div>
             </div>
         </div>

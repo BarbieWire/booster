@@ -42,7 +42,7 @@ function fileInteractionCalls() {
 
     })
 
-    ipcMain.handle('open-existing-XML-file', async (event, args) => {
+    ipcMain.handle('open-existing-XML-file', async (event) => {
         // always receives event MANDATORY
         try {
             const filePath = await manager.openXMLFile()
@@ -69,7 +69,7 @@ function XMLInteractionCalls() {
         try {
             manager.saveFile(recordList)
         } catch (e) {
-            const message = new ServerMessage(e, "save-records", "failure")
+            const message = new ServerMessage("error occured saving records", "save-records", "failure")
             event.sender.send("display-server-message", message)
         }
     }))
@@ -80,7 +80,7 @@ function XMLInteractionCalls() {
             const records = manager.readFile()
             return records
         } catch (e) {
-            const message = new ServerMessage(e, "get-records", "failure")
+            const message = new ServerMessage("error occured retrieving records", "get-records", "failure")
             event.sender.send("display-server-message", message)
         }
     });
@@ -91,8 +91,24 @@ function XMLInteractionCalls() {
 
 
 function ImageAPICalls() {
-    ipcMain.handle('upload-image', (event) => {
-        return cloudinary.getImageURL()
+    ipcMain.handle('upload-image', async (event) => {
+        try {
+            const data = await cloudinary.getImageURL()
+            return data
+        } catch (e) {
+            const message = new ServerMessage(e.message, "upload-image", "failure")
+            event.sender.send("display-server-message", message)
+        }
+    })
+
+    ipcMain.handle('convert-image', async (event, url) => {
+        try {
+            const data = await cloudinary.convertImage(url)
+            return data
+        } catch (e) {
+            const message = new ServerMessage(e.message, "convert-image", "failure")
+            event.sender.send("display-server-message", message)
+        }
     })
 }
 

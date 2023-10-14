@@ -8,8 +8,6 @@ const { XMLParser, XMLBuilder } = require('fast-xml-parser');
 
 const store = require('../sensitiveData/store')
 
-const { ServerMessage } = require('./ServerMessage')
-
 
 class FileManager {
     constructor() {
@@ -78,7 +76,7 @@ class XMLManager extends FileManager {
         this.alwaysArray = [
             "products.product",
             "products.product.colours.colour.modifications.modification",
-            "products.product.colours.colour.images.image.url",
+            "products.product.colours.colour.images.image",
             "products.product.properties.property"
         ];
 

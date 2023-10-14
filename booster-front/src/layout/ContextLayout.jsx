@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 import { ConfigProvider } from '../context/ConfigContext'
 import { PathProvider } from '../context/PathContext';
+import { UserMessagesProvider } from '../context/UserMessagesContext';
 
 
 import classes from './ContexLayout.module.css'
@@ -42,11 +43,12 @@ const ContextLayout = () => {
     }, [])
 
 
-    const [serverMessages, setServerMessages] = useState([])
+    const [userMessages, setUserMessages] = useState([])
     useEffect(() => {
         const listener = (event, result) => {
-            setServerMessages(messages => {
-                return [...messages, result]
+            console.log(result)
+            setUserMessages(messages => {
+                return [result, ...messages]
             })
         }
         window.api.displayMessageFromServer(listener)
@@ -57,29 +59,40 @@ const ContextLayout = () => {
 
 
     function remove(index) {
-        setServerMessages(messages => {
+        setUserMessages(messages => {
             const newMessages = [...messages]
             newMessages.splice(index, 1)
             return newMessages
         })
     }
 
+    function createMessageHelper(status, message, sender) {
+        const newMessage = {
+            status: status,
+            content: { "message": message },
+            sender: sender,
+        }
+        setUserMessages([...userMessages, newMessage])
+    }
+
     return (
         <ConfigProvider value={{ configJSON, setConfigJSON }}>
             <PathProvider value={{ filePath, setFilePath }}>
-                <div className={classes.messageContainer}>
-                    {
-                        serverMessages.map((message, index) => {
-                            return <div className={classes.messageBox} key={`message_${index}`}>
-                                <span className={classes.message}>{message.content.message}</span>
-                                <button onClick={() => remove(index)} className={classes.btn}>
-                                    <FontAwesomeIcon icon={faXmark} className={classes.close} />
-                                </button>
-                            </div>
-                        })
-                    }
-                </div>
-                <Outlet />
+                <UserMessagesProvider value={{ createMessageHelper }}>
+                    <div className={classes.messageContainer}>
+                        {
+                            userMessages.map((message, index) => {
+                                return <div className={classes.messageBox} key={`message_${index}`}>
+                                    <span className={classes.message}>{message.content.message}</span>
+                                    <button onClick={() => remove(index)} className={classes.btn}>
+                                        <FontAwesomeIcon icon={faXmark} className={classes.close} />
+                                    </button>
+                                </div>
+                            })
+                        }
+                    </div>
+                    <Outlet />
+                </UserMessagesProvider>
             </PathProvider>
         </ConfigProvider>
     );

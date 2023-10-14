@@ -1,5 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import ConfigContext from '../../../context/ConfigContext';
+import UserMessagesContext from '../../../context/UserMessagesContext';
+
+import DisplayImage from './Image';
 
 import axios from 'axios';
 
@@ -8,31 +11,36 @@ import fieldClasses from '../../../common/css/fields.module.css'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faEraser, faSearch, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faEraser, faSearch, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 
-const ImagesEditor = ({ setRecord, currentImages }) => {
+const ImagesEditor = ({ images, setImages }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [images, setImages] = useState(currentImages);
-
     const [website, setWebsite] = useState("")
+
     const [imageCount, setImageCount] = useState(3)
     const [startIndex, setStartIndex] = useState(0)
 
+    const [imageFullSize, setImageFullSize] = useState("")
+
     const { configJSON } = useContext(ConfigContext)
+    const { createMessageHelper } = useContext(UserMessagesContext)
 
     const handleSearch = async () => {
         try {
             if (searchQuery) {
-                const query = `https://www.googleapis.com/customsearch/v1?fileType=jpg,png,jpeg&key=${configJSON["GoogleApiKey"]}&cx=${configJSON["GoogleCX"]}&q=${website ? "site:" + website : ""} ${searchQuery}&searchType=image&start=${startIndex}&num=${imageCount || 1}`
+                const query = `https://www.googleapis.com/customsearch/v1?&key=${configJSON["GoogleApiKey"]}&cx=${configJSON["GoogleCX"]}&q=${website ? "site:" + website : ""} ${searchQuery}&searchType=image&start=${startIndex}&num=${imageCount || 1}`
                 const response = await axios.get(query)
 
-                if (response.status !== 200) {
-                    console.log(123)
+                const items = response.data.items
+                if (!items || items.length < 1) {
+                    createMessageHelper("failure", "Google could not find any images for the requested prompt", "handleSearch")
+                    return
                 }
 
-                const data = response.data;
-                const imageResults = data.items.map((item) => item.link);
+                const imageResults = response.data.items.map((item) => {
+                    return { url: item.link }
+                });
 
                 setImages(images => {
                     return [...images, ...imageResults]
@@ -40,19 +48,9 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
                 setStartIndex(index => index + imageCount)
             }
         } catch (error) {
-            console.error('Error fetching images:', error);
+            createMessageHelper("failure", "Error fetching images", "handleSearch")
         }
     };
-
-    useEffect(() => {
-        setRecord(draft => {
-            draft.product.colours.colour.images.image.url = images
-        })
-    }, [images])
-
-    function resetStartIndex() {
-        setStartIndex(0)
-    }
 
     const handleImageDelete = (index) => {
         const updatedImages = [...images];
@@ -61,12 +59,36 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
     };
 
     const handleManualAppend = async (e) => {
-        const urls = await window.api.generateImageUrl()
-        if (urls) {
+        let result = await window.api.generateImageUrl()
+        if (result) {
+            const urls = result.map(data => { return { url: data.url } })
             setImages([...urls, ...images])
         }
     }
 
+    const moveImageLeft = (index) => {
+        const updatedImages = [...images];
+        const temp = updatedImages[index];
+        updatedImages[index] = updatedImages[index - 1];
+        updatedImages[index - 1] = temp;
+        setImages(updatedImages);
+    };
+
+    const moveImageRight = (index) => {
+        const updatedImages = [...images];
+        const temp = updatedImages[index];
+        updatedImages[index] = updatedImages[index + 1];
+        updatedImages[index + 1] = temp;
+        setImages(updatedImages);
+    };
+
+    const uploadToServer = async (imageURL, index) => {
+        const result = await window.api.uploadToServer(imageURL)
+        console.log(result)
+        if (result) setImages(draft => {
+            draft[index] = { url: result.url }
+        })
+    }
 
     return (
         <div>
@@ -113,7 +135,7 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
                     <button onClick={handleSearch} className={classes.searchButton}><FontAwesomeIcon icon={faSearch} /></button>
                 </div>
                 <div className={fieldClasses.item}>
-                    <button onClick={resetStartIndex} className={classes.resetButton}>
+                    <button onClick={() => setStartIndex(0)} className={classes.resetButton}>
                         <FontAwesomeIcon icon={faEraser} />
                     </button>
                 </div>
@@ -125,22 +147,28 @@ const ImagesEditor = ({ setRecord, currentImages }) => {
             </div>
 
             <div className={classes.imageContainer}>
-                {images.map((image, index) => (
-                    <div className={classes.image}>
-                        <img src={image} alt={`image_${index}`} />
+                {
+                    images.map((image, index) => {
+                        return <DisplayImage
+                            imageURL={image.url}
+                            images={images}
+                            index={index}
+                            moveImageLeft={moveImageLeft}
+                            moveImageRight={moveImageRight}
+                            handleImageDelete={handleImageDelete}
+                            setImageFullSize={setImageFullSize}
 
-                        <div className={classes.overlayButton}>
-                            <button onClick={() => handleImageDelete(index)} className={classes.btn}>
-                                <FontAwesomeIcon icon={faTrashCan} className={classes.icon} />
-                            </button>
-                            <button className={classes.btn}>
-                                <FontAwesomeIcon icon={faEraser} className={classes.icon} />
-                            </button>
-                        </div>
-                    </div>
-                ))}
+                            uploadToServer={uploadToServer}
+                        />
+                    })
+                }
             </div>
 
+            {
+                imageFullSize && <div className={classes.imageFullSizeContainer} onClick={() => setImageFullSize("")}>
+                    <img src={imageFullSize} alt="image not loaded correctly" />
+                </div>
+            }
 
 
         </div>

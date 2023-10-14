@@ -32,9 +32,13 @@ const TitlesEditor = ({ openai, record, setRecord }) => {
                     lithuanian_title: {
                         "type": "string",
                         "description": "Title translated into Lithuanian."
+                    },
+                    finnish_title: {
+                        "type": "string",
+                        "description": "Title translated into Finnish."
                     }
                 },
-                require: ["latvian_title", "estonian_title"]
+                require: ["latvian_title", "estonian_title", "russian_title", "lithuanian_title", "finnish_title"]
             }
 
         }
@@ -43,36 +47,37 @@ const TitlesEditor = ({ openai, record, setRecord }) => {
     async function generateData() {
         const title = record.product["title-ru"]["__cdata"]
         if (title) {
-            setGenerating(true)
-            const titles = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo-0613",
-                messages: [
-                    {
-                        "role": "system",
-                        "content": "You are a helpful assistant"
-                    },
-                    {
-                        "role": "user",
-                        "content": `Perform the following actions on the given title delimited by triple quotation marks """${title}"""\n\nActions:\n1. translate given title word for word into: Estonian,\n2. translate given title word for word into: Latvian,\n3. translate given title word for word into: Lithuanian\n4. translate given title word for word into: Russian\n\n`
-                    }
-                ],
-                temperature: 0,
-                max_tokens: 1899,
-                top_p: 1,
-                frequency_penalty: 0,
-                presence_penalty: 0,
-                functions: functions,
-                function_call: {
-                    name: "set_titles"
-                }
-            });
             try {
+                setGenerating(true)
+                const titles = await openai.chat.completions.create({
+                    model: "gpt-3.5-turbo-0613",
+                    messages: [
+                        {
+                            "role": "system",
+                            "content": "You are a helpful assistant"
+                        },
+                        {
+                            "role": "user",
+                            "content": `Perform the following actions on the given title delimited by triple quotation marks """${title}"""\n\nActions:\n1. translate given title word for word into: Estonian,\n2. translate given title word for word into: Latvian,\n3. translate given title word for word into: Lithuanian\n4. translate given title word for word into: Russian\n5.translate given title word for word into: Finnish\n\n`
+                        }
+                    ],
+                    temperature: 0,
+                    max_tokens: 1899,
+                    top_p: 1,
+                    frequency_penalty: 0,
+                    presence_penalty: 0,
+                    functions: functions,
+                    function_call: {
+                        name: "set_titles"
+                    }
+                });
                 const newObject = JSON.parse(titles.choices[0].message.function_call.arguments)
                 setRecord(draft => {
                     draft.product["title"]["__cdata"] = newObject["lithuanian_title"]
                     draft.product["title-ru"]["__cdata"] = newObject["russian_title"]
                     draft.product["title-lv"]["__cdata"] = newObject["latvian_title"]
                     draft.product["title-ee"]["__cdata"] = newObject["estonian_title"]
+                    draft.product["title-fi"]["__cdata"] = newObject["finnish_title"]
                 })
                 setGenerating(false)
             } catch (e) {
@@ -87,13 +92,13 @@ const TitlesEditor = ({ openai, record, setRecord }) => {
             <div className={classes.header}>
                 <h1 className={fieldClasses.title}>Titles</h1>
                 {
-                    generating && <span class={fieldClasses.loader}></span>
+                    generating && <span className={fieldClasses.loader}></span>
                 }
             </div>
 
             <div className={fieldClasses.container}>
                 <div className={fieldClasses.item}>
-                    <button disabled={generating} onClick={generateData} className={classes.btn}><FontAwesomeIcon icon={faGears}/></button>
+                    <button disabled={generating} onClick={generateData} className={classes.btn}><FontAwesomeIcon icon={faGears} /></button>
                 </div>
                 <div className={fieldClasses.item}>
                     <input
@@ -142,6 +147,18 @@ const TitlesEditor = ({ openai, record, setRecord }) => {
                         })}
                     />
                     <label htmlFor="ee">title-ee:</label>
+                </div>
+                <div className={fieldClasses.item}>
+                    <input
+                        type="text"
+                        id="fi"
+                        placeholder=' '
+                        value={record.product["title-fi"]["__cdata"]}
+                        onChange={(e) => setRecord((draft) => {
+                            draft.product["title-fi"]["__cdata"] = e.target.value
+                        })}
+                    />
+                    <label htmlFor="fi">title-fi:</label>
                 </div>
             </div>
         </div>

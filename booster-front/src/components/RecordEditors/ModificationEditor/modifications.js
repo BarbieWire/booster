@@ -1,12 +1,19 @@
 const MODIFICATIONS = {
-    'S': { "weight": 1, "length": 1, "height": 1, "width": 1 },
-    'M': { "weight": 2, "length": 2, "height": 2, "width": 2 },
-    'L': { "weight": 3, "length": 3, "height": 3, "width": 3 },
-    'XL': { "weight": 4, "length": 4, "height": 4, "width": 4 },
+    'XS': { "weight": 0.4, "length": 0.2, "height": 0.1, "width": 0.15 },
+    'S': { "weight": 0.5, "length": 0.25, "height": 0.15, "width": 0.15 },
+    'M': { "weight": 0.6, "length": 0.3, "height": 0.15, "width": 0.25 },
+    'L': { "weight": 0.8, "length": 0.4, "height": 0.17, "width": 0.25 },
+    'XL': { "weight": 1, "length": 0.5, "height": 0.2, "width": 0.25 },
+    '2XL': { "weight": 1.2, "length": 0.75, "height": 0.25, "width": 0.4 },
+    '3XL': { "weight": 2, "length": 0.9, "height": 0.4, "width": 0.5 },
 }
 
 const generateSupplierCode = () => {
-    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let capitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        lowers = "abcdefghijklmnopqrstuvwxyz",
+        digits = "0123456789"
+
+    let str = capitals + lowers + digits;
 
     let code = "";
     for (let i = 1; i <= 12; i++) {

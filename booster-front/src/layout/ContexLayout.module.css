@@ -9,12 +9,13 @@
 }
 
 .messageBox {
-    width: 250px;
+    min-width: 250px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
+    gap: 10px;
     color: white;
     /* From https://css.glass */
     background: rgba(32, 33, 35, 0.89);

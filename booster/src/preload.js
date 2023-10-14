@@ -24,7 +24,8 @@ const recordsCallbacks = {
 }
 
 const imageProcessingCallbacks = {
-    generateImageUrl: () => ipcRenderer.invoke('upload-image')
+    generateImageUrl: () => ipcRenderer.invoke('upload-image'),
+    uploadToServer: (imageURL) => ipcRenderer.invoke('convert-image', imageURL)
 }
 
 contextBridge.exposeInMainWorld('api', {
