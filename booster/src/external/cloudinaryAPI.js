@@ -1,19 +1,28 @@
 const cloudinary = require('cloudinary').v2;
-const store = require('../sensitiveData/store')
 
 const { dialog } = require('electron');
+
+const { getRecordByName } = require('../database/main')
 
 
 // Return "https" URLs by setting secure: true
 class ProcessImageManager {
     constructor() {
         this.imageArray = []
+        this.initialize()
+    }
 
+    async getKeys(name) {
+        const record = await getRecordByName("sensitive", name)
+        return record.value
+    }
+
+    async initialize() {
         cloudinary.config({
             secure: true,
-            cloud_name: store.get("cloudinaryCloudName"),
-            api_key: store.get("cloudinaryApiKey"),
-            api_secret: store.get("cloudinaryApiSecret")
+            cloud_name: await this.getKeys("cloudinaryCloudName"),
+            api_key: await this.getKeys("cloudinaryApiKey"),
+            api_secret: await this.getKeys("cloudinaryApiSecret")
         });
     }
 
@@ -58,7 +67,7 @@ class ProcessImageManager {
                 const result = await this.uploadImage(image);
                 if (result?.name === "Error") {
                     throw result
-                } 
+                }
                 links.push(result)
             }
             return links
@@ -66,7 +75,7 @@ class ProcessImageManager {
     }
 
     async convertImage(imageUrl) {
-        const data =  await this.uploadImage(imageUrl);
+        const data = await this.uploadImage(imageUrl);
         if (data?.name === "Error") {
             throw data
         }

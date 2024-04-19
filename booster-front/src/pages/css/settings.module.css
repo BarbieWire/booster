@@ -17,26 +17,65 @@
 
 .setting {
     padding: 10px;
-    background-color: #444654;
+    background-color: var(--links);
     border-radius: 5px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.menuIcon {
-    width: 22px;
-    height: 15px;
-    color: white;
-}
 
 .saveButton {
     all: unset;
-    background-color: rgb(24, 151, 24);
+    background-color: var(--affirmative-color);
     position: absolute;
     right: 10px;
-    font-size: 12px;
-    padding: 10px;
+    font-size: 14px;
+    padding: 10px 40px;
     border-radius: 5px;
     cursor: pointer;
     color: white;
-    width: 70px;
     text-align: center;
+}
+
+.saveButton span {
+    margin-left: 5px;
+}
+
+
+
+/* config property styles */
+.record {
+    flex: 1;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    width: min-content;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.optionField {
+    all: unset;
+    width: 80%;
+    height: 100%;
+    padding-left: 15px;
+    background-color: #2A2B32;
+    border-radius: 5px;
 }

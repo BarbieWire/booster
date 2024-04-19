@@ -23,19 +23,22 @@ const CategoryEditor = ({ record, setRecord }) => {
 
 
     return (
-        <div>
-            <div className={classes.header}>
-                <h1 className={classes.title}>Categories</h1>
-            </div>
-
+        <div className='editorSectionContainer'>
+            <h1 className={classes.title}>Categories</h1>
             <Select
                 options={options}
                 isClearable
                 isSearchable
                 onChange={handleChange}
                 value={value}
-            />
 
+                styles={{
+                    menu: (baseStyles, state) => ({
+                        ...baseStyles,
+                        zIndex: 1000,
+                    }),
+                }}
+            />
         </div>
     );
 };

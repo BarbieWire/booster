@@ -42,7 +42,7 @@ const RecordFactory = ({ setRecords, setActiveRecord }) => {
                     <input
                         type="text"
                         className={classes.prompt}
-                        placeholder='Send me a name'
+                        placeholder='Enter product title'
                         value={recordName}
                         onChange={handleNameChange}
                     />

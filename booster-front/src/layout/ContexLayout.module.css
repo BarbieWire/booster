@@ -1,27 +1,27 @@
 .messageContainer {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 10px;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
 .messageBox {
-    min-width: 250px;
+    min-width: 200px;
+    margin-right: 0;
+    margin-left: auto;
+    width: min-content;
     padding: 10px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
-    gap: 10px;
+    gap: 15px;
     color: white;
     /* From https://css.glass */
     background: rgba(32, 33, 35, 0.89);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
     border: 1px solid rgba(32, 33, 35, 0.24);
 
     animation: fadeInAnimation ease 1s;
@@ -29,17 +29,32 @@
     animation-fill-mode: forwards;
 }
 
+.messageBox.failure {
+    background-color: var(--failure-color)
+}
+
+.closeAll {
+    min-height: min-content;
+    font-size: 10px;
+    margin-right: 0;
+    margin-left: auto;
+}
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
-     }
+    }
 }
 
 .message {
-    font-size: 12px;
+    width: max-content;
+    max-width: 400px;
+    overflow-wrap: break-word;
+    font-size: 12px
 }
 
 .close {

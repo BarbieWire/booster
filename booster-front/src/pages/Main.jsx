@@ -5,12 +5,18 @@ import { useActiveRecord } from '../hooks/useRecord';
 import RecordGripperPannel from '../components/RecordGripperPannel/RecordGripperPannel';
 import ContentPanel from '../components/ContentPanel/ContentPanel';
 
-import classes from './css/main.module.css'
+import classes from './css/Main.module.css'
+
+import '../../src/common/css/buttons.css'
+import '../../src/common/css/selects.css'
 
 
 const MainPage = () => {
     const [records, setRecords] = useState([])
     const [activeRecord, setActiveRecord] = useActiveRecord()
+    const [saveFlag, setSaveFlag] = useState(false)
+
+    const [recordsLoading, setRecordsLoading] = useState(false)
 
     useEffect(() => {
         async function getRecords() {
@@ -19,6 +25,7 @@ const MainPage = () => {
         }
 
         async function processResult() {
+            setRecordsLoading(true)
             const result = await getRecords()
             if (result) {
                 const recordList = result.map((record, index) => {
@@ -27,6 +34,7 @@ const MainPage = () => {
 
                 setRecords(recordList)
             }
+            setRecordsLoading(false)
         }
 
         processResult()
@@ -37,15 +45,18 @@ const MainPage = () => {
             await window.api.saveRecordList(recordList)
         }
 
-        const newArray = records
-            .filter(element => {
-                if (element.valid) return element
-                return undefined
-            })
-            .map(element => element.product)
+        if (saveFlag) {
+            const newArray = records
+                .filter(element => {
+                    if (element.valid) return element
+                    return undefined
+                })
+                .map(element => element.product)
 
-        writeTofile(newArray)
-    }, [records])
+            writeTofile(newArray)
+            setSaveFlag(false)
+        }
+    }, [records, saveFlag])
 
     return (
         <main className={classes.layout}>
@@ -55,6 +66,8 @@ const MainPage = () => {
 
                 records={records}
                 setRecords={setRecords}
+
+                setSaveFlag={setSaveFlag}
             />
 
             <ContentPanel
@@ -63,7 +76,15 @@ const MainPage = () => {
 
                 records={records}
                 setRecords={setRecords}
+
+                setSaveFlag={setSaveFlag}
             />
+
+            {
+                (recordsLoading) && <div className={classes.tonedBackground}>
+                    <div className={classes.ldsEllipsis}><div></div><div></div><div></div><div></div></div>
+                </div>
+            }
 
         </main>
 

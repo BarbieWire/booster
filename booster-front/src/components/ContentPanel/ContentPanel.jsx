@@ -10,7 +10,7 @@ import { validateRecord } from '../../utils/validate/validate'
 
 
 
-const ContentPanel = ({ setActiveRecord, activeRecord, records, setRecords }) => {
+const ContentPanel = ({ setActiveRecord, activeRecord, records, setRecords, setSaveFlag }) => {
     const { createMessageHelper } = useContext(UserMessagesContext)
 
     function save(record) {
@@ -18,13 +18,12 @@ const ContentPanel = ({ setActiveRecord, activeRecord, records, setRecords }) =>
         const isValid = validateRecord(record.product)
         record = isValid ? { ...record, valid: true } : { ...record, valid: false }
 
-        isValid
-            ? createMessageHelper("success", "Record is valid, saved to file", "validateRecord")
-            : createMessageHelper("failure", "Some fields are missiing, saved as draft", "validateRecord")
+        !isValid && createMessageHelper("failure", "Some fields are missiing, saved as draft", "validateRecord")
 
         let newArray = [...records];
         newArray[record.id] = record;
         setRecords(newArray)
+        isValid && setSaveFlag(true)
     }
 
     return (

@@ -1,14 +1,8 @@
 const { ipcRenderer, contextBridge } = require('electron');
 
-
-const filePathCallbacks = {
-    retrieveCurrentFilePath: () => ipcRenderer.invoke('get-current-file-path'),
-    receiveCurrentPathFromMain: (listener) => ipcRenderer.on('return-path', listener),
-}
-
 const configFileCallbacks = {
-    retrieveConfigFileAsJson: (args) => ipcRenderer.invoke('get-config-data', args),
-    changeConfigFile: (args) => ipcRenderer.invoke('update-config-data', args),
+    retrieveConfigFileAsJson: args => ipcRenderer.invoke('get-config-data', args),
+    changeConfigFile: args => ipcRenderer.invoke('update-config-data', args),
 }
 
 const xmlFileCallbacks = {
@@ -25,16 +19,22 @@ const recordsCallbacks = {
 
 const imageProcessingCallbacks = {
     generateImageUrl: () => ipcRenderer.invoke('upload-image'),
-    uploadToServer: (imageURL) => ipcRenderer.invoke('convert-image', imageURL)
+    uploadToServer: imageURL => ipcRenderer.invoke('convert-image', imageURL)
 }
 
+const DatabaseCallbacks = {
+    getAllTableRecords: tableName => ipcRenderer.invoke('getAllRecords', tableName),
+    currentFilePathResponse: listener => ipcRenderer.on('return-path', listener),
+    updateRecords: (tableName, data) => ipcRenderer.invoke('update-records', tableName, data)
+}
+
+
 contextBridge.exposeInMainWorld('api', {
-    ...filePathCallbacks,
     ...configFileCallbacks,
     ...xmlFileCallbacks,
     ...recordsCallbacks,
-
-    ...imageProcessingCallbacks, 
+    ...imageProcessingCallbacks,
+    ...DatabaseCallbacks,
     
     removeEventListener: (name, listener) => ipcRenderer.removeAllListeners(name, listener),
     displayMessageFromServer: (listener) => ipcRenderer.on('display-server-message', listener)

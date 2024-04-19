@@ -28,6 +28,7 @@
     padding: 10px;
     padding-left: 20px;
     color: white;
+    border-radius: 0;
 }
 
 .prompt::placeholder {
@@ -42,7 +43,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
 }
 
-.submitNameButton {
+.submitNameButton, .submitNameButton:disabled {
     all: unset;
     height: 50px;
     width: 50px;

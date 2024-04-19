@@ -1,7 +1,20 @@
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-const { configCalls, XMLInteractionCalls, fileInteractionCalls, ImageAPICalls } = require('./handlers')
+const {
+    createTable,
+    populateTable,
+    updateRecords,
+    db
+} = require('../database/main')
+
+const {
+    XMLInteractionCalls,
+    fileInteractionCalls,
+    ImageAPICalls,
+    databaseAPICalls
+} = require('./handlers')
+
 
 const mode = {
     current: "development"
@@ -32,7 +45,7 @@ const createWindow = () => {
         : mainWindow.loadFile(path.join(__dirname, "build/index.html"));
 
     mainWindow.on("ready-to-show", () => {
-        mainWindow.webContents.openDevTools();
+        if (mode.current === "development") mainWindow.webContents.openDevTools();
     });
 };
 
@@ -41,12 +54,46 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    // handlers 
-    configCalls()
+    const tableName = "sensitive"
+    createTable(tableName)
+
+    const records = [
+        { name: 'chatGPTApiKey' },
+        { name: 'GoogleCX' },
+        { name: 'GoogleApiKey' },
+        { name: 'cloudinaryApiKey' },
+        { name: 'cloudinaryApiSecret' },
+        { name: 'cloudinaryCloudName' },
+    ];
+    populateTable(tableName, records)
+    // example of record updating process
+    // updateRecords( tableName, 'value', [{id: 1, newValue: '123'}]) 
+
+    const tableName2 = 'gears'
+    createTable(tableName2)
+    const gears = [{ name: "previousFile" }]
+    populateTable(tableName2, gears)
+
+    // Close the database connection when the app quits
+    app.on('will-quit', () => {
+        db.close((err) => {
+            if (err) {
+                console.error('Error closing database: ' + err.message);
+            } else {
+                console.log('Database connection closed');
+            }
+        });
+    });
+
+})
+
+app.whenReady().then(() => {
+    // handlers
+    databaseAPICalls()
     fileInteractionCalls()
     XMLInteractionCalls()
     ImageAPICalls()
-    
+
     // create main window 
     createWindow()
 });
@@ -68,7 +115,3 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
-

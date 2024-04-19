@@ -38,7 +38,6 @@ const ModificationEditor = ({ modifications, setModifications }) => {
     };
 
 
-
     // Function to handle title selection
     const handleTitleSelect = (e) => {
         setSelectedTitle(e.target.value);
@@ -87,22 +86,25 @@ const ModificationEditor = ({ modifications, setModifications }) => {
     }
 
     return (
-        <div>
-            <div className={classes.upperContainer}>
-                <h1 className={fieldClasses.title}>Product Modifications</h1>
-                <div className={classes.createModification}>
-                    <select value={selectedTitle} onChange={handleTitleSelect} className={classes.selectTitle}>
-                        <option value="" disabled>Select a title</option>
-                        {
-                            untakenModificationTitles.map((title, index) => (
-                                <option key={index} value={title}>
-                                    {title}
-                                </option>
-                            ))
-                        }
-                    </select>
-                    <button onClick={appendModification} className={classes.btn}><FontAwesomeIcon icon={faAdd}/></button>
-                </div>
+        <div className='editorSectionContainer'>
+            <h1>Edit Modifications</h1>
+
+            <div className={classes.createModificationPane}>
+                <select
+                    value={selectedTitle}
+                    onChange={handleTitleSelect}
+                    className={classes.selectTitle}
+                >
+                    <option value="" disabled>Select a title</option>
+                    {
+                        untakenModificationTitles.map((title, index) => (
+                            <option key={index} value={title}>
+                                {title}
+                            </option>
+                        ))
+                    }
+                </select>
+                <button onClick={appendModification} className={classes.btn}><FontAwesomeIcon icon={faAdd} /></button>
             </div>
 
             <div className={classes.modificationBlock}>
@@ -110,7 +112,7 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                     modifications.map((modification, arrayIndex) => {
                         return (
                             <div className={classes.modificationContainer} key={modification["modification-title"]["__cdata"]}>
-                                <h1 className={classes.modificationTitle}>Modification {modification["modification-title"]["__cdata"]}</h1>
+                                <h4>Modification {modification["modification-title"]["__cdata"]}</h4>
 
                                 <div className={fieldClasses.container}>
                                     <div className={fieldClasses.item}>
@@ -119,10 +121,10 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="number"
                                             value={modification.weight}
                                             onChange={(e) => handleWeight(e, arrayIndex)}
-                                            id='weight'
+                                            id={`weight_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="weight">weight: </label>
+                                        <label htmlFor={`weight_${modification["modification-title"]["__cdata"]}`}>weight: </label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
@@ -131,10 +133,10 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="number"
                                             value={modification.length}
                                             onChange={(e) => handleLength(e, arrayIndex)}
-                                            id='length'
+                                            id={`length_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="length">length: </label>
+                                        <label htmlFor={`length_${modification["modification-title"]["__cdata"]}`}>length: </label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
@@ -142,10 +144,10 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="number"
                                             value={modification.height}
                                             onChange={(e) => handleHeight(e, arrayIndex)}
-                                            id='height'
+                                            id={`height_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="height">height:</label>
+                                        <label htmlFor={`height_${modification["modification-title"]["__cdata"]}`}>height:</label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
@@ -153,10 +155,10 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="number"
                                             value={modification.width}
                                             onChange={(e) => handleWidth(e, arrayIndex)}
-                                            id='width'
+                                            id={`width_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="width">width: </label>
+                                        <label htmlFor={`width_${modification["modification-title"]["__cdata"]}`}>width: </label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
@@ -164,10 +166,10 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="number"
                                             value={modification.attributes.barcodes.barcode.__cdata}
                                             onChange={(e) => handleBarcode(e, arrayIndex)}
-                                            id='barcode'
+                                            id={`barcode_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="barcode">barcode: </label>
+                                        <label htmlFor={`barcode_${modification["modification-title"]["__cdata"]}`}>barcode: </label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
@@ -175,15 +177,15 @@ const ModificationEditor = ({ modifications, setModifications }) => {
                                             type="text"
                                             value={modification.attributes["supplier-code"].__cdata}
                                             onChange={(e) => handleSupplierCode(e, arrayIndex)}
-                                            id='supplier-code'
+                                            id={`supplier-code_${modification["modification-title"]["__cdata"]}`}
                                             placeholder=" "
                                         />
-                                        <label htmlFor="supplier-code">supplier code:</label>
+                                        <label htmlFor={`supplier-code_${modification["modification-title"]["__cdata"]}`}>supplier code:</label>
                                     </div>
 
                                     <div className={fieldClasses.item}>
                                         <button onClick={() => deleteModification(arrayIndex)}>
-                                        <FontAwesomeIcon icon={faTrashCan}/>
+                                            <FontAwesomeIcon icon={faTrashCan} />
                                         </button>
                                     </div>
 

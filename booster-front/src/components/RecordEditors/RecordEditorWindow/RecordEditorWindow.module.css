@@ -11,7 +11,12 @@
     justify-content: center;
     display: flex;
     padding: 10px;
-    background-color: green;
+    background-color: var(--affirmative-color);
     border-radius: 5px;
     color: white;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background-color: rgb(4, 90, 4);
 }

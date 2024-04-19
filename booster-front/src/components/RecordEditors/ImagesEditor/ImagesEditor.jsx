@@ -84,17 +84,15 @@ const ImagesEditor = ({ images, setImages }) => {
 
     const uploadToServer = async (imageURL, index) => {
         const result = await window.api.uploadToServer(imageURL)
-        console.log(result)
         if (result) setImages(draft => {
             draft[index] = { url: result.url }
         })
     }
 
     return (
-        <div>
-            <div style={{ marginBottom: "5px" }}>
-                <h1 className={fieldClasses.title}>Images</h1>
-            </div>
+        <div className='editorSectionContainer'>
+            <h1>Images</h1>
+            <p>Provide a search query for a field named "prompt"</p>
             <div className={fieldClasses.container}>
                 <div className={fieldClasses.item}>
                     <input
@@ -131,25 +129,38 @@ const ImagesEditor = ({ images, setImages }) => {
                     />
                     <label htmlFor="imageCount">image count: (max count 10)</label>
                 </div>
+
                 <div className={fieldClasses.item}>
-                    <button onClick={handleSearch} className={classes.searchButton}><FontAwesomeIcon icon={faSearch} /></button>
+                    <button
+                        onClick={handleSearch}
+                        className={classes.searchButton}
+                    >
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
                 </div>
                 <div className={fieldClasses.item}>
-                    <button onClick={() => setStartIndex(0)} className={classes.resetButton}>
+                    <button
+                        onClick={() => setStartIndex(0)}
+                        className={classes.resetButton}
+                    >
                         <FontAwesomeIcon icon={faEraser} />
+                        <span>Zero Search Index</span>
                     </button>
                 </div>
                 <div className={fieldClasses.item}>
                     <button onClick={handleManualAppend}>
                         <FontAwesomeIcon icon={faUpload} />
+                        <span>Upload To Cloudinary</span>
                     </button>
                 </div>
+
             </div>
 
             <div className={classes.imageContainer}>
                 {
                     images.map((image, index) => {
                         return <DisplayImage
+                            key={`image_${index}`}
                             imageURL={image.url}
                             images={images}
                             index={index}
@@ -165,8 +176,11 @@ const ImagesEditor = ({ images, setImages }) => {
             </div>
 
             {
-                imageFullSize && <div className={classes.imageFullSizeContainer} onClick={() => setImageFullSize("")}>
-                    <img src={imageFullSize} alt="image not loaded correctly" />
+                imageFullSize && <div
+                    className={classes.imageFullSizeContainer}
+                    onClick={() => setImageFullSize("")}
+                >
+                    <img src={imageFullSize} alt="" />
                 </div>
             }
 

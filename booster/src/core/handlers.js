@@ -1,29 +1,12 @@
 const { ipcMain } = require('electron');
-const { XMLManager } = require('./utils/XMLFileHandlers')
-const { ServerMessage } = require('./utils/ServerMessage')
+const { XMLManager } = require('../utils/XMLFileHandlers')
+const { ServerMessage } = require('../utils/ServerMessage')
 
-const { ProcessImageManager } = require('./utils/processImages')
+const { getAllRecords, updateRecords } = require('../database/main')
 
-const store = require('./sensitiveData/store')
+const { ProcessImageManager } = require('../external/cloudinaryAPI')
+
 const manager = new XMLManager()
-const cloudinary = new ProcessImageManager()
-
-
-
-function configCalls() {
-    ipcMain.handle('get-config-data', (_, key) => {
-        if (!key) return store.get()
-        return store.get(key)
-    })
-
-    ipcMain.handle('update-config-data', (event, configObject) => {
-        for (const [key, value] of Object.entries(configObject)) {
-            store.set(key, value)
-        }
-        const message = new ServerMessage("Config updated", "update-config", "success")
-        event.sender.send("display-server-message", message)
-    })
-}
 
 
 function fileInteractionCalls() {
@@ -67,9 +50,13 @@ function XMLInteractionCalls() {
     // receives a valid record list and ssaves all records to xml file
     ipcMain.handle("save-records", ((event, recordList) => {
         try {
-            manager.saveFile(recordList)
+            const result = manager.saveFile(recordList)
+            if (result === "records saved") {
+                const message = new ServerMessage("Records have been successfully saved", "save-records", "success")
+                event.sender.send("display-server-message", message)
+            }
         } catch (e) {
-            const message = new ServerMessage("error occured saving records", "save-records", "failure")
+            const message = new ServerMessage("Error occured saving records", "save-records", "failure")
             event.sender.send("display-server-message", message)
         }
     }))
@@ -93,6 +80,7 @@ function XMLInteractionCalls() {
 function ImageAPICalls() {
     ipcMain.handle('upload-image', async (event) => {
         try {
+            const cloudinary = new ProcessImageManager()
             const data = await cloudinary.getImageURL()
             return data
         } catch (e) {
@@ -103,6 +91,7 @@ function ImageAPICalls() {
 
     ipcMain.handle('convert-image', async (event, url) => {
         try {
+            const cloudinary = new ProcessImageManager()
             const data = await cloudinary.convertImage(url)
             return data
         } catch (e) {
@@ -112,10 +101,34 @@ function ImageAPICalls() {
     })
 }
 
+function databaseAPICalls() {
+    ipcMain.handle('getAllRecords', async (event, tableName) => {
+        try {
+            // Call the getAllRecords function with the specified table name
+            const response = await getAllRecords(tableName);
+            return response
+        } catch (e) {
+            const message = new ServerMessage(e.message, "get-all-records", "failure")
+            event.sender.send("display-server-message", message)
+        }
+    })
+
+    ipcMain.handle('update-records', async (event, tableName, data = []) => {
+        // data array suppose to look like this: [{name: "key", newValue: "value"}, ...]
+        try {
+            await updateRecords(tableName, "value", data)
+            return { "updated": true }
+        } catch (e) {
+            const message = new ServerMessage(e.message, "update-records", "failure")
+            event.sender.send("display-server-message", message)
+        }
+    })
+}
+
 
 module.exports = {
     ImageAPICalls,
-    configCalls,
     XMLInteractionCalls,
     fileInteractionCalls,
+    databaseAPICalls,
 }

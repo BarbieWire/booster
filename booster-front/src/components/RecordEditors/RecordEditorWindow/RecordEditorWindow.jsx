@@ -10,6 +10,7 @@ import TitlesEditor from '../TitlesEditor/TitlesEditor';
 import DescriptionEditor from '../DescriptionEditor/DescriptionEditor';
 import ImagesEditor from '../ImagesEditor/ImagesEditor';
 
+
 import classes from './RecordEditorWindow.module.css'
 
 import OpenAI from "openai";
@@ -19,9 +20,15 @@ import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 
 const RecordEditorWindow = ({ activeRecord, saveCallback }) => {
-    const { configJSON } = useContext(ConfigContext)
+    const { userConfig } = useContext(ConfigContext)
+
+    const returnConfigProperty = (name) => {
+        const data = userConfig.find(obj => obj.name === name)
+        return data.value
+    }
+
     const openai = new OpenAI({
-        apiKey: configJSON["chatGPTApiKey"],
+        apiKey: returnConfigProperty("chatGPTApiKey"),
         dangerouslyAllowBrowser: true
     })
 
@@ -34,7 +41,7 @@ const RecordEditorWindow = ({ activeRecord, saveCallback }) => {
                 setRecord={actions.setRecord}
             />
             {
-                configJSON["chatGPTApiKey"] && <TitlesEditor
+                returnConfigProperty("chatGPTApiKey") && <TitlesEditor
                     openai={openai}
                     record={values.record}
                     setRecord={actions.setRecord}
@@ -42,15 +49,14 @@ const RecordEditorWindow = ({ activeRecord, saveCallback }) => {
 
             }
             {
-                configJSON["chatGPTApiKey"] && <DescriptionEditor
+                returnConfigProperty("chatGPTApiKey") && <DescriptionEditor
                     openai={openai}
                     record={values.record}
                     setRecord={actions.setRecord}
                 />
             }
-
             {
-                (configJSON["GoogleCX"] && configJSON["GoogleApiKey"]) && <ImagesEditor
+                (returnConfigProperty("GoogleCX") && returnConfigProperty("GoogleApiKey")) && <ImagesEditor
                     images={values.images}
                     setImages={actions.setImages}
                 />

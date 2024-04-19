@@ -6,13 +6,14 @@ const util = require('util');
 const _ = require('lodash')
 const { XMLParser, XMLBuilder } = require('fast-xml-parser');
 
-const store = require('../sensitiveData/store')
+const { updateRecords, getRecordByName } = require('../database/main')
 
 
 class FileManager {
     constructor() {
         this.openXMLFile = this.openXMLFile.bind(this)
         this.createXMLFile = this.createXMLFile.bind(this)
+        this.programDBTable = "gears"
     }
 
     async createXMLFile() {
@@ -30,7 +31,9 @@ class FileManager {
         })
         if (!result.canceled) {
             this.setFilePath(result.filePath)
-            store.set("previouslyOpenedFilePath", this.filePath)
+            updateRecords(this.programDBTable, "value", [{
+                name: "previousFile", newValue: this.filePath
+            }])
 
             fs.openSync(this.filePath, "w");
         }
@@ -49,7 +52,9 @@ class FileManager {
 
         if (!result.canceled) {
             this.setFilePath(result.filePaths[0])
-            store.set("previouslyOpenedFilePath", this.filePath)
+            updateRecords(this.programDBTable, "value", [{
+                name: "previousFile", newValue: this.filePath
+            }])
         }
         return this.getFilePath()
     }
@@ -67,7 +72,7 @@ class FileManager {
 class XMLManager extends FileManager {
     constructor() {
         super()
-        
+
         this.filePath = ""
         this.options = {
             cdataPropName: "__cdata",
@@ -80,10 +85,13 @@ class XMLManager extends FileManager {
             "products.product.properties.property"
         ];
 
-        const path = store.get("previouslyOpenedFilePath")
-        if (path && fs.existsSync(path)) this.filePath = path
+        this.pathCheck()
     }
 
+    async pathCheck() {
+        const path = await getRecordByName(this.programDBTable, "previousFile")
+        if (Object.keys(path).length && fs.existsSync(path.value)) this.filePath = path.value
+    }
 
     readFile(path = this.filePath) {
         if (path && fs.existsSync(path)) {
@@ -97,7 +105,9 @@ class XMLManager extends FileManager {
         }
 
         if (!fs.existsSync(path)) {
-            store.set("previouslyOpenedFilePath", "")
+            updateRecords(this.programDBTable, "value", [{
+                name: "previousFile", newValue: null
+            }])
         }
 
         throw "No file selected or file was deleted"

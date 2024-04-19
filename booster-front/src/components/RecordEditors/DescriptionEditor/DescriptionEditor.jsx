@@ -1,170 +1,238 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import UserMessagesContext from '../../../context/UserMessagesContext';
+
+import { generateDescriptionStream, translateDescriptionToSpecificLanguage } from '../../../api/openAICompletions';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGears, faLanguage, faChevronLeft, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+
 
 import classes from './DescriptionEditor.module.css'
 
 import fieldClasses from '../../../common/css/fields.module.css'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGears } from '@fortawesome/free-solid-svg-icons';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import './Swiper.css';
+
 
 const DescriptionEditor = ({ record, openai, setRecord }) => {
+    const [translating, setTranslating] = useState(false)
     const [generating, setGenerating] = useState(false)
-    const functions = [
-        {
-            "name": "set_descriptions",
-            "description": "Function set all the descriptions to react state.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    russian_description: {
-                        "type": "string",
-                        "description": "Description translated into russian."
-                    },
-                    latvian_description: {
-                        "type": "string",
-                        "description": "Description translated into latvian."
-                    },
-                    estonian_description: {
-                        "type": "string",
-                        "description": "Description translated into Estonian."
-                    },
-                    lithuanian_description: {
-                        "type": "string",
-                        "description": "Description translated into Lithuanian."
-                    },
-                    finnish_description: {
-                        "type": "string",
-                        "description": "Description translated into Finnish."
-                    },
-                },
-            }
-        }
-    ]
 
-    async function generateData() {
-        const title = record.product["title-ru"]["__cdata"]
-        if (title) {
-            setGenerating(true)
-            const descriptions = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo-0613",
-                messages: [
-                    {
-                        "role": "system",
-                        "content": "You are a merchant that loves to describe their product using as much epithets as possible"
-                    },
-                    {
-                        "role": "user",
-                        "content": `Perform the following actions on the given title delimited by triple quotation marks """${title}"""\n\nActions:\n1. based on the given title you have to generate description describe them as much as possible, description consists of approximately 130 WORDS\n2. translate generated description into: Estonian\n3. translate generated description into: Latvian\n4. translate generated description into: Lithuanian\n5. translate generated description into: Russian\n6. translate generated description into: Finnish\n\n\n`
-                    }
-                ],
-                temperature: 0.5,
-                max_tokens: 3700,
-                top_p: 1,
-                frequency_penalty: 0,
-                presence_penalty: 0,
-                functions: functions,
-                function_call: {
-                    name: "set_descriptions"
-                }
-            });
-            try {
-                const newObject = JSON.parse(descriptions.choices[0].message.function_call.arguments)
-                setRecord(draft => {
-                    draft.product["long-description"]["__cdata"] = newObject["lithuanian_description"]
-                    draft.product["long-description-ru"]["__cdata"] = newObject["russian_description"]
-                    draft.product["long-description-lv"]["__cdata"] = newObject["latvian_description"]
-                    draft.product["long-description-ee"]["__cdata"] = newObject["estonian_description"]
-                    draft.product["long-description-fi"]["__cdata"] = newObject["finnish_description"]
-                })
-                setGenerating(false)
-            } catch (err) {
-                console.log("failed to parse json")
-            }
+    const [generatedDescription, setGeneratedDescription] = useState("")
+    const [desiredDescriptionLanguage, setDesiredDescriptionLanguage] = useState("English");
+
+    const { createMessageHelper } = useContext(UserMessagesContext)
+
+    const handleLanguageChange = (event) => {
+        if (generatedDescription.length) setGeneratedDescription("")
+        setDesiredDescriptionLanguage(event.target.value);
+    };
+
+    async function generateDescription() {
+        if (!record.product["title-ru"]["__cdata"]) {
+            createMessageHelper("failure", "Please provide \"title-ru\" first", "generateDescription")
+            return
         }
+        if (generatedDescription.length) setGeneratedDescription("")
+
+        setGenerating(true)
+        try {
+            const title = record.product["title-ru"]["__cdata"]
+            await generateDescriptionStream(desiredDescriptionLanguage, title, setGeneratedDescription, openai)
+            createMessageHelper("success", "Successfully generated description in " + desiredDescriptionLanguage, "generateDescription")
+        } catch {
+            createMessageHelper("failure", "Something went wrong generating description, please try again", "generateDescription")
+        }
+        setGenerating(false)
     }
 
+    // shortcut to reduce code -> see example lower
+    const availableLanguageSuffixes = [
+        "-ru", "", "-lv", "-ee", "-fi"
+    ]
+
+    const availableLanguages = [
+        "Russian", "Lithuanian", "Latvian", "Estonian", "Finnish"
+    ]
+
+    const languageMap = availableLanguages.reduce((accumulator, key, index) => {
+        return { ...accumulator, [key]: availableLanguageSuffixes[index] };
+    }, {});
+
+    availableLanguages.unshift("English")
+
+    function translateDescription() {
+        if (!generatedDescription.length) {
+            createMessageHelper("failure", `Please generate or provide <b>long-description</b> first`, "translateDescription")
+            return
+        }
+        setTranslating(true)
+        const promisePool = []
+        for (const [language, suffix] of Object.entries(languageMap)) {
+            if (language === desiredDescriptionLanguage) {
+                setRecord(draft => {
+                    draft.product[`long-description${suffix}`]["__cdata"] = generatedDescription
+                })
+                createMessageHelper("success", `Description in <b>${language}</b> successfully set`, "translateDescription")
+                continue
+            }
+            const newPromisedTranslation = translateDescriptionToSpecificLanguage(language, generatedDescription, openai)
+            newPromisedTranslation
+                .then(result => {
+                    setRecord(draft => {
+                        draft.product[`long-description${suffix}`]["__cdata"] = result
+                    })
+                    createMessageHelper("success", `Description successfully translated into <b>${language}</b>`, "translateDescriptionToSpecificLanguage")
+                })
+                .catch((e) => {
+                    createMessageHelper("failure", `Failed to translate into <b>${language}</b>, ${e.error.message}`, "translateDescriptionToSpecificLanguage")
+                })
+            promisePool.push(newPromisedTranslation)
+        }
+
+        Promise.allSettled(promisePool).then(() => {
+            setTranslating(false)
+        });
+    }
+
+    // horizontal controls
+    const navigationHorizontalPrevRef = React.useRef(null)
+    const navigationHorizontalNextRef = React.useRef(null)
+
+    // vertical controls
+    const navigationVerticalPrevRef = React.useRef(null)
+    const navigationVerticalNextRef = React.useRef(null)
+
     return (
-        <div>
+        <div className="editorSectionContainer">
             <div className={classes.header}>
-                <h1 className={fieldClasses.title}>Descriptions</h1>
+                <h1>Descriptions</h1>
                 {
-                    generating && <span class={fieldClasses.loader}></span>
+                    translating && <span className={fieldClasses.loader}></span>
                 }
             </div>
+            <p>
+                1. Description will be generated based to title-ru field above (field can't be empty) <br />
+                2. "Generated long-descritption" won't be saved to final version of xml, it serves to generate description which could be translated into several languages
+                (click right chevron to see your translations)
+            </p>
 
-            <div>
-                <button onClick={generateData} disabled={generating} className={classes.btn}>
-                <FontAwesomeIcon icon={faGears}/>
+            <div className={classes.buttonContainer}>
+                <button
+                    ref={navigationHorizontalPrevRef}
+                    className={`${classes.button} ${classes.carouselControlButton}`}
+                >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+                <button
+                    ref={navigationHorizontalNextRef}
+                    className={`${classes.button} ${classes.carouselControlButton}`}
+                >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+
+                <button className={classes.button} onClick={translateDescription} disabled={generating || translating}>
+                    <FontAwesomeIcon icon={faLanguage} />
+                    <span>{translating ? "In Progress" : "Prepare Translations"}</span>
                 </button>
             </div>
 
-            <div className={fieldClasses.container}>
-                <div className={fieldClasses.item}>
-                    <textarea
-                        spellCheck="false"
-                        type="text"
-                        id="lt-desc"
-                        placeholder=' '
-                        value={record.product["long-description"]["__cdata"]}
-                        onChange={e => setRecord(draft => {
-                            draft.product["long-description"]["__cdata"] = e.target.value
-                        })}
-                    />
-                    <label htmlFor="lt-desc">long-description-lt:</label>
-                </div>
-                <div className={fieldClasses.item}>
-                    <textarea
-                        spellCheck="false"
-                        type="text"
-                        id="ru-desc"
-                        placeholder=' '
-                        value={record.product["long-description-ru"]["__cdata"]}
-                        onChange={e => setRecord(draft => {
-                            draft.product["long-description-ru"]["__cdata"] = e.target.value
-                        })}
-                    />
-                    <label htmlFor="ru-desc">long-description-ru:</label>
-                </div>
-                <div className={fieldClasses.item}>
-                    <textarea
-                        spellCheck="false"
-                        type="text"
-                        id="lv-desc"
-                        placeholder=' '
-                        value={record.product["long-description-lv"]["__cdata"]}
-                        onChange={e => setRecord(draft => {
-                            draft.product["long-description-lv"]["__cdata"] = e.target.value
-                        })}
-                    />
-                    <label htmlFor="lv-desc">long-description-lv:</label>
-                </div>
-                <div className={fieldClasses.item}>
-                    <textarea
-                        spellCheck="false"
-                        type="text"
-                        id="ee-desc"
-                        placeholder=' '
-                        value={record.product["long-description-ee"]["__cdata"]}
-                        onChange={e => setRecord(draft => {
-                            draft.product["long-description-ee"]["__cdata"] = e.target.value
-                        })}
-                    />
-                    <label htmlFor="ee-desc">long-description-ee:</label>
-                </div>
-                <div className={fieldClasses.item}>
-                    <textarea
-                        spellCheck="false"
-                        type="text"
-                        id="fi-desc"
-                        placeholder=' '
-                        value={record.product["long-description-fi"]["__cdata"]}
-                        onChange={e => setRecord(draft => {
-                            draft.product["long-description-fi"]["__cdata"] = e.target.value
-                        })}
-                    />
-                    <label htmlFor="fi-desc">long-description-fi:</label>
-                </div>
-            </div>
+            <Swiper
+                cssMode={true}
+                spaceBetween={50}
+                modules={[Navigation]}
+                navigation={{
+                    prevEl: navigationHorizontalPrevRef.current,
+                    nextEl: navigationHorizontalNextRef.current,
+                }}
+            >
+                <SwiperSlide>
+                    <div className={classes.buttonContainer}>
+                        <button
+                            onClick={generateDescription}
+                            disabled={generating}
+                            className={`${classes.button} ${classes.generationButtons}`}
+                        >
+                            <FontAwesomeIcon icon={faGears} />
+                            <span>{generating ? "Generation In Progress" : "Generate Description"}</span>
+                        </button>
+
+                        <select value={desiredDescriptionLanguage} onChange={handleLanguageChange} disabled={generating}>
+                            {
+                                availableLanguages.map((language, index) => {
+                                    return <option value={language} key={`al_${language}_${index}`}>{language.charAt(0).toUpperCase() + language.slice(1)}</option>
+                                })
+                            }
+                        </select>
+                    </div>
+
+                    <div className={fieldClasses.item}>
+                        <textarea
+                            spellCheck="false"
+                            type="text"
+                            id="generated-desc"
+                            placeholder=' '
+                            value={generatedDescription}
+                            onChange={e => setGeneratedDescription(e.target.value)}
+                        />
+                        <label htmlFor="generated-desc">Generated long-description</label>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide className={"nestedCarouselSlide"}>
+                    <Swiper
+                        direction={'vertical'}
+                        spaceBetween={10}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination, Navigation]}
+                        navigation={{
+                            prevEl: navigationVerticalPrevRef.current,
+                            nextEl: navigationVerticalNextRef.current,
+                        }}
+                    >
+                        {
+                            availableLanguageSuffixes.map((suffix, index) => {
+                                return <SwiperSlide key={suffix + index}>
+                                    <div className={fieldClasses.item}>
+                                        <textarea
+                                            spellCheck="false"
+                                            type="text"
+                                            id={`desc${suffix}`}
+                                            placeholder=' '
+                                            value={record.product[`long-description${suffix}`]["__cdata"]}
+                                            onChange={e => setRecord(draft => {
+                                                draft.product[`long-description${suffix}`]["__cdata"] = e.target.value
+                                            })}
+                                        />
+                                        <label htmlFor={`desc${suffix}`}>{`long-description${suffix || "-lt"}`}</label>
+                                    </div>
+                                </SwiperSlide>
+                            })
+                        }
+                    </Swiper>
+                    <div className={classes.innerCarouselButtonContainer}>
+                        <button
+                            className={classes.carouselControlButton}
+                            ref={navigationVerticalPrevRef}
+                        >
+                            <FontAwesomeIcon icon={faChevronUp} />
+                        </button>
+                        <button
+                            className={classes.carouselControlButton}
+                            ref={navigationVerticalNextRef}
+                        >
+                            <FontAwesomeIcon icon={faChevronDown} />
+                        </button>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
         </div>
     );
 };

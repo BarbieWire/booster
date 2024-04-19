@@ -101,14 +101,17 @@
 }
 
 .searchBar {
+    all: unset;
     border: 1px solid #4D4D4F;
     padding-left: 20px;
     font-size: 14px;
     flex: 1;
+    color: var(--white-tone);
+    border-radius: 5px;
 }
 
 .searchBar::placeholder {
-    color: white;
+    color: var(--white-tone);
 }
 
 .buttonDecoration {

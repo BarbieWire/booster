@@ -8,7 +8,6 @@ import classes from './RecordGripperPannel.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareMinus, faGear, faPlus, faFile } from '@fortawesome/free-solid-svg-icons';
-import UserMessagesContext from '../../context/UserMessagesContext';
 
 
 const RecordGripperPannel = ({
@@ -17,10 +16,11 @@ const RecordGripperPannel = ({
 
     activeRecord,
     setActiveRecord,
+
+    setSaveFlag
 }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const { filePath } = useContext(PathContext)
-    const { createMessageHelper } = useContext(UserMessagesContext)
 
     function deleteRecord(event, deletionIndex) {
         event.stopPropagation()
@@ -32,7 +32,7 @@ const RecordGripperPannel = ({
 
         setActiveRecord()
         setRecords(newRecordList)
-        createMessageHelper("success", "Record has been deleted succesfully", "deleteRecord")
+        setSaveFlag(true)
     }
 
 
@@ -41,9 +41,6 @@ const RecordGripperPannel = ({
             return item.product["title-ru"]["__cdata"] && item.product["title-ru"]["__cdata"].toLowerCase().includes(searchQuery.toLowerCase())
         })
         : records;
-
-
-    console.log(filteredItems)
 
     const handleInputChange = (event) => {
         setSearchQuery(event.target.value);

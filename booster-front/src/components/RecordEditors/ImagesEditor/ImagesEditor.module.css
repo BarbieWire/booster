@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
 }
 
 .image {
@@ -97,6 +96,6 @@ img {
 }
 
 .imageFullSizeContainer img {
-    max-width: 50%;
-    height: auto;
+    max-height: 50vh;
+    width: auto;
 }

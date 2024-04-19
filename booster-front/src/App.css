@@ -1,50 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
+
+:root {
+    --primary-color: #202123;
+    --secondary-color: #343541;
+
+    --secondary-color-border: #292a33b9;
+
+    --affirmative-color: #33b249;
+
+    /* titles, icons, labels, etc */
+    --white-tone: #fff;
+    --failure-color: #870e0ed9;
+
+    --section-separator-color: #3a3c4991;
+
+    --links: #444654;
+}
+
+
 body,
 html,
 #root {
-  width: 100%;
-  height: 100vh;
-  background-color: #202123;
-  overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: #202123;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 *,
 *::after,
 *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Space Grotesk', sans-serif;
-  text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
 }
 
-.fontawesome-icon {
-  fill: black;
-  color: black;
+/* text-holder tags */
+h1, h2, h3, h4, h5, h6, label, p {
+    color: var(--white-tone);
+}
+
+p {
+    font-size: 12px;
 }
 
 
+/* shared classes across the application */
+.editorSectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* vertical/horizontal scrollbars */
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #a6a6af;
-  border-radius: 5px;
+    background: #a6a6af;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ECECF1;
+    background: #ECECF1;
 }
 
 *:focus {
-  outline: 0 !important;
+    outline: 0 !important;
 }

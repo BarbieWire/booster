@@ -15,41 +15,38 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 const ContextLayout = () => {
-    const [configJSON, setConfigJSON] = useState({})
+    const [userMessages, setUserMessages] = useState([])
+
+    const [userConfig, setUserConfig] = useState([])
+    const [filePath, setFilePath] = useState(null)
+
     useEffect(() => {
-        const fetch = async () => {
-            const config = await window.api.retrieveConfigFileAsJson()
-            setConfigJSON(config)
+        const fetchUserData = async () => {
+            const resp = await window.api.getAllTableRecords('sensitive')
+            if (resp) setUserConfig(resp)
         }
-        fetch()
+        fetchUserData()
+
+        const fetchGears = async () => {
+            const resp = await window.api.getAllTableRecords('gears')
+            if (resp.length) setFilePath(resp[0].value)
+        }
+        fetchGears()
     }, [])
 
-    const [filePath, setFilePath] = useState("")
     useEffect(() => {
-        async function retrieveCurrentPath() {
-            const path = await window.api.retrieveCurrentFilePath()
-            setFilePath(path)
-        }
-
-        retrieveCurrentPath()
-
         const listener = (event, result) => {
             setFilePath(result)
         }
-        window.api.receiveCurrentPathFromMain(listener)
+        window.api.currentFilePathResponse(listener)
         return () => {
             window.api.removeEventListener('return-path', listener);
         }
     }, [])
 
-
-    const [userMessages, setUserMessages] = useState([])
     useEffect(() => {
-        const listener = (event, result) => {
-            console.log(result)
-            setUserMessages(messages => {
-                return [result, ...messages]
-            })
+        const listener = (event, message) => {
+            appendMessage(message)
         }
         window.api.displayMessageFromServer(listener)
         return () => {
@@ -57,8 +54,16 @@ const ContextLayout = () => {
         }
     }, [])
 
+    function createMessageHelper(status, message, sender) {
+        const newMessageObject = {
+            status: status,
+            content: { "message": message },
+            sender: sender,
+        }
+        appendMessage(newMessageObject)
+    }
 
-    function remove(index) {
+    function removeMessage(index) {
         setUserMessages(messages => {
             const newMessages = [...messages]
             newMessages.splice(index, 1)
@@ -66,29 +71,37 @@ const ContextLayout = () => {
         })
     }
 
-    function createMessageHelper(status, message, sender) {
-        const newMessage = {
-            status: status,
-            content: { "message": message },
-            sender: sender,
-        }
-        setUserMessages([...userMessages, newMessage])
+    function appendMessage(message) {
+        setUserMessages(messages => {
+            const newMessages = [...messages]
+            newMessages.push(message)
+            return newMessages
+        })
     }
 
     return (
-        <ConfigProvider value={{ configJSON, setConfigJSON }}>
+        <ConfigProvider value={{ userConfig, setUserConfig }}>
             <PathProvider value={{ filePath, setFilePath }}>
                 <UserMessagesProvider value={{ createMessageHelper }}>
                     <div className={classes.messageContainer}>
                         {
                             userMessages.map((message, index) => {
-                                return <div className={classes.messageBox} key={`message_${index}`}>
-                                    <span className={classes.message}>{message.content.message}</span>
-                                    <button onClick={() => remove(index)} className={classes.btn}>
+                                return <div className={message.status === "success" ? classes.messageBox : `${classes.messageBox} ${classes.failure}`} key={`message_${index}`}>
+                                    <span className={classes.message} dangerouslySetInnerHTML={{ __html: message.content.message }} ></span>
+                                    <button onClick={() => removeMessage(index)} className={classes.btn}>
                                         <FontAwesomeIcon icon={faXmark} className={classes.close} />
                                     </button>
                                 </div>
                             })
+                        }
+
+                        {
+                            userMessages.length > 0 && <button
+                                className={classes.closeAll}
+                                onClick={() => setUserMessages([])}
+                            >
+                                Close all
+                            </button>
                         }
                     </div>
                     <Outlet />
